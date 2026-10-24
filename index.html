@@ -204,7 +204,7 @@ tfoot td{font-weight:600}
   padding:calc(14px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px));overflow-y:auto;transform:translateX(-102%);visibility:hidden;transition:transform .22s ease, visibility 0s linear .22s}
 .drawer.open{transform:none;visibility:visible;transition:transform .22s ease}
 .drawer-head{display:flex;justify-content:space-between;align-items:center}
-.drawer-run{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--sunk)}
+.drawer-run{text-align:left;width:100%;font:inherit;cursor:pointer;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--sunk)}
 .drawer-run b{display:block;color:var(--ink);font-size:14px}
 .drawer-group{display:flex;flex-direction:column;gap:2px}
 .drawer-group span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 4px 10px}
@@ -223,6 +223,31 @@ tfoot td{font-weight:600}
   border-radius:12px;padding:12px 16px;font-size:14px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.25);display:flex;gap:10px;align-items:flex-start}
 .toast.err{background:var(--accent);color:var(--accent-ink)}
 .toast b{font-weight:700;white-space:nowrap}
+.nexthint{color:var(--accent)}
+.card.summary{border:2px solid var(--good,#2f8f5b);gap:10px}
+.stiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:8px}
+.stile{background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column}
+.stile b{font-family:var(--display);font-size:26px;line-height:1.05}
+.stile span{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.stile small{font-size:11px;margin-top:2px}
+.summary .up{color:var(--good,#2f8f5b)}.summary .down{color:var(--warn,#c0392b)}
+.sblk h4{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.sblk > div{padding:2px 0}
+.stab{width:100%;border-collapse:collapse;font-size:14px}.stab td{padding:4px 4px 4px 0;border-top:1px solid var(--line);vertical-align:top}
+.chip.pr{color:var(--good,#2f8f5b)}
+.ptab-wrap{overflow-x:auto;margin:0 -4px}
+.ptab{border-collapse:collapse;width:100%;font-size:14px}
+.ptab th,.ptab td{padding:3px;text-align:left}
+.ptab thead th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.ptab tbody th{font-family:var(--display);font-size:18px;width:2.4em;line-height:1}
+.ptab tbody th small{display:block;font:600 9px var(--body,inherit);text-transform:uppercase;color:var(--muted)}
+.ptab input{width:100%;min-width:0;box-sizing:border-box;padding:8px 6px;border:1px solid var(--line);border-radius:8px;background:var(--field,var(--bg));color:var(--ink);font:inherit}
+.ptab input.chg{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.ptab tr.pb td{padding-top:12px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.ptab tr.cur th{color:var(--accent)}
+.ptab td:nth-child(2){width:3.6em}.ptab td:nth-child(3){width:5em}
+.card.build{border:2px dashed var(--accent);gap:6px}
+.toast .undo{margin-left:6px;border:1px solid currentColor;background:transparent;color:inherit;border-radius:8px;padding:4px 10px;font-weight:700;flex:none}
 .invalid,.fld input.invalid,.fld select.invalid{border-color:var(--accent)!important;box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent)!important}
 .help details{border-top:1px solid var(--line);padding:10px 0}
 .help details:first-of-type{border-top:0}
@@ -236,6 +261,38 @@ tfoot td{font-weight:600}
 .pal button[aria-pressed="true"]{border:2px solid var(--ink);padding:9px}
 .sw{display:flex;gap:4px}
 .sw i{width:22px;height:22px;border-radius:6px;border:1px solid rgba(0,0,0,.08)}
+.restbar{position:fixed;left:0;right:0;bottom:0;z-index:22;background:var(--ink);color:var(--surface);padding:10px max(16px, env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px));display:flex;align-items:center;gap:10px;box-shadow:0 -6px 20px rgba(0,0,0,.2)}
+.restbar .rt{font-family:var(--display);font-size:30px;font-weight:700;min-width:3.2ch;font-variant-numeric:tabular-nums}
+.restbar .rl{flex:1;min-width:0;font-size:13px;line-height:1.25;overflow:hidden}
+.restbar .rl b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.restbar button{border:1px solid rgba(255,255,255,.25);background:transparent;color:inherit;border-radius:8px;padding:8px 10px;font-weight:600}
+.restbar .prog{position:absolute;left:0;top:0;height:3px;background:var(--accent)}
+.restbar.done{background:var(--good)}
+body.has-rest main .wrap{padding-bottom:110px}
+body.has-rest .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+.dayopts{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:14px}
+.switch{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;cursor:pointer}
+.switch input{width:38px;height:22px;appearance:none;-webkit-appearance:none;background:var(--line);border-radius:999px;position:relative;margin:0;cursor:pointer;transition:background .15s}
+.switch input::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--surface);transition:transform .15s}
+.switch input:checked{background:var(--good)}
+.switch input:checked::after{transform:translateX(16px)}
+.wutab{align-self:flex-start}
+.wulist{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;background:var(--sunk);border:1px dashed var(--line);border-radius:8px;padding:8px 10px;font-size:14px}
+.wulist .ok{width:36px;height:32px;font-size:15px}
+.wulist .wl{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.sets .n.pr{color:var(--accent);font-size:13px;letter-spacing:.04em}
+.exname{border:0;background:none;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+.missed{border:1px solid var(--warn);background:var(--sunk);border-radius:var(--r);padding:10px 12px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.missed .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.missed .row b{flex:1;min-width:8em}
+.todaybtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:3px 10px;font-weight:600;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.stat{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:10px}
+.stat span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.stat b{display:block;font-family:var(--display);font-size:24px;line-height:1.1}
+.stat small{color:var(--muted);font-size:12px}
+.hist-s{border-top:1px dashed var(--line);padding-top:8px;display:flex;flex-direction:column;gap:2px}
+.hist-s .rx b{color:var(--accent)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -264,7 +321,7 @@ tfoot td{font-weight:600}
 </header>
 <nav class="drawer" id="drawer" aria-label="Menu">
   <div class="drawer-head"><span class="brand" style="font-size:18px">Menu</span><button class="menubtn" id="menuclose" aria-label="Close menu"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
-  <div class="drawer-run" id="drawer-run"></div>
+  <button class="drawer-run" id="drawer-run" data-view="plans" title="Run settings"></button>
   <div class="drawer-group"><span>Training</span>
     <button data-view="train" id="dv-train">Train</button><button data-view="progress" id="dv-progress">Progress</button><button data-view="settings" id="dv-settings">Maxes</button></div>
   <div class="drawer-group"><span>Plan</span>
@@ -294,7 +351,7 @@ let RUNS = {main: blankRun()};
 let RUNIDX = {active: "main", list: [{id: "main", name: "", tpl: "hybrid", tplName: "Hybrid 12", seq: 1, started: "", created: ""}]};
 let TPLS = {};
 let S = RUNS.main;
-let ui = {view:"train", w:1, d:"mon", notesOpen:{}, edit:null};
+let ui = {view:"train", w:1, d:"mon", notesOpen:{}, wuOpen:{}, move:null, edit:null};
 let mode = "local"; // "db" | "local"
 let db = null, uid = null;
 // "claude" when it runs as a Claude artifact, "standalone" in the installable app
@@ -321,7 +378,7 @@ function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
   Object.values(RUNS).forEach(R => { R.plan = R.plan || {edits:[]}; normalizePlan(R.plan); });
   if (!RUNS[RUNIDX.active]) RUNS[RUNIDX.active] = blankRun();
   S = RUNS[RUNIDX.active];
-  const u = lsGet(UI_KEY); if(u){ ui = Object.assign(ui, u, {notesOpen:{}, edit:null, blkEdit:null, warm:null, gedit:null, gint:null, add:null, days:null, test:null, bedit:null, reorder:null, plans:null, data:null}); }
+  const u = lsGet(UI_KEY); if(u){ ui = Object.assign(ui, u, {notesOpen:{}, wuOpen:{}, move:null, setup:null, exq:"", prog:null, summary:null, sumText:null, edit:null, blkEdit:null, warm:null, gedit:null, gint:null, add:null, days:null, test:null, bedit:null, reorder:null, plans:null, data:null}); }
 })();
 function cache(){ lsSet(LS_KEY, {runs: RUNS, idx: RUNIDX, tpls: TPLS}); }
 
@@ -342,6 +399,7 @@ function blockWeeks(b){ return schedVis().filter(e => e.block === b); }
 const WEEK_CACHE = new Map();
 function week(id){
   const e = schedEntry(id) || {id, src: Math.min(12, Math.max(1, id)), block: 1};
+  if (S.plan.blank) { const f = ((S.plan.focus || {})[e.block] || "").trim(); return {w: e.id, pos: posOf(e.id), src: e.src, srcBlock: e.block, block: e.block, blockName: "", light: !!e.light, focus: e.light ? "Lighter week: about 10% less on % lifts. Recover and move well." + (f ? " " + f : "") : f, days: [], pctAdj: e.pctAdj || 0, copyOf: e.copyOf || null, hidden: !!e.hidden}; }
   const t = PROGRAM[e.src - 1];
   return {w: e.id, pos: posOf(e.id), src: e.src, srcBlock: t.block, block: e.block, blockName: t.blockName, light: t.light, focus: t.focus, days: t.days, pctAdj: e.pctAdj || 0, copyOf: e.copyOf || null, hidden: !!e.hidden};
 }
@@ -456,7 +514,21 @@ function warmById(id){ return warmLib().find(x => x.id === id); }
 // blocks in the order they're trained; ids are stable, the number shown is the position
 function blockOrder(withHidden){ const out = []; schedAll().forEach(e => { if ((withHidden || !e.hidden) && !out.includes(e.block)) out.push(e.block); }); if (withHidden) [1,2,3].forEach(b => { if (!out.includes(b)) out.push(b); }); return out; }
 function blockOrd(b){ const i = blockOrder(true).indexOf(b); return i < 0 ? b : i + 1; }
-function blockDefault(b){ return BLOCK_DEFAULT[b] || `Block ${blockOrd(b)}`; }
+function blockDefault(b){ return (!S.plan.blank && BLOCK_DEFAULT[b]) || `Block ${blockOrd(b)}`; }
+function isLightEntry(e){ return S.plan.blank ? !!e.light : !!(PROGRAM[e.src - 1] || {}).light; }
+function isBuilder(){ return !!runMeta(RUNIDX.active).builder; }
+function defScope(){ return isBuilder() && posOf(ui.w) < schedVis().length ? "all" : "week"; }
+// % lifts added to a day can climb each week of a block; blank programmes drop them on lighter weeks
+function stepPct(b, w){
+  if (!b.pct) return b.pct;
+  let p = b.pct;
+  if (b.pctStep && b.xid) {
+    const rec = (S.plan.added || []).find(a => a.id === b.xid), blk = week(w).block;
+    if (rec && Array.isArray(rec.weeks)) { const ws = schedVis().filter(e => e.block === blk && rec.weeks.includes(e.id)), me = posOf(w); p += b.pctStep * ws.filter(e => posOf(e.id) < me && !isLightEntry(e)).length; }
+  }
+  if (S.plan.blank && week(w).light) p -= 0.1;
+  return Math.max(.3, Math.min(1, Math.round(p * 1000) / 1000));
+}
 function blockName(b){ const n = ((S.plan.blocks || {})[b] || "").trim(); return n || blockDefault(b); }
 function weekFocus(wk){ const o = BLOCK_DEFAULT[wk.srcBlock] + ":"; return wk.focus.startsWith(o) ? blockName(wk.block) + ":" + wk.focus.slice(o.length) : wk.focus; }
 function slotsFor(items){ const seen = {}; return items.map(it => { if (it.xid) return "x" + it.xid; const n = (seen[it.tag] = (seen[it.tag] || 0) + 1); return n > 1 ? `${it.tag}~${n}` : it.tag; }); }
@@ -465,6 +537,7 @@ function effItems(w, d){
   const key = `${RUNIDX.active}|${planVer}|${w}|${d}`; if (EFF.has(key)) return EFF.get(key);
   const base = baseItems(w, d), slots = slotsFor(base);
   const out = base.map((b, i) => {
+    if (b.pct) b = Object.assign({}, b, {pct: stepPct(b, w)});
     const group = b.xid ? slots[i] : b.tag, sfx = b.name.includes(" — ") ? " — " + b.name.split(" — ")[1] : "";
     const [bi, bnote] = baseIntens(b.note);
     const fresh = () => Object.assign({}, b, {slot: slots[i], group, intens: bi, note: bnote});
@@ -484,7 +557,7 @@ function effItems(w, d){
       if (f.bslot != null) { it.bslot = f.bslot; it.edited = true; }
       if (f.pctDelta != null && b.pct) { it.pct = Math.max(.3, Math.min(1, Math.round((b.pct + f.pctDelta) * 1000) / 1000)); it.edited = true; }
       if (e.slot !== slots[i]) continue;
-      ["reps","target","rest","note","rx","parts"].forEach(k => { if (f[k] != null) it[k] = f[k]; });
+      ["reps","target","rest","note","rx","parts","wu","wuScheme"].forEach(k => { if (f[k] != null) it[k] = f[k]; });
       // a multi-week intensifier skips the lighter weeks, as the plan does
       if (f.intens != null && ((e.weeks ? e.weeks.length === 1 : e.from === e.to) || !week(w).light)) { it.intens = f.intens; it.edited = true; }
       if (f.load != null) it.load = f.load === "" ? null : `${f.load} kg`;
@@ -540,7 +613,12 @@ function displayOrder(w, d){
 }
 function orderGroups(w, d){ const items = effItems(w, d), seen = []; displayOrder(w, d).forEach(i => { if (!seen.includes(items[i].group)) seen.push(items[i].group); }); return seen; }
 const TPL_BUILTIN = {id: "hybrid", name: "Hybrid 12", kind: "programme", builtin: true, desc: "The original 12-week hybrid powerbuilding plan: three 4-week blocks, four days plus an optional run and arms day.", plan: {edits: []}};
-function tplList(){ return [TPL_BUILTIN].concat(Object.values(TPLS).filter(Boolean).sort((a, b) => String(a.created).localeCompare(String(b.created)))); }
+// every template carries a permanent programme id (pid) and a version number, so copies and updates can be recognised anywhere
+function tplMeta(t){ if (t && !t.pid) t.pid = t.id; if (t && !t.ver) t.ver = 1; return t; }
+function tplList(){ return [tplMeta(TPL_BUILTIN)].concat(Object.values(TPLS).filter(Boolean).map(tplMeta).sort((a, b) => String(a.created).localeCompare(String(b.created)))); }
+function tplByPid(pid){ return tplList().filter(t => t.pid === pid).sort((a, b) => (b.ver || 1) - (a.ver || 1))[0]; }
+function runPid(m){ return m.tplPid || (tplMeta(tplById(m.tpl)) || {}).pid || m.tpl; }
+function runTpl(m){ return tplByPid(runPid(m)) || tplById(m.tpl); }
 function tplById(id){ return id === "hybrid" ? TPL_BUILTIN : TPLS[id]; }
 function clone(x){ return JSON.parse(JSON.stringify(x)); }
 function planWeeks(P){ return Array.isArray(P.schedule) && P.schedule.length ? P.schedule.filter(e => !e.hidden) : PROGRAM.map(t => ({id: t.w, src: t.w, block: t.block})); }
@@ -554,12 +632,107 @@ function fmtDate(iso, withYear){ if (!iso) return ""; const d = new Date(iso + "
 function weekMonday(id){ const m = runMeta(RUNIDX.active); if (!m.started) return null; const d = new Date(m.started + "T12:00:00"); if (isNaN(d)) return null; d.setDate(d.getDate() - ((d.getDay() + 6) % 7) + (posOf(id) - 1) * 7); return d; }
 function dayDate(id, short){ const m = weekMonday(id); if (!m) return null; const d = new Date(m); d.setDate(d.getDate() + Math.max(0, WEEKDAYS.indexOf(short))); return d; }
 function shortDate(d){ return d ? d.toLocaleDateString("en-GB", {day: "numeric", month: "short"}) : ""; }
-let toastTimer = null;
+// ---------- rest timer (off unless you turn on "Track rest") ----------
+const REST_KEY = KP + "-rest";
+let RESTCFG = Object.assign({on: false, sound: true}, (() => { try { return JSON.parse(localStorage.getItem(REST_KEY) || "null") || {}; } catch (e) { return {}; } })());
+let REST = null, restInt = null, actx = null, wakeLock = null;
+function saveRestCfg(){ try { localStorage.setItem(REST_KEY, JSON.stringify(RESTCFG)); } catch (e) {} }
+// "2-3 min" -> 180s, "60-90s" -> 90s, "→ A2" -> no rest
+function parseRest(r){ const t = String(r || "").trim(); if (!t || /^→/.test(t)) return null; const nums = (t.match(/\d+(\.\d+)?/g) || []).map(Number); if (!nums.length) return 90; const v = Math.max(...nums); return /min/i.test(t) ? Math.round(v * 60) : Math.round(v); }
+function ensureAudio(){ if (!RESTCFG.sound) return; try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === "suspended") actx.resume(); } catch (e) {} }
+function beep(){
+  if (RESTCFG.sound && actx) { try { [0, .28, .56].forEach((t, i) => { const o = actx.createOscillator(), g = actx.createGain(); o.frequency.value = i === 2 ? 1175 : 880; o.connect(g); g.connect(actx.destination); const at = actx.currentTime + t; g.gain.setValueAtTime(.0001, at); g.gain.exponentialRampToValueAtTime(.35, at + .02); g.gain.exponentialRampToValueAtTime(.0001, at + .22); o.start(at); o.stop(at + .24); }); } catch (e) {} }
+  try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch (e) {}
+}
+async function holdScreen(on){ try { if (on && "wakeLock" in navigator && !wakeLock) { wakeLock = await navigator.wakeLock.request("screen"); wakeLock.addEventListener("release", () => { wakeLock = null; }); } else if (!on && wakeLock) { await wakeLock.release(); wakeLock = null; } } catch (e) {} }
+function startRest(sec, label, next){ REST = {end: Date.now() + sec * 1000, total: sec, label, next, done: false}; ensureAudio(); holdScreen(true); clearInterval(restInt); restInt = setInterval(tickRest, 250); tickRest(); }
+function stopRest(){ REST = null; clearInterval(restInt); restInt = null; holdScreen(false); drawRest(); }
+function tickRest(){ if (!REST) return; if (!REST.done && Date.now() >= REST.end) { REST.done = true; beep(); setTimeout(() => { if (REST && REST.done) stopRest(); }, 6000); } drawRest(); }
+function drawRest(){
+  let el = document.getElementById("restbar");
+  if (!REST) { if (el) el.remove(); document.body.classList.remove("has-rest"); return; }
+  if (!el) { el = document.createElement("div"); el.id = "restbar"; el.className = "restbar"; el.setAttribute("role", "timer"); el.setAttribute("aria-live", "off"); document.body.appendChild(el); }
+  document.body.classList.add("has-rest");
+  const left = Math.max(0, Math.ceil((REST.end - Date.now()) / 1000)), mm = Math.floor(left / 60), ss = String(left % 60).padStart(2, "0");
+  el.classList.toggle("done", REST.done);
+  const pct = REST.done ? 100 : Math.min(100, 100 * (1 - left / REST.total));
+  const html = REST.done
+    ? `<span class="prog" style="width:100%"></span><span class="rt">Go</span><div class="rl"><b>Rest's up</b>${esc(REST.next || "Next set")}</div><button data-k="restskip">Close</button>`
+    : `<span class="prog" style="width:${pct}%"></span><span class="rt">${mm}:${ss}</span><div class="rl"><b>Rest · ${esc(REST.label)}</b>${esc(REST.next || "")}</div><button data-k="restadd" data-v="-15" aria-label="15 seconds less">−15</button><button data-k="restadd" data-v="15" aria-label="15 seconds more">+15</button><button data-k="restskip">Skip</button>`;
+  if (el.dataset.h !== html) { el.innerHTML = html; el.dataset.h = html; }
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && REST) { tickRest(); if (!REST.done) holdScreen(true); } });
+
+// ---------- warm-up sets ----------
+const WU_DEFAULT = "40×5, 60×3, 80×2";
+function parseScheme(str){ return String(str || "").split(/[,;\n]+/).map(x => x.trim().match(/^(\d+(?:\.\d+)?)\s*%?\s*[x×*]\s*(\d+)/i)).filter(Boolean).map(m => [+m[1] / 100, +m[2]]); }
+function warmupSets(it, workKg){
+  const bar = num(S.settings.bar) ?? 20, r = num(S.settings.round) || 2.5;
+  if (!workKg || workKg <= bar) return [];
+  const sch = parseScheme(it.wuScheme || S.settings.wu || WU_DEFAULT), out = [{kg: bar, reps: 10, label: "Empty bar"}];
+  sch.forEach(([p, reps]) => { const kg = Math.round(workKg * p / r) * r; if (kg > out[out.length - 1].kg && kg < workKg) out.push({kg, reps, label: `${Math.round(p * 100)}%`}); });
+  return out;
+}
+
+// ---------- personal records & exercise history ----------
+let LOGVER = 0, LOGCACHE = null;
+function withRun(id, fn){ const kS = S, kA = RUNIDX.active; S = RUNS[id]; RUNIDX.active = id; try { return fn(); } finally { S = kS; RUNIDX.active = kA; } }
+// every logged set in every run, oldest first
+function allLogs(){
+  const key = LOGVER + "|" + planVer + "|" + Object.keys(RUNS).length;
+  if (LOGCACHE && LOGCACHE.key === key) return LOGCACHE.list;
+  const list = []; let seq = 0;
+  (RUNIDX.list || []).forEach(m => { if (!RUNS[m.id]) return; withRun(m.id, () => {
+    schedVis().forEach(e => { const pos = posOf(e.id); daysFor(e.id).forEach(dy => {
+      const s = S.sessions[sid(e.id, dy.key)]; if (!s || !s.sets) return; const items = effItems(e.id, dy.key);
+      Object.keys(s.sets).forEach(ik => { const i = +ik, it = items[i]; if (!it || !it.log) return;
+        (s.sets[ik] || []).forEach((x, k) => { const kg = num(x && x.kg), r = num(x && x.reps); if (kg == null && r == null) return;
+          list.push({seq: seq++, run: m.id, runLabel: runLabel(m), w: e.id, pos, d: dy.key, short: dy.short, sub: dy.sub || "", i, k, name: it.name.split(" — ")[0], unit: it.unit || "kg", kg, reps: r, date: dayDate(e.id, dy.short)}); }); }); }); });
+  }); });
+  LOGCACHE = {key, list}; return list;
+}
+function setMetric(l){ if (l.unit === "kg" || l.unit === "ball") return l.kg && l.reps ? l.kg * (1 + l.reps / 30) : null; if (l.unit === "none") return l.reps; return l.kg; }
+const METRIC_NAME = {kg: "best e1RM", ball: "best e1RM", "+kg": "most added weight", cm: "best height or distance", none: "most reps"};
+function records(name, skip){
+  const logs = allLogs().filter(l => l.name === name && !(skip && l.run === skip.run && l.w === skip.w && l.d === skip.d));
+  const out = {count: logs.length, unit: logs.length ? logs[0].unit : null, best: null, bestLog: null, heaviest: null, heavyLog: null, mostReps: null, repMax: {}};
+  logs.forEach(l => { const m = setMetric(l); if (m != null && (out.best == null || m > out.best)) { out.best = m; out.bestLog = l; }
+    if (l.kg != null && (out.heaviest == null || l.kg > out.heaviest)) { out.heaviest = l.kg; out.heavyLog = l; }
+    if (l.reps != null && (out.mostReps == null || l.reps > out.mostReps)) out.mostReps = l.reps;
+    if (l.kg != null && l.reps) { const c = out.repMax[l.reps]; if (!c || l.kg > c.kg) out.repMax[l.reps] = {kg: l.kg, log: l}; } });
+  return out;
+}
+// is this set a personal record? It has to beat every other session's sets, and there has to be one to beat
+function prLabel(name, unit, kg, reps, here){
+  if (kg == null && reps == null) return null;
+  const R = records(name, here); if (!R.count) return null;
+  const l = {unit, kg, reps}, m = setMetric(l);
+  if (unit === "kg" || unit === "ball") {
+    if (m != null && R.best != null && m > R.best + .05) return "e1RM PR";
+    if (kg != null && reps && R.repMax[reps] && kg > R.repMax[reps].kg) return `${reps}-rep PR`;
+    if (kg != null && R.heaviest != null && kg > R.heaviest) return "Heaviest yet";
+    return null;
+  }
+  if (unit === "none") return reps != null && R.mostReps != null && reps > R.mostReps ? "Rep PR" : null;
+  return kg != null && R.best != null && kg > R.best ? (unit === "cm" ? "Best yet" : "Heaviest yet") : null;
+}
+
+let toastTimer = null, UNDO = null, undoArmed = false;
 function toast(msg, kind, title){
   const el = document.getElementById("toast"); if (!el) return;
+  const withUndo = kind !== "err" && undoArmed && UNDO; undoArmed = false;
   el.className = "toast" + (kind === "err" ? " err" : ""); el.setAttribute("role", kind === "err" ? "alert" : "status");
-  el.innerHTML = `${kind === "err" ? `<b>${esc(title || "Can't save yet.")}</b> ` : ""}<span>${esc(msg)}</span>`; el.hidden = false;
-  clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, kind === "err" ? 5500 : 3000);
+  el.innerHTML = `${kind === "err" ? `<b>${esc(title || "Can't save yet.")}</b> ` : ""}<span>${esc(msg)}</span>${withUndo ? `<button class="undo" data-k="undo">Undo</button>` : ""}`; el.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, kind === "err" ? 5500 : withUndo ? 7000 : 3000);
+}
+// remember the plan and the session being changed, so the pop-up can offer Undo
+function snapshot(ids){ UNDO = {run: RUNIDX.active, meta: JSON.stringify(runMeta(RUNIDX.active)), plan: JSON.stringify(S.plan), sess: Object.fromEntries((ids || []).map(id => [id, JSON.stringify(S.sessions[id] ?? null)]))}; undoArmed = true; }
+function undoLast(){
+  if (!UNDO || UNDO.run !== RUNIDX.active) { toast("Nothing to undo."); return; }
+  S.plan = JSON.parse(UNDO.plan); normalizePlan();
+  const m = runMeta(RUNIDX.active), om = JSON.parse(UNDO.meta || "null"); if (om && JSON.stringify(m) !== UNDO.meta) { Object.keys(m).forEach(k => delete m[k]); Object.assign(m, om); save("runs"); }
+  Object.entries(UNDO.sess).forEach(([id, v]) => { const o = JSON.parse(v); if (o) S.sessions[id] = o; else delete S.sessions[id]; save(id); });
+  UNDO = null; closePanels(); ui.move = null; planChanged(); render(); toast("Undone.");
 }
 // show what's wrong: a pop-up, plus an outline on each box that needs changing, with the first one scrolled to
 function flagError(msg, ids, title){
@@ -595,19 +768,23 @@ function saveTemplate(T){
   const plan = T.kind === "block" ? blockSubset(+T.block) : clone(S.plan);
   delete plan.baseSchedule;
   if (T.kind !== "block" && !Array.isArray(plan.schedule)) plan.schedule = clone(schedAll());
-  TPLS[id] = {id, name: (T.name || "").trim().slice(0, 60) || (T.kind === "block" ? blockName(+T.block) : runLabel(runMeta(RUNIDX.active))), kind: T.kind === "block" ? "block" : "programme", desc: (T.desc || "").trim().slice(0, 300), created: new Date().toISOString(), fromRun: RUNIDX.active, plan};
+  ["edits", "added", "customDays", "dayEdits", "orders"].forEach(k => (plan[k] || []).forEach(r => { delete r.tpl; delete r.carried; }));
+  TPLS[id] = {id, pid: "p" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), ver: 1, author: RUNIDX.author || "", name: (T.name || "").trim().slice(0, 60) || (T.kind === "block" ? blockName(+T.block) : runLabel(runMeta(RUNIDX.active))), kind: T.kind === "block" ? "block" : "programme", desc: (T.desc || "").trim().slice(0, 300), created: new Date().toISOString(), fromRun: RUNIDX.active, plan};
   saveDid("tpl." + id); return id;
 }
 function startRun(tpl, opts){
-  const seq = (RUNIDX.list || []).filter(x => x.tpl === tpl.id).length + 1;
+  tplMeta(tpl); const seq = (RUNIDX.list || []).filter(x => !x.builder && (x.tpl === tpl.id || (x.tplPid && x.tplPid === tpl.pid))).length + 1;
   const id = "r" + Date.now().toString(36), carry = opts.maxes === "carry" ? carriedMaxes() : null, round = S.settings.round;
+  tplMeta(tpl);
   const R = blankRun(); R.plan = clone(tpl.plan); normalizePlan(R.plan);
+  // mark what came from the programme, so a later version can replace it without touching your own changes
+  ["edits", "added", "customDays", "dayEdits", "orders"].forEach(k => (R.plan[k] || []).forEach(r => { r.tpl = true; }));
   R.plan.baseSchedule = clone(planWeeks(R.plan)); if (!Array.isArray(R.plan.schedule)) R.plan.schedule = clone(R.plan.baseSchedule);
   R.settings.round = round;
   if (carry) { const fb = planBlocks(R.plan)[0] || 1; Object.entries(carry).forEach(([l, v]) => { const a = []; for (let i = 0; i < fb; i++) a.push(null); a[fb - 1] = v; R.settings.e1rm[l] = a; }); }
   else R.settings = clone(S.settings);
   RUNS[id] = R;
-  RUNIDX.list = (RUNIDX.list || []).concat([{id, name: (opts.name || "").trim().slice(0, 60), tpl: tpl.id, tplName: tpl.name, seq, started: opts.started || "", created: todayISO()}]);
+  RUNIDX.list = (RUNIDX.list || []).concat([{id, name: (opts.name || "").trim().slice(0, 60), tpl: tpl.id, tplPid: tpl.pid, tplVer: tpl.ver || 1, tplName: tpl.name, seq, started: opts.started || "", created: todayISO()}]);
   switchRun(id);
   const reps = Math.max(1, Math.min(8, Math.round(num(opts.repeat) || 1)));
   if (tpl.kind === "block" && reps > 1) {
@@ -639,6 +816,35 @@ function insertTplBlock(tpl, after, pct){
 }
 function planChanged(){ planVer++; EFF.clear(); save("plan"); }
 
+// the most recent earlier session of this exercise in this run: {w, d, it, sets}
+function lastSession(name, w, d){
+  const vis = schedVis(), wi = vis.findIndex(e => e.id === w), myDay = WEEKDAYS.indexOf(day(w, d).short);
+  for (let k = wi; k >= 0; k--) { const ww = vis[k].id; for (const dy of daysFor(ww).slice().reverse()) {
+    if (ww === w && (dy.key === d || WEEKDAYS.indexOf(dy.short) > myDay)) continue;
+    const items = effItems(ww, dy.key), s = S.sessions[sid(ww, dy.key)];
+    for (let i = 0; i < items.length; i++) { const it = items[i]; if (!it.log || it.removed || it.name !== name) continue;
+      const sets = ((s && s.sets[i]) || []).filter(x => num(x.kg) != null && num(x.reps) != null); if (sets.length) return {w: ww, d: dy.key, it, sets}; }
+  } }
+  return null;
+}
+function repRange(r){ const m = String(r || "").match(/^\s*(\d+)\s*(?:[-–]\s*(\d+))?\s*$/); return m ? [+m[1], +(m[2] || m[1])] : null; }
+function canProgress(it){ return it && it.sets && !it.pct && ["kg", "+kg"].includes(it.unit || "kg") && !!repRange(it.reps); }
+// double progression: every working set at the top of the range means it's time to add weight
+function verdict(it, sets){
+  const rr = repRange(it.reps); if (!rr) return null;
+  sets = sets.filter(x => num(x.kg) != null && num(x.reps) != null); if (!sets.length) return null;
+  const top = Math.max(...sets.map(x => num(x.kg))), work = sets.filter(x => num(x.kg) === top), inc = Math.max(num(S.settings.round) || 2.5, 0.5);
+  if (work.length >= (it.sets || 1) && work.every(x => num(x.reps) >= rr[1])) return {kg: top + inc, up: inc, top, why: `Every set hit ${rr[1]} at ${fmt(top)} kg, so add ${fmt(inc)} kg.`};
+  if (work.some(x => num(x.reps) < rr[0])) return {kg: top, up: 0, top, why: `Some sets fell short of ${rr[0]} at ${fmt(top)} kg, so stay there.`};
+  return {kg: top, up: 0, top, why: `Stay at ${fmt(top)} kg and build every set to ${rr[1]} reps.`};
+}
+function nextLoad(it){
+  if (S.settings.nextOff || !canProgress(it) || it.removed) return null;
+  const L = lastSession(it.name, ui.w, ui.d); return L ? verdict(it, L.sets) : null;
+}
+// the weight to suggest on a card: % of max, then your last session, then the plan's starting weight
+function sugFor(it, block){ if (it.pct) return suggested(it, block); const n = nextLoad(it); return n ? n.kg : num(it.load); }
+
 function lastTime(name, w, d0, i0){
   const vis = schedVis(), wi = vis.findIndex(e => e.id === w);
   for (let k = wi; k >= 0; k--) { const ww = vis[k].id; for (const dy of daysFor(ww).slice().reverse()) { if (ww === w && dy.key === ui.d) continue; if (ww === w && WEEKDAYS.indexOf(dy.short) > WEEKDAYS.indexOf(day(w, ui.d).short)) continue; const items = effItems(ww, dy.key);
@@ -665,7 +871,7 @@ function docBody(did){
   const R = RUNS[r]; if (!R) return null;
   return k === "plan" ? R.plan : k === "settings" ? R.settings : k === "body" ? R.body : R.sessions[k];
 }
-function save(id){ saveDid(didFor(id)); }
+function save(id){ LOGVER++; saveDid(didFor(id)); }
 function saveDid(did){
   cache();
   if (mode !== "db") { setStatus(); return; }
@@ -710,12 +916,12 @@ function renderBar(){
   const wk = week(ui.w);
   document.documentElement.style.setProperty("--blk", blkVar(wk.block));
   ["train","progress","settings"].forEach(v => document.getElementById("v-"+v).setAttribute("aria-pressed", ui.view === v));
-  ["train","progress","settings","plans","guide","help","look","data","feedback"].forEach(v => { const b = document.getElementById("dv-"+v); if (b) { if (ui.view === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); } });
+  ["train","progress","settings","plans","guide","help","look","data","feedback","history"].forEach(v => { const b = document.getElementById("dv-"+v); if (b) { if (ui.view === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); } });
   const rmD = runMeta(RUNIDX.active); document.getElementById("drawer-run").innerHTML = `<b>${esc(runLabel(rmD))}</b>${rmD.started ? `Started ${fmtDate(rmD.started, true)}` : "No start date yet"} · ${schedVis().length} weeks`;
   document.getElementById("trainbar").hidden = ui.view !== "train";
   document.getElementById("wklabel").innerHTML = `<b>Week ${wk.pos}</b><button class="blkname" data-k="blkopen" aria-label="Edit block ${blockOrd(wk.block)}">Block ${blockOrd(wk.block)} · ${esc(blockName(wk.block))}${wk.light ? (wk.src===12 ? " · Retest" : " · Lighter") : ""}<svg width="11" height="11" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.5 1.5l3 3L5 14H2v-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>`;
   const rm = runMeta(RUNIDX.active), mon = weekMonday(ui.w);
-  document.getElementById("runline").innerHTML = `<button class="runbtn" data-k="runline" title="Programmes and runs">${esc(runLabel(rm))}</button>${mon ? `<span>${shortDate(mon)} – ${shortDate(new Date(mon.getTime() + 6 * 864e5))}</span>` : ""}`;
+  document.getElementById("runline").innerHTML = `<button class="runbtn" data-k="runline" title="Programmes and runs">${esc(runLabel(rm))}</button>${mon ? `<span style="display:flex;gap:8px;align-items:center">${shortDate(mon)} – ${shortDate(new Date(mon.getTime() + 6 * 864e5))}<button class="todaybtn" data-k="today">Today</button></span>` : ""}`;
   document.getElementById("prevwk").disabled = wk.pos <= 1;
   document.getElementById("nextwk").disabled = wk.pos >= schedVis().length;
   const dl = daysFor(ui.w);
@@ -724,14 +930,14 @@ function renderBar(){
   el.style.gridTemplateColumns = `repeat(${dl.length}, minmax(0, 1fr)) 44px`;
   el.innerHTML = dl.map(dy => {
     const s = S.sessions[sid(ui.w, dy.key)];
-    return `<button data-day="${dy.key}" aria-pressed="${ui.d===dy.key && !ui.days}">${esc(dy.short)}${dy.optional ? '<span class="opt">*</span>' : ''}${dy.sub ? `<span class="sub">${esc(dy.sub)}</span>` : ""}<span class="tick">${s && s.done ? "✓ done" : ""}</span></button>`;
+    return `<button data-day="${dy.key}" aria-pressed="${ui.d===dy.key && !ui.days}">${esc(dy.short)}${dy.optional ? '<span class="opt">*</span>' : ''}${dy.sub ? `<span class="sub">${esc(dy.sub)}</span>` : dy.movedFrom ? `<span class="sub">was ${esc(dy.movedFrom)}</span>` : ""}<span class="tick"${s && s.skipped && !s.done ? ' style="color:var(--muted)"' : ""}>${s && s.done ? "✓ done" : s && s.skipped ? "skipped" : ""}</span></button>`;
   }).join("") + `<button class="dayedit" data-k="daysopen" aria-pressed="${!!ui.days}" aria-label="Edit days" title="Edit days"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="tick" style="color:var(--muted)">Days</span></button>`;
 }
 function render(){
   const f = document.activeElement, fid = f && f.id, sel = f && "selectionStart" in f ? [f.selectionStart, f.selectionEnd] : null;
   renderBar();
   const v = document.getElementById("view");
-  v.innerHTML = ui.view === "train" ? viewTrain() : ui.view === "progress" ? viewProgress() : ui.view === "guide" ? viewGuide() : ui.view === "plans" ? viewPlans() : ui.view === "help" ? viewHelp() : ui.view === "look" ? viewLook() : ui.view === "data" ? viewData() : ui.view === "feedback" ? viewFeedback() : viewSettings();
+  v.innerHTML = ui.view === "train" ? viewTrain() : ui.view === "progress" ? viewProgress() : ui.view === "guide" ? viewGuide() : ui.view === "plans" ? viewPlans() : ui.view === "help" ? viewHelp() : ui.view === "look" ? viewLook() : ui.view === "history" ? viewHistory() : ui.view === "data" ? viewData() : ui.view === "feedback" ? viewFeedback() : viewSettings();
   if (fid) { const n = document.getElementById(fid); if (n) { n.focus({preventScroll:true}); if (sel) try { n.setSelectionRange(sel[0], sel[1]); } catch(e){} } }
   lsSet(UI_KEY, {view:ui.view, w:ui.w, d:ui.d});
 }
@@ -741,10 +947,18 @@ function viewTrain(){
   if (ui.days) return daysPanel();
   if (!daysFor(ui.w).length) return `<div class="focus">${esc(weekFocus(wk))}</div><div class="nowarm"><span>No training days in week ${wk.pos}.</span><button class="addnote" data-k="daysopen">Add a day</button></div>`;
   if (ui.blkEdit) return blockPanel();
-  h += `<div class="focus">${esc(weekFocus(wk))}</div><div class="dayhead"><h2>${esc(WEEKDAY_LONG[dy.short] || dy.short)}${dy.sub ? " " + esc(dy.sub) : ""}${dy.title ? " · " + esc(dy.title) : ""}</h2>${dayDate(ui.w, dy.short) || dy.optional ? `<div class="rx">${dayDate(ui.w, dy.short) ? esc(dayDate(ui.w, dy.short).toLocaleDateString("en-GB", {weekday: "short", day: "numeric", month: "long", year: "numeric"})) : ""}${dayDate(ui.w, dy.short) && dy.optional ? " · " : ""}${dy.optional ? "Optional session" : ""}</div>` : ""}</div>`;
+  if (ui.prog) return progPanel();
+  h += `${weekFocus(wk) ? `<div class="focus">${esc(weekFocus(wk))}</div>` : ""}<div class="dayhead"><h2>${esc(WEEKDAY_LONG[dy.short] || dy.short)}${dy.sub ? " " + esc(dy.sub) : ""}${dy.title ? " · " + esc(dy.title) : ""}</h2>${dayDate(ui.w, dy.short) || dy.optional ? `<div class="rx">${dayDate(ui.w, dy.short) ? esc(dayDate(ui.w, dy.short).toLocaleDateString("en-GB", {weekday: "short", day: "numeric", month: "long", year: "numeric"})) : ""}${dayDate(ui.w, dy.short) && dy.optional ? " · " : ""}${dy.optional ? "Optional session" : ""}${dy.movedFrom ? ` · moved from ${esc(WEEKDAY_LONG[dy.movedFrom] || dy.movedFrom)}` : ""}</div>` : ""}</div>`;
   if (mode !== "db" && dbChecked && !IS_APP) h += `<div class="banner">Saving in this browser only. Sign in to claude.ai and open this page there to keep your log across devices.</div>`;
-  if (IS_APP && !lsGet(WELCOME_KEY)) h += `<div class="card" style="border:2px solid var(--accent)"><h3 style="margin:0;font-size:17px">Welcome</h3><p style="margin:0">Suggested weights come from your maxes. The ones filled in are only examples, so set your own before your first session. The User guide in the menu explains everything else.</p><div class="edbtns"><button class="btn primary" data-k="welcomemax">Set my maxes</button><button class="btn" data-k="welcomeno">Not now</button></div></div>`;
+  h += builderBar();
+  if (ui.setup) return h + setupGuide();
+  if (false) h += `<div class="card" style="border:2px solid var(--accent)"><h3 style="margin:0;font-size:17px">Welcome</h3><p style="margin:0">Suggested weights come from your maxes. The ones filled in are only examples, so set your own before your first session. The User guide in the menu explains everything else.</p><div class="edbtns"><button class="btn primary" data-k="welcomemax">Set my maxes</button><button class="btn" data-k="welcomeno">Not now</button></div></div>`;
   if (ui.reorder) return h + reorderPanel();
+  if (ui.summary === id && s.done) h += summaryCard(ui.w, ui.d);
+  h += missedBanner();
+  const sk = (S.sessions[id] || {}).skipped;
+  h += `<div class="dayopts"><label class="switch"><input type="checkbox" id="rest-on" data-k="restcfg" data-f="on"${RESTCFG.on ? " checked" : ""}> Track rest</label>${RESTCFG.on ? `<label class="switch"><input type="checkbox" id="rest-snd" data-k="restcfg" data-f="sound"${RESTCFG.sound ? " checked" : ""}> Sound</label>` : ""}<button class="addnote" data-k="mvopen" style="margin-left:auto">${sk ? "Skipped · undo" : weekMoves(ui.w).length ? "Move, skip or undo" : "Move or skip"}</button></div>`;
+  if (ui.move) h += movePanel();
   const items = effItems(ui.w, ui.d), shownSS = new Set();
   displayOrder(ui.w, ui.d).forEach(i => { const it = items[i];
     if (it.ss && !shownSS.has(it.ss.letter) && !it.removed) { shownSS.add(it.ss.letter); const kind = it.ss.size === 2 ? "Superset" : it.ss.size === 3 ? "Tri-set" : "Giant set"; h += `<div class="ssbar"><b>${kind} ${esc(it.ss.letter)}</b> · ${it.ss.names.map(esc).join(" → ")}, then rest ${esc(it.ss.rest)}</div>`; }
@@ -755,6 +969,7 @@ function viewTrain(){
   else h += `<div class="edbtns"><button class="btn" data-k="addopen">Add exercise</button><button class="btn" data-k="taddopen">Add benchmark test</button><button class="btn" data-k="ordopen">Reorder</button></div>`;
   h += `<div class="card"><label class="rx" for="sn-${id}"><b>Session notes</b> (sleep, energy, anything that felt off)</label><textarea id="sn-${id}" data-k="snote" rows="2">${esc(s.note)}</textarea></div>`;
   h += `<button class="finish ${s.done ? "is-done" : ""}" id="fin-${id}" data-k="finish">${s.done ? "✓ Session done · tap to undo" : "Finish session"}</button>`;
+  if (s.done && ui.summary !== id) h += `<button class="addnote" data-k="sumopen" style="align-self:center">Show session summary</button>`;
   return h;
 }
 function card(it, i, s, block){
@@ -765,25 +980,37 @@ function card(it, i, s, block){
   let sug = "";
   const u = it.unit || "kg";
   if (it.pct) { const kg = suggested(it, block); sug = `<div class="sug">Suggested<b>${fmt(kg)} kg</b><small>${Math.round(it.pct*1000)/10}% e1RM</small></div>`; }
+  else if (nextLoad(it)) { const n = nextLoad(it); sug = `<div class="sug">Next<b>${fmt(n.kg)}<small style="display:inline;font-size:13px"> kg</small></b><small>${n.up ? `+${fmt(n.up)} kg` : "same weight"}</small></div>`; }
   else if (it.load && KG_UNITS.includes(u) && /kg$/.test(it.load)) sug = `<div class="sug">Start<b>${esc(it.load.replace(" kg",""))}${/kg$/.test(it.load) ? '<small style="display:inline;font-size:13px"> kg</small>' : ""}</b><small>${esc(it.basis||"")}</small></div>`;
   const rx = it.sets ? `<b>${it.sets} × ${esc(it.reps)}</b> · ${esc(it.target)}${it.rest ? " · rest " + esc(it.rest) : ""}` : `<b>${esc(it.rx)}</b> · ${esc(it.target)}`;
-  let h = `<div class="card ${it.kind === "main" ? "main" : ""}${it.ss ? " ssc" : ""}"><div class="ch"><span class="tag">${esc(it.label || it.tag)}</span><div class="ttl"><h3>${esc(it.name)}${it.edited ? '<span class="chip">Edited</span>' : ""}</h3><div class="rx">${rx}</div></div>${sug}</div>`;
+  let h = `<div class="card ${it.kind === "main" ? "main" : ""}${it.ss ? " ssc" : ""}"><div class="ch"><span class="tag">${esc(it.label || it.tag)}</span><div class="ttl"><h3>${it.log ? `<button class="exname" data-k="hist" data-n="${esc(it.name.split(" — ")[0])}" title="History and records">${esc(it.name)}</button>` : esc(it.name)}${it.edited ? '<span class="chip">Edited</span>' : ""}</h3><div class="rx">${rx}</div></div>${sug}</div>`;
   if (it.note) h += `<div class="note">${esc(it.note)}</div>`;
   if (it.intens && it.intens !== "none") { const I = intById(it.intens); if (I) h += `<div class="note"><b>${esc(I.name)}:</b> ${esc(I.how)}</div>`; }
   if (it.parts) h += `<div class="parts">${it.parts.map((p, k) => `<div><b>${it.emom ? `<span class="rx" style="margin:0">${it.parts.length > 1 ? `Min ${k + 1}` : "Every min"}</span> ` : ""}${esc(p.name)} · ${esc(p.reps)}</b><span>${esc(p.load || "")}${p.basis && p.load && /kg/.test(p.load) ? " " + esc(p.basis.toLowerCase()) : ""}</span></div>`).join("")}</div>`;
   if (it.log) {
     const last = lastTime(it.name, ui.w); if (last) h += `<div class="last">Last: ${esc(last)}</div>`;
+    const nl = nextLoad(it); if (nl) h += `<div class="last nexthint">${nl.up ? "↑ " : ""}${esc(nl.why)}</div>`;
     const sets = (s.sets && s.sets[i]) || [];
-    const sugKg = !KG_UNITS.includes(u) ? null : it.pct ? suggested(it, block) : num(it.load);
+    const sugKg = !KG_UNITS.includes(u) ? null : sugFor(it, block);
     const repT = firstNum(it.reps), noLoad = u === "none";
+    // warm-up sets: a tab on any barbell or dumbbell card, open by default if the exercise asks for it
+    if (u === "kg") {
+      const workKg = num((sets[0] || {}).kg) ?? sugKg, wu = warmupSets(it, workKg), wkey = `${id}-${i}`;
+      if (wu.length) {
+        const open = ui.wuOpen[wkey] ?? !!it.wu, ticks = ((s.wu || {})[i]) || [];
+        h += `<button class="addnote wutab" data-k="wutoggle" data-i="${i}" aria-expanded="${open}">${open ? "Hide" : "Suggested"} warm-up sets (${wu.length})</button>`;
+        if (open) h += `<div class="wulist">${wu.map((x, k) => `<span class="wl">${esc(x.label)}</span><span><b>${fmt(x.kg)} kg</b> × ${x.reps}</span><button class="ok" data-k="wutick" data-i="${i}" data-s="${k}" aria-pressed="${!!ticks[k]}" aria-label="Warm-up set ${k + 1} done">✓</button>`).join("")}</div>`;
+      }
+    }
     h += `<div class="sets"${noLoad ? ' style="grid-template-columns:28px 1fr 44px"' : ""}><span class="hd">Set</span>${noLoad ? "" : `<span class="hd">${UNIT_HEAD[u]}</span>`}<span class="hd">Reps</span><span></span>`;
     let prevKg = null;
     for (let k = 0; k < it.log; k++) {
       const st = sets[k] || {}; const ph = num(st.kg) == null ? (prevKg ?? sugKg) : null;
       if (num(st.kg) != null) prevKg = num(st.kg);
-      h += `<span class="n">${k+1}</span>`
-        + (noLoad ? "" : `<input class="num ${st.done ? "done-in" : ""}" id="kg-${id}-${i}-${k}" data-k="set" data-i="${i}" data-s="${k}" data-f="kg" inputmode="decimal" value="${esc(st.kg ?? "")}" placeholder="${ph != null ? fmt(ph) : ""}" aria-label="Set ${k+1} ${UNIT_HEAD[u]}"${st.done ? ' style="background:var(--good-soft)"' : ""}>`)
-        + `<input class="num" id="rp-${id}-${i}-${k}" data-k="set" data-i="${i}" data-s="${k}" data-f="reps" inputmode="numeric" value="${esc(st.reps ?? "")}" placeholder="${esc(repT)}" aria-label="Set ${k+1} reps"${st.done ? ' style="background:var(--good-soft)"' : ""}>`
+      const prl = (num(st.kg) != null || num(st.reps) != null) && (st.done || (num(st.kg) != null && num(st.reps) != null)) ? prLabel(it.name.split(" — ")[0], u, num(st.kg), num(st.reps), {run: RUNIDX.active, w: ui.w, d: ui.d, i, k}) : null;
+      h += (prl ? `<span class="n pr" title="${esc(prl)}">PR</span>` : `<span class="n">${k+1}</span>`)
+        + (noLoad ? "" : `<input class="num ${st.done ? "done-in" : ""}" id="kg-${id}-${i}-${k}" enterkeyhint="next" data-k="set" data-i="${i}" data-s="${k}" data-f="kg" inputmode="decimal" value="${esc(st.kg ?? "")}" placeholder="${ph != null ? fmt(ph) : ""}" aria-label="Set ${k+1} ${UNIT_HEAD[u]}"${st.done ? ' style="background:var(--good-soft)"' : ""}>`)
+        + `<input class="num" id="rp-${id}-${i}-${k}" enterkeyhint="next" data-k="set" data-i="${i}" data-s="${k}" data-f="reps" inputmode="numeric" value="${esc(st.reps ?? "")}" placeholder="${esc(repT)}" aria-label="Set ${k+1} reps"${st.done ? ' style="background:var(--good-soft)"' : ""}>`
         + `<button class="ok" id="ok-${id}-${i}-${k}" data-k="tick" data-i="${i}" data-s="${k}" aria-pressed="${!!st.done}" aria-label="Mark set ${k+1} done">✓</button>`;
     }
     h += `</div>`;
@@ -911,15 +1138,16 @@ function blockPanel(){
   h += `<h4>Weeks in this block</h4><div class="edbtns"><label class="fld" style="width:7em"><span>Number of weeks</span><input id="blk-len" data-k="blklen" value="${esc(B.len ?? visCount)}" inputmode="numeric"></label><button class="btn" data-k="blklenset" style="align-self:flex-end">Set</button></div>`;
   if (B.lenMsg) h += `<div class="hint">${esc(B.lenMsg)}</div>`;
   inBlock.forEach(e => {
-    const t = PROGRAM[e.src - 1], p = visPos(e.id);
-    const desc = (e.copyOf ? `Repeat of plan week ${e.src}` : `Plan week ${e.src}`) + (t.light ? (e.src === 12 ? " · retest" : " · lighter") : "") + (e.pctAdj ? ` · main lifts ${e.pctAdj > 0 ? "+" : ""}${e.pctAdj}%` : "");
+    const t = PROGRAM[e.src - 1] || {}, p = visPos(e.id);
+    const desc = S.plan.blank ? (e.light ? "Lighter week" : "Training week") + (e.pctAdj ? ` · % lifts ${e.pctAdj > 0 ? "+" : ""}${e.pctAdj}%` : "")
+      : (e.copyOf ? `Repeat of plan week ${e.src}` : `Plan week ${e.src}`) + (t.light ? (e.src === 12 ? " · retest" : " · lighter") : "") + (e.pctAdj ? ` · main lifts ${e.pctAdj > 0 ? "+" : ""}${e.pctAdj}%` : "");
     const logged = Object.keys(S.sessions).some(k => k.startsWith(`w${e.id}-`) && hasData(S.sessions[k]));
     h += `<div class="dayrow${e.hidden ? " off" : ""}" style="grid-template-columns:1fr auto;align-items:center"><div><b>${e.hidden ? "Removed week" : `Week ${p}`}</b>${e.id === ui.w ? ' <span class="chip">Viewing</span>' : ""}<div class="rx">${esc(desc)}${logged ? " · has logged sessions" : ""}</div></div>`
-      + `<div class="edbtns" style="grid-column:auto">${e.hidden ? `<button class="btn primary" data-k="wkrestore" data-id="${e.id}">Put back</button>` : `<button class="btn" data-k="wkrepeat" data-id="${e.id}">Repeat</button><button class="btn" data-k="wkremove" data-id="${e.id}">Remove</button>`}</div></div>`;
+      + `<div class="edbtns" style="grid-column:auto">${e.hidden ? `<button class="btn primary" data-k="wkrestore" data-id="${e.id}">Put back</button>` : `${S.plan.blank ? `<button class="btn" data-k="wklight" data-id="${e.id}">${e.light ? "Normal" : "Lighter"}</button>` : ""}<button class="btn" data-k="wkrepeat" data-id="${e.id}">Repeat</button><button class="btn" data-k="wkremove" data-id="${e.id}">Remove</button>`}</div></div>`;
   });
   if (B.add) {
     const A = B.add;
-    const srcOpts = PROGRAM.map(t => `<option value="${t.w}"${+A.src === t.w ? " selected" : ""}>Plan week ${t.w} · ${esc(blockName(t.block))}${t.light ? (t.w === 12 ? " (retest)" : " (lighter)") : ""}</option>`).join("");
+    const srcOpts = S.plan.blank ? schedVis().map(e => `<option value="${e.id}"${+A.src === e.id ? " selected" : ""}>Week ${posOf(e.id)} · ${esc(blockName(e.block))}${e.light ? " (lighter)" : ""}</option>`).join("") : PROGRAM.map(t => `<option value="${t.w}"${+A.src === t.w ? " selected" : ""}>Plan week ${t.w} · ${esc(blockName(t.block))}${t.light ? (t.w === 12 ? " (retest)" : " (lighter)") : ""}</option>`).join("");
     const posOpts = [`<option value="end"${A.after === "end" ? " selected" : ""}>At the end of the block</option>`].concat(inBlock.filter(e => !e.hidden).map(e => `<option value="${e.id}"${String(A.after) === String(e.id) ? " selected" : ""}>After week ${visPos(e.id)}</option>`)).join("");
     h += `<div class="wform"><h4>Add a week</h4><div class="fgrid"><label class="fld wide"><span>Train it like</span><select id="wa-src" data-k="wasel" data-f="src">${srcOpts}</select></label>`
       + `<label class="fld wide"><span>Put it</span><select id="wa-pos" data-k="wasel" data-f="after">${posOpts}</select></label>`
@@ -958,7 +1186,7 @@ function addBlock(N){
   let wid = nextWeekId();
   for (let i = 0; i < n; i++) {
     const src = srcWeeks[i % srcWeeks.length], round = Math.floor(i / srcWeeks.length) + 1;
-    const e = {id: wid++, src: src.src, block: id, copyOf: src.id}; const adj = (src.pctAdj || 0) + pct * round; if (adj) e.pctAdj = Math.round(adj * 10) / 10;
+    const e = {id: wid++, src: src.src, block: id, copyOf: src.id}; if (src.light) e.light = true; const adj = (src.pctAdj || 0) + pct * round; if (adj) e.pctAdj = Math.round(adj * 10) / 10;
     made.push([src.id, e]);
   }
   const ord = blockOrder(true), ai = ord.indexOf(+N.after);
@@ -982,7 +1210,7 @@ function setBlockLength(b, n){
   let added = 0;
   // repeat the last hard week, keeping any lighter week at the end of the block
   let what = "last week";
-  while (have < n) { const v = schedVis().filter(e => e.block === b), last = v[v.length - 1]; const hard = v.slice().reverse().find(e => !PROGRAM[e.src - 1].light) || last; if (hard !== last) what = "last hard week, placed before its lighter week"; insertWeek(hard, b, hard.id, 0); have++; added++; }
+  while (have < n) { const v = schedVis().filter(e => e.block === b), last = v[v.length - 1]; const hard = v.slice().reverse().find(e => !isLightEntry(e)) || last; if (hard !== last) what = "last hard week, placed before its lighter week"; insertWeek(hard, b, hard.id, 0); have++; added++; }
   return added ? `Added ${added} repeat${added === 1 ? "" : "s"} of the block's ${what}.` : "Put back the weeks you'd removed.";
 }
 function nextWeekId(){ return Math.max(12, ...schedAll().map(e => e.id)) + 1; }
@@ -993,7 +1221,7 @@ function cloneWeekChanges(fromId, toId){
 function insertWeek(srcEntry, block, afterId, pctAdj){
   normalizePlan();
   const sc = schedAll().map(e => Object.assign({}, e));
-  const id = nextWeekId(), entry = {id, src: srcEntry.src, block, copyOf: srcEntry.id};
+  const id = nextWeekId(), entry = {id, src: srcEntry.src, block, copyOf: srcEntry.id}; if (srcEntry.light) entry.light = true;
   if (pctAdj) entry.pctAdj = pctAdj + (srcEntry.pctAdj || 0); else if (srcEntry.pctAdj) entry.pctAdj = srcEntry.pctAdj;
   let at = afterId === "end" ? sc.reduce((m, e, i) => e.block === block ? i : m, -1) : sc.findIndex(e => e.id === +afterId);
   if (at < 0) { const ord = blockOrder(true), bi = ord.indexOf(block); at = sc.reduce((m, e, i) => ord.indexOf(e.block) <= bi ? i : m, -1); }
@@ -1020,6 +1248,100 @@ function reorderPanel(){
   return h;
 }
 
+function todayShort(){ return WEEKDAYS[(new Date().getDay() + 6) % 7]; }
+function todayDate(){ const d = new Date(); d.setHours(12, 0, 0, 0); return d; }
+function sessFor(w, d){ const id = sid(w, d); return S.sessions[id] || (S.sessions[id] = {sets:{}, notes:{}, results:{}, note:"", done:false}); }
+function dayWords(w, d){ const dy = day(w, d); return `${WEEKDAY_LONG[dy.short] || dy.short}${dy.sub ? " " + dy.sub : ""}`; }
+// the scheduled week that contains a date, or null
+function weekOfDate(dt){ for (const e of schedVis()) { const m = weekMonday(e.id); if (!m) return null; const diff = (dt - m) / 864e5; if (diff >= 0 && diff < 7) return e.id; } return null; }
+function goToday(){
+  const t = todayDate(), w = weekOfDate(t);
+  if (!w) { toast(runMeta(RUNIDX.active).started ? "Today is outside this run's dates." : "Add a start date in Programmes & runs first."); return; }
+  ui.view = "train"; closePanels(); ui.w = w;
+  const here = daysFor(w).filter(x => x.short === todayShort());
+  if (here.length) { const open = here.find(x => !(S.sessions[sid(w, x.key)] || {}).done) || here[0]; ui.d = open.key; render(); window.scrollTo(0,0); return; }
+  // rest day: show the next session
+  const vis = schedVis(), wi = vis.findIndex(e => e.id === w);
+  for (let k = wi; k < vis.length; k++) { const ww = vis[k].id; const nxt = daysFor(ww).find(x => { const dd = dayDate(ww, x.short); return dd && dd > t; }); if (nxt) { ui.w = ww; ui.d = nxt.key; render(); window.scrollTo(0,0); toast(`No session today. Next up: ${dayWords(ww, nxt.key)} ${shortDate(dayDate(ww, nxt.short))}.`); return; } }
+  render(); toast("No more sessions in this run.");
+}
+// earlier days this week that aren't done, skipped or optional
+function missedThisWeek(){
+  const t = todayDate(), w = weekOfDate(t); if (!w || w !== ui.w) return [];
+  const st = new Date(runMeta(RUNIDX.active).started + "T00:00:00");
+  return daysFor(w).filter(x => { const dd = dayDate(w, x.short); const s = S.sessions[sid(w, x.key)] || {}; return dd && dd < t && dd >= st && !s.done && !s.skipped && !x.optional; });
+}
+// ---------- moving sessions within a week ----------
+// a move only ever changes one week; swaps move two sessions together and are undone together
+function isMoveEdit(e){ return !!(e && (e.move || (Array.isArray(e.weeks) && e.weeks.length === 1 && e.f && e.f.short && /(^|\s)from (Mon|Tue|Wed|Thu|Fri|Sat|Sun)$/.test(e.f.sub || "")))); }
+function weekMoves(w){ return (S.plan.dayEdits || []).filter(e => isMoveEdit(e) && Array.isArray(e.weeks) && e.weeks.length === 1 && e.weeks[0] === w); }
+function homeShort(w, d){ const saved = S.plan.dayEdits; S.plan.dayEdits = (saved || []).filter(e => !(isMoveEdit(e) && e.weeks && e.weeks.includes(w))); EFF.clear(); const sh = day(w, d).short; S.plan.dayEdits = saved; EFF.clear(); return sh; }
+function moveSession(w, d, toShort, how){
+  const dy = day(w, d); if (!dy || dy.short === toShort) { render(); return; }
+  const others = daysFor(w).filter(x => x.key !== d && x.short === toShort);
+  const swapId = "s" + Date.now().toString(36), edits = [];
+  if (others.length && how !== "both") {
+    // swap: this session takes the other day, the other session takes this one
+    const o = others[0];
+    edits.push({d, from: w, weeks: [w], move: true, swap: swapId, f: {short: toShort, movedFrom: dy.movedFrom || dy.short}});
+    edits.push({d: o.key, from: w, weeks: [w], move: true, swap: swapId, f: {short: dy.short, movedFrom: o.movedFrom || o.short}});
+  } else {
+    const f = {short: toShort, movedFrom: dy.movedFrom || dy.short};
+    if (others.length) f.sub = (dy.sub ? dy.sub + " " : "") + `from ${dy.short}`;
+    edits.push({d, from: w, weeks: [w], move: true, swap: swapId, f});
+  }
+  S.plan.dayEdits = (S.plan.dayEdits || []).concat(edits);
+  planChanged(); ui.d = d; render();
+  toast(others.length && how !== "both" ? `Swapped: this is now on ${WEEKDAY_LONG[toShort]}, and ${others[0].title || "that session"} moves to ${WEEKDAY_LONG[dy.short]}.` : `Moved to ${WEEKDAY_LONG[toShort]} for this week.`);
+}
+function putBack(w, d){
+  const mine = weekMoves(w).filter(e => e.d === d), swaps = new Set(mine.map(e => e.swap).filter(Boolean));
+  S.plan.dayEdits = (S.plan.dayEdits || []).filter(e => !(isMoveEdit(e) && e.weeks && e.weeks.length === 1 && e.weeks[0] === w && (e.d === d || (e.swap && swaps.has(e.swap)))));
+  planChanged(); render(); toast(`${dayWords(w, d)} is back on its usual day.`);
+}
+function undoWeekMoves(w){ S.plan.dayEdits = (S.plan.dayEdits || []).filter(e => !(isMoveEdit(e) && e.weeks && e.weeks.length === 1 && e.weeks[0] === w)); planChanged(); render(); toast("Every session this week is back on its usual day."); }
+function missedBanner(){
+  const miss = missedThisWeek(); if (!miss.length) return "";
+  const ts = todayShort(), todays = daysFor(ui.w).filter(x => x.short === ts && !(S.sessions[sid(ui.w, x.key)] || {}).done);
+  return `<div class="missed"><b>Not done yet this week</b>${miss.map(x => `<div class="row"><b>${esc(dayWords(ui.w, x.key))}${x.title ? ` · <span class="rx" style="font-weight:400">${esc(x.title)}</span>` : ""}</b>`
+    + (todays.length ? `<button class="btn" data-k="mvtoday" data-w="${ui.w}" data-d="${x.key}" title="Today's session moves to ${esc(WEEKDAY_LONG[x.short])}">Swap with today</button>` : `<button class="btn" data-k="mvtoday" data-w="${ui.w}" data-d="${x.key}">Move to today</button>`)
+    + `<button class="btn" data-k="mvskip" data-w="${ui.w}" data-d="${x.key}">Skip</button></div>`).join("")}`
+    + (todays.length ? `<div class="hint">Swapping puts today's session (${esc(todays.map(t => t.title || dayWords(ui.w, t.key)).join(", "))}) on the missed day instead, so nothing doubles up.</div>` : "") + `</div>`;
+}
+function setupGuide(){
+  const st = ui.setup.step, m = runMeta(RUNIDX.active), b1 = blockOrder()[0] || 1;
+  const steps = ["Your run", "Your maxes", "How you train"];
+  let h = `<div class="card editor" style="border:2px solid var(--accent)"><div class="rx">Step ${st} of 3 · ${steps.map((x, i) => i + 1 === st ? `<b>${x}</b>` : x).join(" → ")}</div>`;
+  if (st === 1) {
+    h += `<h3 style="margin:0;font-size:18px">Set up your run</h3><p style="margin:0">A start date puts real dates on every week and day, and makes the Today button work. Pick the day of your first session.</p>`
+      + `<div class="fgrid"><label class="fld"><span>Start date</span><input id="su-start" type="date" data-k="su" data-f="started" value="${esc(m.started || "")}"></label><label class="fld wide"><span>Run name (optional)</span><input id="su-name" data-k="su" data-f="name" value="${esc(m.name || "")}" placeholder="${esc(runLabel(Object.assign({}, m, {name: ""})))}"></label></div>`;
+  } else if (st === 2) {
+    h += `<h3 style="margin:0;font-size:18px">Your maxes</h3><p style="margin:0">Suggested weights are a % of these estimated one-rep maxes. Not sure? Use the calculator with a recent hard set.</p>`
+      + `<div class="fgrid" style="grid-template-columns:repeat(auto-fit,minmax(92px,1fr))">${Object.keys(DEFAULT_MAX).map(l => { const arr = (S.settings.e1rm || {})[l] || []; return `<label class="fld"><span>${esc(l === "OHP" ? "OHP" : l)}</span><input class="num" id="mx-${l}-${b1}" data-k="max" data-l="${l}" data-b="${b1}" inputmode="decimal" value="${esc(arr[b1 - 1] ?? "")}" placeholder="${fmt(maxFor(l, b1))}"></label>`; }).join("")}</div>`
+      + `<div class="wform"><h4>Calculator</h4><div class="fgrid"><label class="fld"><span>Weight (kg)</span><input class="num" id="calc-kg" inputmode="decimal" data-k="calc"></label><label class="fld"><span>Reps</span><input class="num" id="calc-r" inputmode="numeric" data-k="calc"></label><div class="fld"><span>Estimated max</span><b id="calc-out" style="font-family:var(--display);font-size:24px">–</b></div></div></div>`;
+  } else {
+    h += `<h3 style="margin:0;font-size:18px">How you train</h3>`
+      + `<label class="switch"><input type="checkbox" id="su-rest" data-k="restcfg" data-f="on"${RESTCFG.on ? " checked" : ""}> Track rest between sets</label><div class="hint">A countdown starts each time you tick a set. You can switch it on or off under any day's title.</div>`
+      + `<label class="fld"><span>Appearance</span><select id="su-mode" data-k="sumode">${[["system", "Match my phone"], ["light", "Light"], ["dark", "Dark"]].map(([k, l]) => `<option value="${k}"${LOOK.mode === k ? " selected" : ""}>${l}</option>`).join("")}</select></label>`
+      + `<div class="hint">The User guide in the menu explains everything else, from supersets to sharing programmes.</div>`;
+  }
+  h += `<div class="edbtns">${st > 1 ? `<button class="btn" data-k="setupback">Back</button>` : ""}${st < 3 ? `<button class="btn primary" data-k="setupnext">Next</button>` : `<button class="btn primary" data-k="setupdone">Finish</button>`}<button class="btn text" data-k="setupskip">${st < 3 ? "Skip setup" : "Close"}</button></div></div>`;
+  return h;
+}
+
+function movePanel(){
+  const dy = day(ui.w, ui.d), s = S.sessions[sid(ui.w, ui.d)] || {}, M = ui.move;
+  const occupant = M.to ? daysFor(ui.w).find(x => x.key !== ui.d && x.short === M.to) : null;
+  const moved = weekMoves(ui.w), mineMoved = moved.some(e => e.d === ui.d), home = mineMoved ? homeShort(ui.w, ui.d) : null;
+  let h = `<div class="card editor" style="border-top:1px solid var(--line)"><h4>Move or skip ${esc(dayWords(ui.w, ui.d))}</h4>`
+    + `<label class="fld"><span>Move to (this week only)</span><select id="mv-to" data-k="mvsel"><option value="">Choose a day</option>${WEEKDAYS.filter(x => x !== dy.short).map(x => { const occ = daysFor(ui.w).find(y => y.key !== ui.d && y.short === x); return `<option value="${x}"${M.to === x ? " selected" : ""}>${WEEKDAY_LONG[x]}${dayDate(ui.w, x) ? " " + shortDate(dayDate(ui.w, x)) : ""}${occ ? ` · ${esc(occ.title || "session")}` : " · free"}</option>`; }).join("")}</select></label>`;
+  if (occupant) h += `<div class="fld"><span>${esc(WEEKDAY_LONG[M.to])} already has ${esc(occupant.title || "a session")}</span><div class="seg" role="group" aria-label="How">${[["swap", "Swap the two"], ["both", "Do both that day"]].map(([k, l]) => `<button data-k="mvhow" data-v="${k}" aria-pressed="${(M.how || "swap") === k}">${l}</button>`).join("")}</div></div>`
+    + `<div class="hint">${(M.how || "swap") === "swap" ? `${esc(occupant.title || "That session")} moves to ${esc(WEEKDAY_LONG[dy.short])}, so each day still has one session.` : `Both sessions go on ${esc(WEEKDAY_LONG[M.to])}, with a heading so you can tell them apart (like AM and PM).`}</div>`;
+  h += `<div class="edbtns"><button class="btn primary" data-k="mvgo">${occupant && (M.how || "swap") === "swap" ? "Swap" : "Move"}</button><button class="btn" data-k="mvskip" data-w="${ui.w}" data-d="${ui.d}">${s.skipped ? "Undo skip" : "Skip this session"}</button><button class="btn" data-k="mvcancel">Cancel</button></div>`;
+  if (mineMoved || moved.length) h += `<div class="edbtns">${mineMoved ? `<button class="btn" data-k="mvback">Put back on ${esc(WEEKDAY_LONG[home] || "its usual day")}</button>` : ""}${moved.length ? `<button class="btn text" data-k="mvundoall">Undo all moves this week</button>` : ""}</div>`;
+  return h + `</div>`;
+}
+
 function scopeSeg(kind, cur){
   return `<div class="seg" role="group" aria-label="Apply to">` + scopeLabels()
     .filter(x => x[1]).map(([k, l]) => `<button data-k="${kind}" data-v="${k}" aria-pressed="${cur === k}">${l}</button>`).join("") + `</div>`;
@@ -1040,16 +1362,26 @@ function scopeLabels(){
 function addPanel(){
   const A = ui.add, d = A.draft, custom = !LIBIDX[d.name], isCond = !custom && LIBIDX[d.name].cat === "Conditioning";
   const f = (k, label, extra = "", cls = "") => `<label class="fld ${cls}"><span>${label}</span><input id="ad-${k}" data-k="ad" data-f="${k}" value="${esc(d[k] ?? "")}" ${extra}></label>`;
-  const opts = LIB.map(([c, xs]) => `<optgroup label="${esc(c)}">${xs.map(x => `<option value="${esc(x.name)}"${x.name === d.name ? " selected" : ""}>${esc(x.name)}</option>`).join("")}</optgroup>`).join("") + `<optgroup label="Other"><option value="__custom"${custom ? " selected" : ""}>Custom exercise…</option></optgroup>`;
+  const q = (ui.exq || "").trim().toLowerCase(), keep = x => !q || x.name.toLowerCase().includes(q) || x.name === d.name;
+  const opts = LIB.map(([c, xs]) => [c, xs.filter(keep)]).filter(([c, xs]) => xs.length).map(([c, xs]) => `<optgroup label="${esc(c)}">${xs.map(x => `<option value="${esc(x.name)}"${x.name === d.name ? " selected" : ""}>${esc(x.name)}</option>`).join("")}</optgroup>`).join("") + `<optgroup label="Other"><option value="__custom"${custom ? " selected" : ""}>Custom exercise…</option></optgroup>`;
   let h = `<div class="card"><div class="editor" style="border:0;padding:0"><h4>Add to ${esc(WEEKDAY_LONG[day(ui.w, ui.d).short] || "this day")}</h4>`;
   h += `<div class="seg" role="group" aria-label="Type">${[["single","Exercise"],["circuit","Circuit"],["emom","EMOM"]].map(([k, l]) => `<button data-k="adtype" data-v="${k}" aria-pressed="${(A.type || "single") === k}">${l}</button>`).join("")}</div><div class="fgrid">`;
   if (A.type === "circuit" || A.type === "emom") return h + groupAddFields(A) + `</div><div class="fld"><span>Add to</span>${scopeSeg("addscope", A.scope)}</div><div class="edbtns"><button class="btn primary" data-k="addsave">Add</button><button class="btn" data-k="addcancel">Cancel</button></div></div></div>`;
+  h += `<label class="fld wide"><span>Find an exercise</span><input id="ex-q" data-k="exq" value="${esc(ui.exq || "")}" placeholder="Type to filter, e.g. curl" autocomplete="off" enterkeyhint="search"></label>`;
   h += `<label class="fld wide"><span>Exercise</span><select id="ad-sel" data-k="adsel">${opts}</select></label>`;
   if (custom) h += f("custom", "Exercise name", 'placeholder="e.g. Sled-free hill sprints"', "wide") + `<label class="fld wide"><span>Log as</span><select id="ad-unit" data-k="adunit">${Object.entries(UNIT_NAME).map(([k, v]) => `<option value="${k}"${d.unit === k ? " selected" : ""}>${v}</option>`).join("")}<option value="cond"${d.unit === "cond" ? " selected" : ""}>Result only (time, distance…)</option></select></label>`;
   h += f("label", "Label", 'maxlength="6"');
   if (isCond || d.unit === "cond") h += f("rx", "Work", 'placeholder="e.g. 8 × 20s hard / 40s easy"', "wide") + f("target", "Effort");
-  else { h += f("sets", "Sets", 'inputmode="numeric"') + f("reps", "Reps") + f("target", "Effort") + f("rest", "Rest"); if (KG_UNITS.includes(d.unit)) h += f("load", d.unit === "+kg" ? "Start added kg" : "Start kg", 'inputmode="decimal" placeholder="Leave blank to pick"'); }
-  h += f("note", "Coaching note", "", "wide") + `</div>`;
+  else {
+    h += f("sets", "Sets", 'inputmode="numeric"') + f("reps", "Reps") + f("target", "Effort") + f("rest", "Rest");
+    if (d.unit === "kg") h += `<label class="fld wide"><span>Suggested weight</span><select id="ad-lmode" data-k="adlmode">${[["kg", "A starting weight (or pick it each time)"], ["pct", "A % of one of my maxes"]].map(([k, l]) => `<option value="${k}"${(d.lmode || "kg") === k ? " selected" : ""}>${l}</option>`).join("")}</select></label>`;
+    if (d.unit === "kg" && d.lmode === "pct") h += `<label class="fld"><span>Max</span><select id="ad-lift" data-k="adlift">${Object.keys(DEFAULT_MAX).map(l => `<option value="${l}"${(d.lift || "Squat") === l ? " selected" : ""}>${esc(LIFT_LABEL[l])}</option>`).join("")}</select></label>` + f("pct", "% of max", 'inputmode="decimal" placeholder="e.g. 75"') + f("step", "Add each week (%)", 'inputmode="decimal" placeholder="e.g. 2.5"')
+      + `<div class="hint" style="grid-column:1/-1">The weight goes up by this % each week of a block and starts again in the next block${S.plan.blank ? "; lighter weeks drop about 10%" : ""}. Change any week afterwards with Edit.</div>`;
+    else if (KG_UNITS.includes(d.unit)) h += f("load", d.unit === "+kg" ? "Start added kg" : "Start kg", 'inputmode="decimal" placeholder="Leave blank to pick"');
+  }
+  h += f("note", "Coaching note", "", "wide");
+  if (!(isCond || d.unit === "cond") && d.unit === "kg") h += `<label class="chk" style="grid-column:1/-1"><input type="checkbox" id="ad-wu" data-k="adwu"${d.wu ? " checked" : ""}> Show warm-up sets on the card</label>`;
+  h += `</div>`;
   h += `<div class="fld"><span>Add to</span>${scopeSeg("addscope", A.scope)}</div>`;
   h += `<div class="edbtns"><button class="btn primary" data-k="addsave">Add</button><button class="btn" data-k="addcancel">Cancel</button></div></div></div>`;
   return h;
@@ -1085,13 +1417,21 @@ function saveAdd(){
   const cond = custom ? d.unit === "cond" : LIBIDX[d.name].cat === "Conditioning";
   const item = {tag: String(d.label || "X").trim().slice(0, 6) || "X", name, kind: cond ? "cond" : "lift", note: d.note || "", target: (cond && d.target === "RIR 2") ? "Moderate" : (d.target || "")};
   if (cond) item.rx = d.rx || "As written";
-  else { item.unit = d.unit; item.sets = Math.min(10, Math.max(1, Math.round(num(d.sets) || 3))); item.reps = d.reps || "10"; item.rest = d.rest || ""; const ld = num(d.load); item.load = ld != null && KG_UNITS.includes(d.unit) ? `${ld} kg` : (d.unit === "none" ? "Bodyweight" : "Pick for target"); }
+  else if (d.unit === "kg" && d.lmode === "pct") {
+    const pc = num(d.pct); if (pc == null || pc < 30 || pc > 100) { flagError("Enter a % of max between 30 and 100.", ["ad-pct"]); return; }
+    const lift = d.lift || "Squat", MAIN = {Squat: "Back squat", Bench: "Bench press", Deadlift: "Deadlift", OHP: "Standing overhead press", Clean: "Power clean"};
+    Object.assign(item, {unit: "kg", sets: Math.min(10, Math.max(1, Math.round(num(d.sets) || 3))), reps: d.reps || "5", rest: d.rest || "", pct: Math.round(pc * 10) / 1000, lift});
+    const st = num(d.step); if (st) item.pctStep = Math.round(st * 10) / 1000;
+    if (MAIN[lift] === name) { item.prog = lift; item.kind = "main"; }
+    if (d.wu) item.wu = true;
+  }
+  else { if (d.wu && d.unit === "kg") item.wu = true; item.unit = d.unit; item.sets = Math.min(10, Math.max(1, Math.round(num(d.sets) || 3))); item.reps = d.reps || "10"; item.rest = d.rest || ""; const ld = num(d.load); item.load = ld != null && KG_UNITS.includes(d.unit) ? `${ld} kg` : (d.unit === "none" ? "Bodyweight" : "Pick for target"); }
   S.plan.added = (S.plan.added || []).concat([Object.assign({d: ui.d, id: Date.now().toString(36), item}, rangeOf(ui.add.scope))]);
-  ui.add = null; planChanged(); render();
+  ui.add = null; planChanged(); render(); toast(`Added ${name}.`);
 }
 
 // add, move, rename or remove days
-function openDays(){ ui.days = {scope: (ui.days && ui.days.scope) || "week", add: null, rows: daysFor(ui.w, true).map(x => ({key:x.key, short:x.short, title:x.title, sub:x.sub || "", optional:!!x.optional, hidden:!!x.hidden, src:x.src, base:x.base}))}; }
+function openDays(){ ui.days = {scope: (ui.days && ui.days.scope) || defScope(), add: null, rows: daysFor(ui.w, true).map(x => ({key:x.key, short:x.short, title:x.title, sub:x.sub || "", optional:!!x.optional, hidden:!!x.hidden, src:x.src, base:x.base}))}; }
 function daysRange(){ return rangeOf(ui.days.scope); }
 function daysPanel(){
   const D = ui.days, wk = week(ui.w);
@@ -1160,11 +1500,11 @@ function saveDays(){
     S.plan.customDays = (S.plan.customDays || []).concat([{key, short: D.add.short, title: (D.add.title || "").trim() || (sd ? sd.title : "Extra session"), sub: (D.add.sub || "").trim(), optional: false, src, from, weeks}]);
     ui.d = key;
   }
-  ui.days = null; planChanged(); render(); window.scrollTo(0,0);
+  ui.days = null; planChanged(); render(); window.scrollTo(0,0); toast("Days updated.");
 }
 
 function draftFrom(it){
-  const d = {intens: it.intens || "none", label: it.label || it.tag, name: it.name.split(" — ")[0], unit: it.unit || "kg", sets: it.sets ?? "", reps: it.reps ?? "", target: it.target ?? "", rest: (it.ss && !it.ss.last ? it.restRaw : it.rest) ?? "", note: it.note ?? "", rx: it.rx ?? ""};
+  const d = {wu: !!it.wu, wuScheme: it.wuScheme || "", intens: it.intens || "none", label: it.label || it.tag, name: it.name.split(" — ")[0], unit: it.unit || "kg", sets: it.sets ?? "", reps: it.reps ?? "", target: it.target ?? "", rest: (it.ss && !it.ss.last ? it.restRaw : it.rest) ?? "", note: it.note ?? "", rx: it.rx ?? ""};
   d.load = it.load && /kg$/.test(it.load) ? String(num(it.load)) : "";
   if (it.pct) d.pct = String(Math.round(it.pct * 1000) / 10);
   if (it.parts) d.parts = it.parts.map(p => ({name:p.name, reps:p.reps, load:p.load || ""}));
@@ -1177,7 +1517,8 @@ function libOptions(it, cur){
   let cats = LIB.filter(([c]) => isCond ? c === "Conditioning" : c !== "Conditioning");
   cats = cats.sort((a, b) => (b[0] === own) - (a[0] === own));
   const inLib = !!LIBIDX[cur];
-  return cats.map(([c, xs]) => `<optgroup label="${esc(c)}">${xs.map(x => `<option value="${esc(x.name)}"${x.name === cur ? " selected" : ""}>${esc(x.name)}</option>`).join("")}</optgroup>`).join("")
+  const q = (ui.exq || "").trim().toLowerCase();
+  return cats.map(([c, xs]) => [c, xs.filter(x => !q || x.name.toLowerCase().includes(q) || x.name === cur)]).filter(([c, xs]) => xs.length).map(([c, xs]) => `<optgroup label="${esc(c)}">${xs.map(x => `<option value="${esc(x.name)}"${x.name === cur ? " selected" : ""}>${esc(x.name)}</option>`).join("")}</optgroup>`).join("")
     + `<optgroup label="Other"><option value="__custom"${inLib ? "" : " selected"}>Custom exercise…</option></optgroup>`;
 }
 function editor(it, i){
@@ -1188,6 +1529,7 @@ function editor(it, i){
   let h = `<div class="editor"><h4>Edit exercise</h4><div class="fgrid">`;
   h += f("label", "Label", 'maxlength="6" autocapitalize="characters" placeholder="e.g. A1"');
   h += `<div class="hint" style="grid-column:1/-1">${it.ss ? `Part of ${it.ss.size === 2 ? "superset" : it.ss.size === 3 ? "tri-set" : "giant set"} ${esc(it.ss.letter)} (${it.ss.names.map(esc).join(", ")}). ${it.ss.last ? "Its rest is taken after the whole set." : `Go straight to ${esc(it.ss.names[it.ss.pos + 1])}, no rest.`}` : "Give two or more cards the same letter with numbers (C1, C2…) to make them a superset."}</div>`;
+  h += `<label class="fld wide"><span>Find an exercise</span><input id="ex-q" data-k="exq" value="${esc(ui.exq || "")}" placeholder="Type to filter, e.g. curl" autocomplete="off" enterkeyhint="search"></label>`;
   h += `<label class="fld wide"><span>Exercise</span><select id="ed-sel" data-k="edsel">${libOptions(it, custom ? "__custom" : d.name)}</select></label>`;
   if (custom) {
     h += f("custom", "Exercise name", 'placeholder="e.g. Zercher squat"', "wide");
@@ -1206,6 +1548,10 @@ function editor(it, i){
   });
   if (d.parts) h += `<div class="fld wide"><button class="btn" data-k="edpartadd" style="align-self:flex-start">${it.emom ? "Add a minute" : "Add a part"}</button></div>`;
   h += f("note", "Coaching note", 'placeholder="Technique cues, setup…"', "wide");
+  if (it.sets && (d.unit || "kg") === "kg") {
+    h += `<div class="fld wide"><span>Warm-up sets</span><div class="seg" role="group" aria-label="Warm-up sets">${[[false, "Tab only"], [true, "Show on card"]].map(([v, l]) => `<button data-k="edwu" data-v="${v}" aria-pressed="${!!d.wu === v}">${l}</button>`).join("")}</div></div>`
+      + f("wuScheme", "Warm-up ramp (% of working weight × reps)", `placeholder="${esc(S.settings.wu || WU_DEFAULT)}"`, "wide");
+  }
   if (it.sets) {
     const lib = intLib();
     h += `<label class="fld wide"><span>Intensifier</span><select id="ed-int" data-k="edint"><option value="none"${d.intens === "none" ? " selected" : ""}>None (straight sets)</option>`
@@ -1223,10 +1569,125 @@ function editor(it, i){
       .filter(x => x[1]).map(([k, l]) => `<button data-k="edscope" data-v="${k}" aria-pressed="${E.scope === k}">${l}</button>`).join("") + `</div></div>`;
   if (E.scope !== "week" && it.sets) h += `<div class="hint">Sets scale with the plan and intensifiers skip the lighter weeks, so they stay lighter. ${it.pct ? "A change to % shifts every week by the same amount, keeping the weekly build. " : ""}Reps and effort apply exactly as written.</div>`;
   if (it.removed) h += `<div class="edbtns"><button class="btn primary" data-k="edrestore">Put back</button><button class="btn" data-k="edcancel">Cancel</button></div></div>`;
-  else h += `<div class="edbtns"><button class="btn primary" data-k="edsave">Save</button><button class="btn" data-k="edcancel">Cancel</button><button class="btn" data-k="edremove">Remove from day</button>${it.edited && plan && !plan.xid ? `<button class="btn text" data-k="edreset">Back to plan (${esc(plan.name.split(" — ")[0])})</button>` : ""}</div></div>`;
+  else h += `<div class="edbtns"><button class="btn primary" data-k="edsave">Save</button><button class="btn" data-k="edcancel">Cancel</button><button class="btn" data-k="edremove">Remove from day</button>${it.sets ? `<button class="btn" data-k="pgopen">Week by week</button>` : ""}${it.edited && plan && !plan.xid ? `<button class="btn text" data-k="edreset">Back to plan (${esc(plan.name.split(" — ")[0])})</button>` : ""}</div></div>`;
   return h;
 }
 function scopeRange(){ return rangeOf(ui.edit.scope); }
+
+// ---------- session summary ----------
+function fmtSet(u, x){ const kg = num(x.kg), r = num(x.reps); if (u === "none") return `${fmt(r)} reps`; return `${u === "+kg" ? "+" : ""}${fmt(kg)}${u === "cm" ? " cm" : " kg"} × ${fmt(r)}`; }
+function topSet(u, sets){ let best = null, bm = -1; sets.forEach(x => { const m = setMetric({unit: u, kg: num(x.kg), reps: num(x.reps)}); if (m != null && m > bm) { bm = m; best = x; } }); return best; }
+function sessionData(w, d){
+  const s = S.sessions[sid(w, d)] || {}, items = effItems(w, d), out = {sets: 0, reps: 0, vol: 0, ex: [], prs: [], res: [], next: []};
+  items.forEach((it, i) => {
+    if (it.removed) return;
+    const nm = it.name.split(" — ")[0];
+    if (!it.log) { const r = ((s.results || {})[i] || "").trim(); if (r) out.res.push(`${nm}: ${r}`); return; }
+    const u = it.unit || "kg", L = ((s.sets || {})[i] || []).filter(x => num(x.kg) != null || num(x.reps) != null); if (!L.length) return;
+    L.forEach((x, k) => { out.sets++; out.reps += num(x.reps) || 0; if (KG_UNITS.includes(u) && u !== "+kg" && num(x.kg) && num(x.reps)) out.vol += num(x.kg) * num(x.reps);
+      const p = prLabel(nm, u, num(x.kg), num(x.reps), {run: RUNIDX.active, w, d, i, k}); if (p) out.prs.push({nm, set: fmtSet(u, x), p}); });
+    const ex = out.ex.find(e => e.nm === nm) || (out.ex.push({nm, u, sets: []}), out.ex[out.ex.length - 1]); ex.sets.push(...L);
+    if (canProgress(it) && !S.settings.nextOff) { const v = verdict(it, L); if (v && v.up) out.next.push(`${nm}: ${fmt(v.kg)} kg`); }
+  });
+  out.ex.forEach(e => e.top = topSet(e.u, e.sets));
+  return out;
+}
+function prevSameDay(w, d){ const vis = schedVis(), wi = vis.findIndex(e => e.id === w); for (let k = wi - 1; k >= 0; k--) { const s = S.sessions[sid(vis[k].id, d)]; if (daysFor(vis[k].id).some(x => x.key === d) && s && Object.keys(s.sets || {}).length) return vis[k].id; } return null; }
+function summaryCard(w, d){
+  const D = sessionData(w, d), pw = prevSameDay(w, d), P = pw ? sessionData(pw, d) : null, dy = day(w, d), s = S.sessions[sid(w, d)] || {};
+  const tile = (n, l, delta) => `<div class="stile"><b>${n}</b><span>${l}</span>${delta || ""}</div>`;
+  const dlt = (a, b, unit) => b == null || !b ? "" : `<small class="${a >= b ? "up" : "down"}">${a >= b ? "+" : "−"}${fmt(Math.abs(Math.round(a - b)))}${unit} vs week ${posOf(pw)}</small>`;
+  let h = `<div class="card summary"><div class="ghead"><h3 style="margin:0;font-size:17px">Session summary</h3><span class="chip">Week ${posOf(w)} · ${esc(dy.short)}</span></div>`;
+  h += `<div class="stiles">${tile(D.sets, "sets")}${tile(D.reps, "reps", P ? dlt(D.reps, P.reps, "") : "")}${D.vol ? tile(`${fmt(Math.round(D.vol / 10) / 100)}t`, "volume", P && P.vol ? `<small class="${D.vol >= P.vol ? "up" : "down"}">${D.vol >= P.vol ? "+" : "−"}${Math.abs(Math.round((D.vol / P.vol - 1) * 100))}% vs week ${posOf(pw)}</small>` : "") : ""}${tile(D.prs.length, D.prs.length === 1 ? "PR" : "PRs")}</div>`;
+  if (D.prs.length) h += `<div class="sblk"><h4>Records</h4>${D.prs.map(x => `<div><b>${esc(x.nm)}</b> ${esc(x.set)} <span class="chip pr">${esc(x.p)}</span></div>`).join("")}</div>`;
+  if (D.ex.length) {
+    h += `<div class="sblk"><h4>Best sets${P ? ` vs week ${posOf(pw)}` : ""}</h4><table class="stab">`;
+    D.ex.forEach(e => {
+      const pe = P && P.ex.find(x => x.nm === e.nm), a = e.top && setMetric({unit: e.u, kg: num(e.top.kg), reps: num(e.top.reps)}), b = pe && pe.top && setMetric({unit: e.u, kg: num(pe.top.kg), reps: num(pe.top.reps)});
+      const arrow = a == null || b == null ? "" : a > b + .05 ? '<span class="up">▲</span>' : a < b - .05 ? '<span class="down">▼</span>' : '<span class="rx">=</span>';
+      h += `<tr><td>${esc(e.nm)}</td><td><b>${e.top ? esc(fmtSet(e.u, e.top)) : "–"}</b></td>${P ? `<td class="rx">${pe && pe.top ? esc(fmtSet(e.u, pe.top)) : "–"}</td><td>${arrow}</td>` : ""}</tr>`;
+    });
+    h += `</table></div>`;
+  }
+  if (D.res.length) h += `<div class="sblk"><h4>Results</h4>${D.res.map(x => `<div>${esc(x)}</div>`).join("")}</div>`;
+  if (D.next.length) h += `<div class="sblk"><h4>Next time, go up</h4>${D.next.map(x => `<div>↑ ${esc(x)}</div>`).join("")}</div>`;
+  if (s.note) h += `<div class="sblk"><h4>Notes</h4><div>${esc(s.note)}</div></div>`;
+  if (ui.sumText) h += `<textarea readonly rows="6">${esc(ui.sumText)}</textarea>`;
+  h += `<div class="edbtns"><button class="btn" data-k="sumcopy">Copy as text</button><button class="btn text" data-k="sumclose">Close</button></div></div>`;
+  return h;
+}
+function summaryText(w, d){
+  const D = sessionData(w, d), dy = day(w, d), m = runMeta(RUNIDX.active), dt = dayDate(w, dy.short), s = S.sessions[sid(w, d)] || {};
+  const L = [`${runLabel(m)} · Week ${posOf(w)} ${dy.short}${dy.title ? " · " + dy.title : ""}${dt ? " (" + shortDate(dt) + ")" : ""}`];
+  L.push(`${D.sets} sets, ${D.reps} reps${D.vol ? `, ${fmt(Math.round(D.vol))} kg volume` : ""}`);
+  D.ex.forEach(e => L.push(`- ${e.nm}: ${e.sets.map(x => fmtSet(e.u, x).replace(" kg × ", "×").replace(" reps", "")).join(", ")}`));
+  D.res.forEach(x => L.push(`- ${x}`));
+  if (D.prs.length) L.push(`PRs: ${D.prs.map(x => `${x.nm} ${x.set} (${x.p})`).join("; ")}`);
+  if (s.note) L.push(`Notes: ${s.note}`);
+  return L.join("\n");
+}
+
+// ---------- week-by-week progression table for one exercise ----------
+function progRows(slot){
+  return schedVis().map(e => {
+    if (!daysFor(e.id).some(x => x.key === ui.d)) return null;
+    const it = effItems(e.id, ui.d).find(x => x.slot === slot); if (!it || it.removed || !it.sets) return null;
+    return {w: e.id, pos: posOf(e.id), block: e.block, light: week(e.id).light, sets: String(it.sets), reps: String(it.reps ?? ""), target: String(it.target ?? ""), pct: it.pct ? String(Math.round(it.pct * 1000) / 10) : "", load: it.load && /kg$/.test(it.load) ? String(num(it.load)) : ""};
+  }).filter(Boolean);
+}
+function openProg(i){
+  const it = effItems(ui.w, ui.d)[i], rows = progRows(it.slot);
+  ui.prog = {slot: it.slot, group: it.group, name: it.name.split(" — ")[0], pct: !!it.pct, kg: !it.pct && KG_UNITS.includes(it.unit || "kg"), unit: it.unit || "kg", rows, orig: clone(rows), fill: {start: rows.length ? (it.pct ? rows[0].pct : rows[0].load) : "", step: it.pct ? "2.5" : "2.5", restart: true}};
+  closePanels();
+}
+function progPanel(){
+  const P = ui.prog, col = P.pct ? "% max" : P.kg ? (P.unit === "+kg" ? "+kg" : "kg") : null;
+  let h = `<div class="section"><h2>Week by week</h2><p>${esc(P.name)} on ${esc(WEEKDAY_LONG[day(ui.w, ui.d).short] || "this day")}, every week it appears. Change any cell, or fill the load column in one go.</p></div><div class="card editor" style="border-top:1px solid var(--line)">`;
+  if (!P.rows.length) return h + `<div class="hint">This exercise isn't in any week.</div><div class="edbtns"><button class="btn" data-k="pgcancel">Close</button></div></div>`;
+  if (col) h += `<div class="wform"><h4>Fill ${P.pct ? "% of max" : "weights"}</h4><div class="fgrid"><label class="fld"><span>Week 1 ${P.pct ? "%" : "kg"}</span><input id="pg-start" class="num" data-k="pgfill" data-f="start" value="${esc(P.fill.start)}" inputmode="decimal"></label><label class="fld"><span>Add each week</span><input id="pg-step" class="num" data-k="pgfill" data-f="step" value="${esc(P.fill.step)}" inputmode="decimal"></label></div>`
+    + `<label class="chk"><input type="checkbox" data-k="pgrestart"${P.fill.restart ? " checked" : ""}> Start again at each new block</label><div class="hint">Lighter weeks get ${P.pct ? "10 percentage points less" : "about 10% less"} and don't count as a step.</div><div class="edbtns"><button class="btn" data-k="pgdofill">Fill</button><button class="btn" data-k="pgcopy">Copy week ${P.rows[0].pos}'s sets, reps and effort to all</button></div></div>`;
+  h += `<div class="ptab-wrap"><table class="ptab"><thead><tr><th>Wk</th><th>Sets</th><th>Reps</th>${col ? `<th>${col}</th>` : ""}<th>Effort</th></tr></thead><tbody>`;
+  let lastB = null;
+  P.rows.forEach((r, k) => {
+    if (r.block !== lastB) { lastB = r.block; h += `<tr class="pb"><td colspan="${col ? 5 : 4}">${esc(blockName(r.block))}</td></tr>`; }
+    const o = P.orig[k], cell = (f, extra) => `<td><input id="pg-${k}-${f}" data-k="pgc" data-r="${k}" data-f="${f}" value="${esc(r[f])}"${String(r[f]) !== String(o[f]) ? ' class="chg"' : ""} ${extra}></td>`;
+    h += `<tr${r.w === ui.w ? ' class="cur"' : ""}><th>${r.pos}${r.light ? '<small>light</small>' : ""}</th>${cell("sets", 'inputmode="numeric" aria-label="Sets week ' + r.pos + '"')}${cell("reps", 'aria-label="Reps week ' + r.pos + '"')}${col ? cell(P.pct ? "pct" : "load", `inputmode="decimal" placeholder="${P.pct ? "" : "pick"}" aria-label="${col} week ${r.pos}"`) : ""}${cell("target", 'aria-label="Effort week ' + r.pos + '"')}</tr>`;
+  });
+  h += `</tbody></table></div>`;
+  if (P.pct) h += `<div class="hint">A % change also moves any back-off sets of this lift by the same amount.</div>`;
+  h += `<div class="edbtns"><button class="btn primary" data-k="pgsave">Save</button><button class="btn" data-k="pgcancel">Cancel</button></div></div>`;
+  return h;
+}
+function progFill(){
+  const P = ui.prog, f = num(P.fill.start), st = num(P.fill.step) || 0, key = P.pct ? "pct" : "load", r0 = num(S.settings.round) || 2.5;
+  if (f == null) { flagError("Enter the week 1 value first.", ["pg-start"], "Can't fill yet."); return; }
+  let k = 0, lastB = null;
+  P.rows.forEach(r => {
+    if (P.fill.restart && r.block !== lastB) k = 0; lastB = r.block;
+    let v = f + st * k; if (r.light) v = P.pct ? v - 10 : v * 0.9; else k++;
+    r[key] = String(P.pct ? Math.round(v * 10) / 10 : Math.round(v / r0) * r0);
+  });
+  render();
+}
+function saveProg(){
+  const P = ui.prog, bad = [];
+  P.rows.forEach((r, k) => { const n = num(r.sets); if (n == null || n < 1 || n > 10 || n % 1) bad.push(`pg-${k}-sets`); if (P.pct) { const v = num(r.pct); if (v == null || v < 30 || v > 100) bad.push(`pg-${k}-pct`); } });
+  if (bad.length) { flagError("Sets need to be 1 to 10, and % of max 30 to 100.", bad, "Can't save yet."); return; }
+  let changed = 0;
+  P.rows.forEach((r, k) => {
+    const o = P.orig[k], f = {};
+    if (r.sets !== o.sets) f.sets = Math.round(num(r.sets));
+    if (r.reps.trim() !== o.reps) f.reps = r.reps.trim();
+    if (r.target.trim() !== o.target) f.target = r.target.trim();
+    if (P.pct && r.pct !== o.pct) {
+      const base = baseItems(r.w, ui.d), slots = slotsFor(base), b = base[slots.indexOf(P.slot)];
+      if (b && b.pct) f.pctDelta = Math.round((num(r.pct) / 100 - (week(r.w).pctAdj || 0) / 100 - stepPct(b, r.w)) * 1000) / 1000;
+    }
+    if (P.kg && r.load !== o.load) { const v = num(r.load); f.load = v == null ? "" : v; }
+    if (Object.keys(f).length) { pushEdit({d: ui.d, slot: P.slot, group: P.group, f, from: r.w, weeks: [r.w]}); changed++; }
+  });
+  ui.prog = null; render(); toast(changed ? `Updated ${changed} week${changed === 1 ? "" : "s"} of ${P.name}.` : "No changes.");
+}
 function pushEdit(e){
   // a newer edit with the same reach replaces older ones it fully covers
   S.plan.edits = S.plan.edits.filter(x => !(x.d === e.d && x.slot === e.slot && (x.weeks || []).every(w => e.weeks.includes(w)) && (e.reset || (!x.reset && Object.keys(x.f).every(k => k in e.f)))));
@@ -1251,9 +1712,11 @@ function saveEdit(){
   if (it.sets) { const n = Math.round(num(d.sets)); if (n && n !== it.sets) { f.sets = Math.min(10, Math.max(1, n)); f.baseSets = base.sets; } }
   if (it.pct) { const p = num(d.pct); if (p && Math.abs(p / 100 - it.pct) > 1e-6) { const cur = (it.pct - base.pct); f.pctDelta = Math.round((p / 100 - base.pct) * 1000) / 1000; } }
   else if (it.sets) { const cur = it.load && /kg$/.test(it.load) ? String(num(it.load)) : ""; const nv = d.load === "" ? "" : num(d.load); if (String(nv ?? "") !== cur) f.load = nv ?? ""; }
+  if (!!d.wu !== !!it.wu) f.wu = !!d.wu;
+  if ((d.wuScheme || "").trim() !== (it.wuScheme || "")) f.wuScheme = (d.wuScheme || "").trim();
   if (d.parts && JSON.stringify(d.parts) !== JSON.stringify((it.parts||[]).map(p => ({name:p.name, reps:p.reps, load:p.load || ""})))) f.parts = d.parts.filter(p => (p.name || "").trim()).map(p => ({name:p.name.trim(), reps:p.reps, load:p.load}));
   if (Object.keys(f).length) pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, f}, scopeRange()));
-  ui.edit = null; render();
+  ui.edit = null; render(); if (Object.keys(f).length) toast(`Updated ${f.name || curName}.`);
 }
 function resetEdit(){ const it = effItems(ui.w, ui.d)[ui.edit.i]; pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, reset: true}, scopeRange())); ui.edit = null; render(); }
 
@@ -1270,7 +1733,7 @@ function viewProgress(){
   const anyLog = rows.some(r => lifts.some(l => r[l]));
   let h = `<div class="section"><h2>Strength</h2><p>Best estimated 1RM from the first main-lift row each week (kg × (1 + reps ÷ 30)). Log your bodyweight on the same morning each week.</p></div>`;
   const spans = []; rows.forEach((r, i) => { const last = spans[spans.length - 1]; if (last && last.b === r.block) last.e = i + 1; else spans.push({b: r.block, s: i + 1, e: i + 1}); });
-  CHART_AXIS = {n: rows.length, spans};
+  CHART_AXIS = {n: rows.length, spans, labels: null};
   const SER = [["Squat","var(--s1)"],["Bench","var(--s2)"],["Deadlift","var(--s3)"],["OHP","var(--s4)"]];
   h += chartBox("c-e1", SER.map(([k,c]) => ({label: k === "OHP" ? "OHP" : k, color:c, vals: rows.map(r => r[k] ? Math.round(r[k]) : null), names: rows.map(r => r[k + "Name"] || "")})), "kg",
     "Your estimated maxes appear here as soon as you log a main lift.");
@@ -1286,6 +1749,7 @@ function viewProgress(){
   const first = l => { const r = rows.find(r => r[l]); return r ? r[l] : null; };
   h += `</tbody><tfoot><tr><td>Best</td>${lifts.map(l => `<td>${best(l) ? fmt(Math.round(best(l))) : "–"}</td>`).join("")}<td></td></tr>`;
   h += `<tr><td>Change</td>${lifts.map(l => { const b = best(l), f = first(l); if (!b || !f) return "<td>–</td>"; const d = Math.round(b - f); return `<td class="${d>0?"up":""}">${d>0?"+":""}${d}</td>`; }).join("")}<td></td></tr></tfoot></table></div>`;
+  h += recordsCard();
   h += `<div class="section"><h2>Benchmarks</h2><p>Your before-and-after tests. Record them here or on the day you test. A benchmark linked to an exercise fills in from your log.</p></div>`;
   h += ui.bedit ? benchEditor() : benchCard();
   return h;
@@ -1385,7 +1849,7 @@ function chartBox(id, series, unit, emptyMsg, H){
   ends.forEach(e => g += `<text x="${W - mr + 8}" y="${e.y + 4}" font-size="13" fill="var(--ink)" font-weight="600">${esc(e.text)}</text>`);
   g += `<line class="xh" x1="0" x2="0" y1="${mt}" y2="${H-mb}" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3" visibility="hidden"/>`;
   const cw = (W - ml - mr) / den; for (let w = 1; w <= N; w++) g += `<rect data-chart="${id}" data-wk="${w}" x="${x(w) - cw/2}" y="${mt}" width="${cw}" height="${H-mt-mb}" fill="transparent"/>`;
-  CHARTS[id] = {series, unit, x, W};
+  CHARTS[id] = {series, unit, x, W, labels: CHART_AXIS.labels || null};
   return `<div class="chartbox" id="${id}">${legend}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(series.map(s=>s.label).join(", "))} by week">${g}</svg><div class="tip" hidden></div></div>`;
 }
 function axisX(W,H,ml,mr,mb,mt){
@@ -1399,7 +1863,7 @@ function showTip(rect){
   const c = CHARTS[rect.dataset.chart], w = +rect.dataset.wk, box = rect.closest(".chartbox"); if (!c || !box) return;
   const tip = box.querySelector(".tip"), svg = box.querySelector("svg"), xh = svg.querySelector(".xh");
   const rows = c.series.map(s => s.vals[w-1] == null ? "" : `<div>${c.series.length > 1 ? `<i style="background:${s.color}"></i>` : ""}${esc(s.label)} <b>${fmt(s.vals[w-1])} ${c.unit}</b>${s.names && s.names[w-1] ? ` · ${esc(s.names[w-1])}` : ""}</div>`).join("");
-  tip.innerHTML = `<div><b>Week ${w}</b></div>` + (rows || "<div>Nothing logged</div>");
+  tip.innerHTML = `<div><b>${c.labels && c.labels[w - 1] ? esc(c.labels[w - 1]) : `Week ${w}`}</b></div>` + (rows || "<div>Nothing logged</div>");
   const scale = svg.getBoundingClientRect().width / c.W, px = c.x(w) * scale + 8;
   xh.setAttribute("x1", c.x(w)); xh.setAttribute("x2", c.x(w)); xh.setAttribute("visibility", "visible");
   tip.hidden = false;
@@ -1421,7 +1885,7 @@ const GUIDE_DEFAULT = [
 ];
 function guideSections(){
   const G = S.plan.guide || {}, ed = G.edits || {};
-  return GUIDE_DEFAULT.map(x => Object.assign({}, x, ed[x.id] || {}, {builtin:true, changed: !!ed[x.id]})).concat((G.custom || []).map(x => Object.assign({}, x, {builtin:false})));
+  return GUIDE_DEFAULT.filter(x => !S.plan.blank || !["plan", "layout", "blocks"].includes(x.id)).map(x => Object.assign({}, x, ed[x.id] || {}, {builtin:true, changed: !!ed[x.id]})).concat((G.custom || []).map(x => Object.assign({}, x, {builtin:false})));
 }
 function guideBody(text){
   // "Label: text" lines become a definition list, "- " lines become bullets, anything else is a paragraph
@@ -1483,12 +1947,16 @@ function intForm(F, I){
 function viewPlans(){
   const P = ui.plans || (ui.plans = {}), act = runMeta(RUNIDX.active), weeks = schedVis().length, blocks = blockOrder();
   const loggedIn = id => { const R = RUNS[id]; return R ? Object.values(R.sessions).filter(x => x && x.done).length : 0; };
-  let h = `<div class="section"><h2>This run</h2><p>Each run has its own log, maxes and progress, so running a programme again never mixes with earlier runs.</p></div>`;
+  let h = "";
+  if (act.builder) h += `<div class="section"><h2>Editing a programme</h2><p>You're in the editor for a programme, not a run. Close it to get back to your training.</p></div>` + builderBar();
+  h += `<div class="section"><h2>This run</h2><p>Each run has its own log, maxes and progress, so running a programme again never mixes with earlier runs.</p></div>`;
   const ed = P.edit || {name: act.name || "", started: act.started || ""};
   h += `<div class="card"><div class="fgrid"><label class="fld wide"><span>Run name</span><input id="pl-name" data-k="plf" data-f="name" value="${esc(ed.name)}" maxlength="60" placeholder="${esc(runLabel(Object.assign({}, act, {name: ""})))}"></label>`
     + `<label class="fld"><span>Start date</span><input id="pl-start" type="date" data-k="plf" data-f="started" value="${esc(ed.started)}"></label></div>`
     + `<div class="rx">From the <b>${esc(act.tplName || "Hybrid 12")}</b> template · run ${act.seq || 1} · ${weeks} weeks in ${blocks.length} block${blocks.length === 1 ? "" : "s"}${act.started && weeks ? ` · ${fmtDate(act.started, true)} to ${fmtDate(new Date(weekMonday(schedVis()[weeks - 1].id).getTime() + 6 * 864e5).toISOString().slice(0, 10), true)}` : " · add a start date to see dates on every week and day"}</div>`
     + `<div class="edbtns"><button class="btn primary" data-k="plsave">Save</button></div></div>`;
+  h += updateRunPanel(act);
+  h += `<div class="edbtns"><button class="btn" data-k="setupopen">Run the setup guide</button></div>`;
   h += updatePanel(act, blocks);
 
   h += `<div class="section"><h2>Save as a template</h2><p>Keep this programme, or one of its blocks, with every change you've made, so you can run it again.</p></div>`;
@@ -1499,11 +1967,13 @@ function viewPlans(){
     + `<label class="fld wide"><span>Notes (optional)</span><input id="pt-desc" data-k="ptf" data-f="desc" value="${esc(T.desc)}" maxlength="300" placeholder="What it's for, what you changed"></label></div>`
     + `<div class="edbtns"><button class="btn primary" data-k="ptsave">Save template</button>${P.savedMsg ? `<span class="rx">${esc(P.savedMsg)}</span>` : ""}</div></div>`;
 
+  h += `<div class="section"><h2>Create a programme</h2><p>Build one from scratch: your blocks, weeks and training days, then the exercises for each day. Good for coaches writing a plan to share.</p></div>`;
+  h += P.make ? makePanel() : `<div class="card"><div class="edbtns"><button class="btn primary" data-k="mkopen">New programme</button></div><div class="hint">To start from an existing programme instead, tap Copy and edit on it in the library below.</div></div>`;
   h += `<div class="section"><h2>Template library</h2></div>`;
   tplList().forEach(t => {
-    const wks = planWeeks(t.plan).length, nb = planBlocks(t.plan).length, runs = (RUNIDX.list || []).filter(x => x.tpl === t.id).length;
+    const wks = planWeeks(t.plan).length, nb = planBlocks(t.plan).length, runs = (RUNIDX.list || []).filter(x => x.tpl === t.id && !x.builder).length;
     h += `<div class="card"><div class="ghead"><h3 style="margin:0;font-size:17px">${esc(t.name)}</h3><span class="chip" style="color:var(--muted)">${t.kind === "block" ? "Block" : "Programme"}</span></div>`
-      + `<div class="rx">${wks} week${wks === 1 ? "" : "s"}${t.kind === "block" ? "" : ` · ${nb} block${nb === 1 ? "" : "s"}`} · run ${runs} time${runs === 1 ? "" : "s"}${t.created ? ` · saved ${fmtDate(t.created.slice(0, 10), true)}` : ""}${t.updated ? ` · updated ${fmtDate(t.updated.slice(0, 10), true)}` : ""}</div>`
+      + `<div class="rx">${wks} week${wks === 1 ? "" : "s"}${t.kind === "block" ? "" : ` · ${nb} block${nb === 1 ? "" : "s"}`} · run ${runs} time${runs === 1 ? "" : "s"}${` · v${tplMeta(t).ver}`}${t.author ? ` · by ${esc(t.author)}` : ""}${t.created ? ` · saved ${fmtDate(t.created.slice(0, 10), true)}` : ""}${t.updated ? ` · updated ${fmtDate(t.updated.slice(0, 10), true)}` : ""}</div>`
       + (t.desc ? `<div class="rx" style="color:var(--ink)">${esc(t.desc)}</div>` : "");
     if (P.start && P.start.tpl === t.id) {
       const A = P.start;
@@ -1519,21 +1989,86 @@ function viewPlans(){
         + `<label class="fld"><span>Main lifts % change</span><input id="pi-pct" data-k="pif" data-f="pct" value="${esc(A.pct)}" inputmode="decimal" placeholder="0"></label></div>`
         + `<div class="edbtns"><button class="btn primary" data-k="pigo">Add block</button><button class="btn" data-k="picancel">Cancel</button></div></div>`;
     } else {
-      h += `<div class="edbtns"><button class="btn primary" data-k="psopen" data-t="${t.id}">Start a run</button>${t.kind === "block" ? `<button class="btn" data-k="piopen" data-t="${t.id}">Add to this run</button>` : ""}${t.builtin ? "" : `<button class="btn text" data-k="ptdel" data-t="${t.id}">${P.confirmDel === t.id ? "Tap again to delete" : "Delete"}</button>`}</div>`;
+      h += `<div class="edbtns"><button class="btn primary" data-k="psopen" data-t="${t.id}">Start a run</button>${t.kind === "block" ? `<button class="btn" data-k="piopen" data-t="${t.id}">Add to this run</button>` : ""}<button class="btn" data-k="shopen" data-t="${t.id}">Share</button>${t.kind === "block" ? "" : `<button class="btn" data-k="bdopen" data-t="${t.id}">${t.builtin ? "Copy and edit" : "Edit"}</button>`}${t.builtin ? "" : `<button class="btn text" data-k="ptdel" data-t="${t.id}">${P.confirmDel === t.id ? "Tap again to delete" : "Delete"}</button>`}</div>`;
+      if (P.share && P.share.tpl === t.id) h += sharePanel(t);
     }
     h += `</div>`;
   });
 
   h += `<div class="section"><h2>Your runs</h2></div><div class="card">`;
   const list = (RUNIDX.list || []).slice().reverse();
-  list.filter(m => !m.archived || P.showArchived).forEach(m => {
+  list.filter(m => !m.builder && (!m.archived || P.showArchived)).forEach(m => {
     const R = RUNS[m.id], wk = R ? planWeeks(R.plan).length : 0;
     h += `<div class="dayrow${m.archived ? " off" : ""}" style="grid-template-columns:1fr auto;align-items:center"><div><b>${esc(runLabel(m))}</b>${m.id === RUNIDX.active ? ' <span class="chip">Active</span>' : ""}<div class="rx">${m.started ? `Started ${fmtDate(m.started, true)}` : "No start date"} · ${wk} weeks · ${loggedIn(m.id)} session${loggedIn(m.id) === 1 ? "" : "s"} done</div></div>`
       + `<div class="edbtns" style="grid-column:auto">${m.id !== RUNIDX.active ? `<button class="btn" data-k="plopen" data-r="${m.id}">Open</button>` : ""}${m.id !== RUNIDX.active ? `<button class="btn text" data-k="plarch" data-r="${m.id}">${m.archived ? "Unarchive" : "Archive"}</button>` : ""}</div></div>`;
   });
-  if (list.some(m => m.archived)) h += `<button class="addnote" data-k="plshowarch">${P.showArchived ? "Hide archived runs" : "Show archived runs"}</button>`;
+  if (list.some(m => m.archived && !m.builder)) h += `<button class="addnote" data-k="plshowarch">${P.showArchived ? "Hide archived runs" : "Show archived runs"}</button>`;
   h += `</div>`;
   return h;
+}
+
+// ---------- programme builder ----------
+function newMake(){ return {name: "", desc: "", author: RUNIDX.author || "", blocks: [{name: "", weeks: "4", light: true, focus: ""}], days: Object.fromEntries(WEEKDAYS.map(d => [d, {on: ["Mon", "Tue", "Thu", "Fri"].includes(d), title: "", optional: false}]))}; }
+function makePanel(){
+  const M = ui.plans.make;
+  let h = `<div class="card editor" style="border:2px solid var(--accent)"><h3 style="margin:0;font-size:17px">New programme</h3><div class="fgrid">`
+    + `<label class="fld wide"><span>Programme name</span><input id="mk-name" data-k="mkf" data-f="name" value="${esc(M.name)}" maxlength="60" placeholder="e.g. Off-season strength"></label>`
+    + `<label class="fld wide"><span>About it (optional)</span><input id="mk-desc" data-k="mkf" data-f="desc" value="${esc(M.desc)}" maxlength="300" placeholder="Who it's for and what it builds"></label>`
+    + `<label class="fld wide"><span>Your name (optional)</span><input id="mk-author" data-k="mkf" data-f="author" value="${esc(M.author)}" maxlength="60" placeholder="e.g. Coach Sam"></label></div>`;
+  h += `<h4>Blocks</h4>`;
+  M.blocks.forEach((B, i) => {
+    h += `<div class="dayrow"><label class="fld"><span>Block ${i + 1} name</span><input id="mk-b${i}-name" data-k="mkb" data-r="${i}" data-f="name" value="${esc(B.name)}" maxlength="40" placeholder="${["e.g. Accumulation", "e.g. Intensification", "e.g. Peak"][i] || `Block ${i + 1}`}"></label>`
+      + `<label class="fld"><span>Weeks</span><input id="mk-b${i}-weeks" data-k="mkb" data-r="${i}" data-f="weeks" value="${esc(B.weeks)}" inputmode="numeric"></label>`
+      + `<label class="fld" style="grid-column:1/-1"><span>Focus (optional)</span><input id="mk-b${i}-focus" data-k="mkb" data-r="${i}" data-f="focus" value="${esc(B.focus)}" maxlength="160" placeholder="Shown at the top of each week, e.g. Volume: 4 × 8 at 70%"></label>`
+      + `<div class="edbtns"><label class="chk"><input type="checkbox" id="mk-b${i}-light" data-k="mkbl" data-r="${i}"${B.light ? " checked" : ""}> Last week is lighter</label>${M.blocks.length > 1 ? `<button class="btn text" data-k="mkbdel" data-r="${i}" style="margin-left:auto">Remove block</button>` : ""}</div></div>`;
+  });
+  if (M.blocks.length < 8) h += `<button class="btn" data-k="mkbadd" style="align-self:flex-start">Add a block</button>`;
+  h += `<h4>Training days</h4><div class="hint">Tick the days you train and name each session. You can add a second session on a day (AM and PM) afterwards.</div>`;
+  WEEKDAYS.forEach(d => {
+    const D = M.days[d];
+    h += `<div class="dayrow${D.on ? "" : " off"}" style="grid-template-columns:7.5em 1fr;align-items:center"><label class="chk"><input type="checkbox" id="mk-d${d}" data-k="mkdon" data-day="${d}"${D.on ? " checked" : ""}> ${WEEKDAY_LONG[d]}</label>`
+      + (D.on ? `<label class="fld"><span>Session name</span><input id="mk-d${d}-title" data-k="mkd" data-day="${d}" value="${esc(D.title)}" maxlength="50" placeholder="e.g. Lower strength"></label><label class="chk" style="grid-column:2"><input type="checkbox" data-k="mkdopt" data-day="${d}"${D.optional ? " checked" : ""}> Optional</label>` : `<span class="rx">Rest day</span>`) + `</div>`;
+  });
+  h += `<div class="hint">Next you'll fill each day with exercises. Anything you add is put in every week from that point on, so build week 1 first and then adjust later weeks or blocks.</div>`;
+  h += `<div class="edbtns"><button class="btn primary" data-k="mkgo">Create and add exercises</button><button class="btn" data-k="mkcancel">Cancel</button></div></div>`;
+  return h;
+}
+function createProgramme(M){
+  const name = (M.name || "").trim(); if (!name) { flagError("Give the programme a name.", ["mk-name"], "Can't create yet."); return null; }
+  const bad = M.blocks.findIndex(B => { const n = num(B.weeks); return n == null || n < 1 || n > 26; });
+  if (bad >= 0) { flagError("Each block needs 1 to 26 weeks.", [`mk-b${bad}-weeks`], "Can't create yet."); return null; }
+  const on = WEEKDAYS.filter(d => M.days[d].on); if (!on.length) { flagError("Pick at least one training day.", ["mk-dMon"], "Can't create yet."); return null; }
+  const plan = {blank: true, edits: [], schedule: [], blocks: {}, focus: {}, customDays: [], bench: [], guide: {edits: {}, custom: (M.desc || "").trim() ? [{id: "about", title: "About this programme", body: M.desc.trim()}] : []}};
+  let wid = 1;
+  M.blocks.forEach((B, i) => { const bid = i + 1, n = Math.round(num(B.weeks)); if ((B.name || "").trim()) plan.blocks[bid] = B.name.trim().slice(0, 40); if ((B.focus || "").trim()) plan.focus[bid] = B.focus.trim(); for (let k = 0; k < n; k++) { const e = {id: wid++, src: 1, block: bid}; if (B.light && n > 1 && k === n - 1) e.light = true; plan.schedule.push(e); } });
+  const ids = plan.schedule.map(e => e.id);
+  on.forEach(d => plan.customDays.push({key: "c" + d.toLowerCase(), short: d, title: (M.days[d].title || "").trim() || "Training", sub: "", optional: !!M.days[d].optional, src: null, from: ids[0], weeks: ids.slice()}));
+  const id = "t" + Date.now().toString(36), author = (M.author || "").trim().slice(0, 60); if (author) { RUNIDX.author = author; save("runs"); }
+  TPLS[id] = {id, pid: "p" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), ver: 1, author, name: name.slice(0, 60), kind: "programme", desc: (M.desc || "").trim().slice(0, 300), created: new Date().toISOString(), plan};
+  saveDid("tpl." + id); return TPLS[id];
+}
+// edit a template through its own private run, so every editing tool in the app works on it
+function openBuilder(t){
+  const cur = runMeta(RUNIDX.active), back = cur.builder ? cur.returnTo : RUNIDX.active;
+  let m = (RUNIDX.list || []).find(x => x.builder === t.id && !x.archived && RUNS[x.id]);
+  if (m) switchRun(m.id);
+  else { const id = startRun(t, {name: `Editing ${t.name}`, started: ""}); m = runMeta(id); m.builder = t.id; m.seq = 0; }
+  m.returnTo = back; m.tplVer = t.ver; save("runs");
+  ui.view = "train"; ui.plans = {}; const v = schedVis(); ui.w = v.length ? v[0].id : 1; const dl = daysFor(ui.w); ui.d = dl.length ? dl[0].key : ui.d;
+}
+function closeBuilder(){
+  const m = runMeta(RUNIDX.active), to = m.returnTo && RUNS[m.returnTo] && !runMeta(m.returnTo).builder ? m.returnTo : ((RUNIDX.list || []).filter(x => !x.builder && !x.archived && RUNS[x.id]).pop() || {}).id;
+  if (to) switchRun(to); ui.view = "plans"; ui.plans = {};
+}
+function builderDirty(t){ return JSON.stringify(planForTpl(S.plan)) !== JSON.stringify(planForTpl(t.plan)); }
+function builderBar(){
+  const m = runMeta(RUNIDX.active); if (!m.builder) return "";
+  const t = TPLS[m.builder];
+  if (!t) return `<div class="card build"><b>This programme has been deleted.</b><div class="edbtns"><button class="btn" data-k="bdclose">Close</button></div></div>`;
+  const dirty = builderDirty(t);
+  return `<div class="card build"><div class="ghead"><b>Editing ${esc(t.name)}</b><span class="chip">v${t.ver}</span></div>`
+    + `<div class="rx">${dirty ? "<b>Unsaved changes.</b> " : "Everything is saved to the programme. "}Use Add exercise on each day; "Apply to" chooses which weeks it goes in. Block and week changes are under the block name.</div>`
+    + `<div class="edbtns"><button class="btn primary" data-k="bdsave"${dirty ? "" : " disabled"}>Save programme</button><button class="btn" data-k="bdclose">Close</button></div></div>`;
 }
 
 // write this run's guide, or its whole plan, back into one of your templates
@@ -1551,13 +2086,145 @@ function updatePanel(act, blocks){
   h += `<div class="edbtns"><button class="btn${P.updConfirm ? " primary" : ""}" data-k="pugo">${P.updConfirm ? `Tap again to update "${esc(T.name)}"` : `Update "${esc(T.name)}"`}</button>${P.updConfirm ? `<button class="btn" data-k="pucancel">Cancel</button>` : ""}</div></div>`;
   return h;
 }
+function planForTpl(P){
+  const plan = clone(P); delete plan.baseSchedule; if (!Array.isArray(plan.schedule)) plan.schedule = clone(schedAll());
+  ["edits", "added", "customDays", "dayEdits", "orders"].forEach(k => (plan[k] || []).forEach(r => { delete r.tpl; delete r.carried; }));
+  return plan;
+}
+// a new version is only needed once someone could be using the current one (shared, or a run started from it)
+function tplInUse(T){ return T.sharedVer === T.ver || runsOf(T).some(m => !m.builder && (m.tplVer || 1) === T.ver); }
 function updateTemplate(U){
   const T = TPLS[U.tpl]; if (!T) return false;
   if (U.what === "guide") { if (S.plan.guide) T.plan.guide = clone(S.plan.guide); else delete T.plan.guide; }
   else if (T.kind === "block") { const sub = blockSubset(+U.block); const keepName = (T.plan.blocks || {}); T.plan = sub; }
-  else { const plan = clone(S.plan); delete plan.baseSchedule; if (!Array.isArray(plan.schedule)) plan.schedule = clone(schedAll()); T.plan = plan; }
+  else T.plan = planForTpl(S.plan);
+  tplMeta(T); const bumped = tplInUse(T); if (bumped) T.ver = (T.ver || 1) + 1;
+  ["edits", "added", "customDays", "dayEdits", "orders"].forEach(k => (T.plan[k] || []).forEach(r => { delete r.tpl; delete r.carried; }));
   T.updated = new Date().toISOString(); T.updatedFrom = RUNIDX.active;
-  saveDid("tpl." + T.id); return true;
+  // this run now matches the new version
+  const m = runMeta(RUNIDX.active); if (U.what !== "guide" && (m.tpl === T.id || m.tplPid === T.pid)) { m.tplVer = T.ver; save("runs"); }
+  saveDid("tpl." + T.id); return bumped ? "new" : "same";
+}
+
+// ---------- programme sharing ----------
+const PFORMAT = "training-app/programme", PSCHEMA = 1;
+function programmePayload(t){
+  tplMeta(t); const plan = clone(t.plan); delete plan.baseSchedule;
+  ["edits", "added", "customDays", "dayEdits", "orders"].forEach(k => (plan[k] || []).forEach(r => { delete r.tpl; delete r.carried; }));
+  return {format: PFORMAT, schema: PSCHEMA, pid: t.pid, ver: t.ver || 1, name: t.name, kind: t.kind || "programme", desc: t.desc || "", author: t.author || RUNIDX.author || "", created: t.created || null, updated: t.updated || null, plan};
+}
+// check a shared programme and bring older formats up to date; returns {ok, P} or {ok:false, why}
+function readProgramme(P){
+  if (!P || typeof P !== "object") return {ok: false, why: "That isn't a programme from this app."};
+  if (P.format !== PFORMAT) return {ok: false, why: "That isn't a programme from this app."};
+  if (!(P.schema >= 1)) return {ok: false, why: "That programme file is damaged."};
+  if (P.schema > PSCHEMA) return {ok: false, why: "That programme was made with a newer version of the app. Update the app, then try again."};
+  if (!P.pid || !P.plan || typeof P.plan !== "object") return {ok: false, why: "That programme file is missing its plan."};
+  const plan = P.plan; plan.edits = Array.isArray(plan.edits) ? plan.edits : [];
+  if (plan.schedule != null && !Array.isArray(plan.schedule)) return {ok: false, why: "That programme's weeks are damaged."};
+  normalizePlan(plan);
+  return {ok: true, P: Object.assign({}, P, {ver: Math.max(1, Math.round(+P.ver || 1)), name: String(P.name || "Shared programme").slice(0, 60), kind: P.kind === "block" ? "block" : "programme", desc: String(P.desc || "").slice(0, 300), author: String(P.author || "").slice(0, 60)})};
+}
+function b64u(bytes){ let s = ""; bytes.forEach(b => s += String.fromCharCode(b)); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function unb64u(str){ const s = atob(str.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((str.length + 3) % 4)); return Uint8Array.from(s, c => c.charCodeAt(0)); }
+async function packCode(obj){
+  const raw = new TextEncoder().encode(JSON.stringify(obj));
+  if (window.CompressionStream) { try { const cs = new Blob([raw]).stream().pipeThrough(new CompressionStream("deflate-raw")); return "z" + b64u(new Uint8Array(await new Response(cs).arrayBuffer())); } catch (e) {} }
+  return "j" + b64u(raw);
+}
+async function unpackCode(code){
+  code = String(code || "").trim(); const m = code.match(/[#&?]p=([A-Za-z0-9_-]+)/); if (m) code = m[1];
+  const kind = code[0], bytes = unb64u(code.slice(1));
+  if (kind === "z") { const ds = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw")); return JSON.parse(await new Response(ds).text()); }
+  if (kind === "j") return JSON.parse(new TextDecoder().decode(bytes));
+  throw new Error("bad code");
+}
+function appBase(){ if (IS_APP) return location.origin + location.pathname; const u = (RUNIDX.appUrl || "").trim(); return u ? u.replace(/#.*$/, "") : ""; }
+function slugify(n){ return String(n || "programme").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "programme"; }
+async function shareProgramme(t, how){
+  const P = programmePayload(t), fname = `${slugify(t.name)}-v${P.ver}.json`, text = JSON.stringify(P, null, 1);
+  if (how === "file") {
+    try { const file = new File([text], fname, {type: "application/json"}); if (navigator.canShare && navigator.canShare({files: [file]})) { if (TPLS[t.id]) { t.sharedVer = t.ver; saveDid("tpl." + t.id); } await navigator.share({files: [file], title: t.name, text: `${t.name} (v${P.ver}): open it in the Training App with Backup & data → Import.`}); return; } } catch (e) { if (e && e.name === "AbortError") return; }
+    if (TPLS[t.id] && t.sharedVer !== t.ver) { t.sharedVer = t.ver; saveDid("tpl." + t.id); }
+    return offerFile(fname, text);
+  }
+  const base = appBase(); if (!base) { flagError("Add your app's web address first, so the link knows where to open.", ["sh-url"], "No app address."); return; }
+  const link = base + "#p=" + await packCode(P);
+  if (TPLS[t.id] && t.sharedVer !== t.ver) { t.sharedVer = t.ver; saveDid("tpl." + t.id); }
+  ui.plans.share.link = link; render();
+  if (how === "share" && navigator.share) { try { await navigator.share({title: t.name, text: `${t.name} (v${P.ver})${P.author ? ` from ${P.author}` : ""}. Tap to add it to your Training App:`, url: link}); return; } catch (e) { if (e && e.name === "AbortError") return; } }
+  try { await navigator.clipboard.writeText(link); toast(`Link copied${link.length > 8000 ? ". It's long, so if it doesn't arrive in one piece, share the file instead" : ""}.`); }
+  catch (e) { const el = document.getElementById("sh-link"); if (el) { el.focus(); el.select(); } toast("Couldn't copy automatically. The link is selected, so copy it from there."); }
+}
+// a shared programme arrived (link, pasted code or file): work out what to offer
+function receiveProgramme(raw, source){
+  const r = readProgramme(raw);
+  if (!r.ok) { ui.view = "data"; ui.data = {}; render(); flagError(r.why, ["imp-code"], "Can't open that programme."); return; }
+  ui.view = "data"; ui.data = {pending: Object.assign({type: "programme"}, r.P), name: source}; closePanels(); render(); window.scrollTo(0, 0);
+}
+function addProgramme(P, asCopy){
+  const id = "t" + Date.now().toString(36), t = {id, pid: asCopy ? "p" + Date.now().toString(36) : P.pid, ver: asCopy ? 1 : P.ver, author: P.author, name: P.name + (asCopy ? " (copy)" : ""), kind: P.kind, desc: P.desc, created: P.created || new Date().toISOString(), imported: new Date().toISOString(), plan: clone(P.plan)};
+  TPLS[id] = t; saveDid("tpl." + id); return t;
+}
+function upgradeProgramme(t, P){
+  if (t.builtin) { const n = addProgramme(P, false); return n; } // the built-in plan can't change, so the new version is saved alongside it
+  Object.assign(t, {ver: P.ver, name: P.name, desc: P.desc, author: P.author, updated: P.updated || new Date().toISOString(), imported: new Date().toISOString(), plan: clone(P.plan)});
+  saveDid("tpl." + t.id); return t;
+}
+function runsOf(t){ return (RUNIDX.list || []).filter(m => runPid(m) === t.pid); }
+// move a run onto a newer version of its programme from a chosen week; earlier weeks and every logged set stay as they are
+function rebaseRun(t, fromPos, keepMine){
+  normalizePlan(); tplMeta(t);
+  const P = S.plan, vis = schedVis(), keepW = vis.slice(0, fromPos - 1), future = vis.slice(fromPos - 1);
+  const N = clone(t.plan); normalizePlan(N); const nFuture = planWeeks(N).slice(fromPos - 1);
+  if (!nFuture.length) return {err: `Version ${t.ver} has only ${planWeeks(N).length} weeks, so there's nothing from week ${fromPos} to update.`};
+  let wid = nextWeekId(); const map = {};
+  const fresh = nFuture.map(e => { const id = wid++; map[e.id] = id; const n = Object.assign({}, e, {id}); delete n.hidden; delete n.copyOf; return n; });
+  // old weeks from here on are kept but hidden, so anything logged there is never lost
+  const sc = schedAll().map(e => Object.assign({}, e)), futureIds = new Set(future.map(e => e.id));
+  sc.forEach(e => { if (futureIds.has(e.id)) { e.hidden = true; e.replaced = t.ver; } });
+  const lastKeep = keepW.length ? keepW[keepW.length - 1].id : null, at = lastKeep == null ? -1 : sc.findIndex(e => e.id === lastKeep);
+  sc.splice(at + 1, 0, ...fresh); P.schedule = sc; P.baseSchedule = clone(sc);
+  const KEYS = ["edits", "added", "customDays", "dayEdits", "orders"];
+  KEYS.forEach(k => (N[k] || []).forEach(r => { if (!Array.isArray(r.weeks)) return; const ws = r.weeks.filter(w => map[w]).map(w => map[w]); if (ws.length) (P[k] = P[k] || []).push(Object.assign({}, r, {weeks: ws, from: ws[0], tpl: true})); }));
+  let carried = 0, unmatched = 0;
+  if (keepMine) {
+    const pos = {}; future.forEach((e, j) => { if (fresh[j]) pos[e.id] = fresh[j].id; });
+    KEYS.forEach(k => (P[k] || []).slice().forEach(r => { if (r.tpl || !Array.isArray(r.weeks)) return; const ws = r.weeks.filter(w => pos[w]).map(w => pos[w]); if (!ws.length) return; P[k].push(Object.assign({}, r, {weeks: ws, from: ws[0], carried: true})); carried++; }));
+  }
+  ["warmups", "intens"].forEach(k => { if (!Array.isArray(N[k])) return; const byId = Object.fromEntries((P[k] || []).map(x => [x.id, x])); N[k].forEach(x => { byId[x.id] = x; }); P[k] = Object.values(byId); });
+  if (Array.isArray(N.bench)) { const byKey = Object.fromEntries(benchList().map(x => [x.key, x])); N.bench.forEach(x => { byKey[x.key] = x; }); P.bench = Object.values(byKey); }
+  if (N.guide) P.guide = clone(N.guide);
+  P.blocks = Object.assign({}, P.blocks, N.blocks || {});
+  const m = runMeta(RUNIDX.active); m.tplVer = t.ver; m.tplPid = t.pid; m.tpl = t.id; m.tplName = t.name; m.rebased = {fromPos, ver: t.ver, on: todayISO()};
+  planChanged(); save("runs");
+  // carried changes that point at an exercise the new version doesn't have
+  (P.edits || []).forEach(e => { if (!e.carried) return; const hit = (e.weeks || []).some(w => { try { return slotsFor(baseItems(w, e.d)).includes(e.slot) || baseItems(w, e.d).some(x => x.tag === e.group); } catch (x) { return false; } }); if (!hit) unmatched++; });
+  return {carried, unmatched, first: fresh[0].id};
+}
+function updateRunPanel(act){
+  const t = runTpl(act); if (!t) return "";
+  tplMeta(t); const have = act.tplVer || 1;
+  if (!(t.ver > have)) return "";
+  const P = ui.plans, U = P.rb || (P.rb = {from: String(nextUndonePos()), keep: true});
+  const vis = schedVis();
+  let h = `<div class="card" style="border:2px solid var(--accent)"><h3 style="margin:0;font-size:16px">Version ${t.ver} of ${esc(t.name)} is available</h3><div class="rx">This run follows version ${have}.${t.desc ? " " + esc(t.desc) : ""}</div>`;
+  h += `<div class="fgrid"><label class="fld"><span>Switch from</span><select id="rb-from" data-k="rbsel" data-f="from">${vis.map((e, i) => `<option value="${i + 1}"${String(i + 1) === U.from ? " selected" : ""}>Week ${i + 1}${weekMonday(e.id) ? " · " + shortDate(weekMonday(e.id)) : ""}</option>`).join("")}</select></label></div>`;
+  h += `<label class="chk"><input type="checkbox" id="rb-keep" data-k="rbkeep"${U.keep ? " checked" : ""}> Keep my own changes to those weeks (swaps, moves, added exercises)</label>`;
+  h += `<div class="hint">Weeks before ${esc("week " + U.from)} stay exactly as they are, and nothing you've logged is changed or lost. From week ${esc(U.from)} the run follows version ${t.ver}.</div>`;
+  h += `<div class="edbtns"><button class="btn${P.rbConfirm ? " primary" : ""}" data-k="rbgo">${P.rbConfirm ? "Tap again to update" : `Update this run to version ${t.ver}`}</button>${P.rbConfirm ? `<button class="btn" data-k="rbcancel">Cancel</button>` : ""}</div></div>`;
+  return h;
+}
+function nextUndonePos(){ const vis = schedVis(); for (let i = 0; i < vis.length; i++) { const done = daysFor(vis[i].id).some(dy => (S.sessions[sid(vis[i].id, dy.key)] || {}).done); if (!done) return i + 1; } return Math.max(1, vis.length); }
+function sharePanel(t){
+  const P = ui.plans, Sh = P.share; tplMeta(t);
+  let h = `<div class="wform"><h4>Share ${esc(t.name)} · v${t.ver}</h4><div class="fgrid">`
+    + `<label class="fld wide"><span>Your name (shown to the person you share with)</span><input id="sh-author" data-k="shf" data-f="author" value="${esc(Sh.author ?? (t.author || RUNIDX.author || ""))}" maxlength="60" placeholder="e.g. Coach Sam"></label>`
+    + (IS_APP ? "" : `<label class="fld wide"><span>Your app's web address (for links)</span><input id="sh-url" data-k="shf" data-f="url" value="${esc(Sh.url ?? (RUNIDX.appUrl || ""))}" placeholder="https://yourname.github.io/training-app/" inputmode="url"></label>`)
+    + `</div><div class="hint">They get their own copy to run. Your log and maxes aren't included. If you share a newer version later, they're offered the update.</div>`
+    + `<div class="edbtns"><button class="btn primary" data-k="shlink">Share link</button><button class="btn" data-k="shfile">Share file</button><button class="btn text" data-k="shclose">Done</button></div>`;
+  if (Sh.link) h += `<label class="fld"><span>Link (${Sh.link.length.toLocaleString()} characters)</span><input id="sh-link" readonly value="${esc(Sh.link)}"></label>`;
+  return h + `</div>`;
 }
 
 // ---------- backup, import, sharing ----------
@@ -1581,6 +2248,7 @@ function readImport(file){
   const r = new FileReader();
   r.onload = () => {
     let P = null; try { P = JSON.parse(r.result); } catch (e) {}
+    if (P && P.format === PFORMAT) { receiveProgramme(P, file.name); return; }
     if (!P || P.app !== "training-app" || (P.type === "all" && !(P.runs && P.idx && Array.isArray(P.idx.list))) || (P.type === "templates" && !P.tpls)) { ui.data = {}; render(); flagError("That file isn't a backup or template file from this app.", ["imp-file"], "Can't import."); return; }
     ui.data = {pending: P, name: file.name}; render();
   };
@@ -1612,8 +2280,17 @@ function viewData(){
   h += `<div class="card"><h3 style="margin:0;font-size:16px">Export</h3><div class="rx">${nRuns} run${nRuns === 1 ? "" : "s"} · ${sessionsDone} session${sessionsDone === 1 ? "" : "s"} done · ${nT} saved template${nT === 1 ? "" : "s"}</div>`
     + `<div class="edbtns"><button class="btn primary" data-k="expall">Download full backup</button><button class="btn" data-k="exptpl"${nT ? "" : " disabled"}>Download templates only</button></div>`
     + `<div class="hint">A full backup has every run, its log, maxes and plan, plus your templates. "Templates only" is for sharing a programme: the other person imports it and starts their own run.</div></div>`;
-  h += `<div class="card"><h3 style="margin:0;font-size:16px">Import</h3><label class="fld"><span>Backup or template file (.json)</span><input type="file" id="imp-file" accept=".json,application/json"></label>`;
-  if (D.pending) {
+  h += `<div class="card"><h3 style="margin:0;font-size:16px">Import</h3><label class="fld"><span>Backup, template or programme file (.json)</span><input type="file" id="imp-file" accept=".json,application/json"></label>`
+    + `<div class="fgrid"><label class="fld wide"><span>Or paste a programme link</span><input id="imp-code" data-k="impcode" value="${esc(D.code || "")}" placeholder="https://…#p=…" autocomplete="off"></label></div><div class="edbtns"><button class="btn" data-k="impcodego">Open link</button></div>`;
+  if (D.pending && D.pending.type === "programme") {
+    const P = D.pending, mine = tplByPid(P.pid), runs = mine ? runsOf(mine) : [];
+    h += `<div class="wform"><div><b>${esc(P.name)}</b> · version ${P.ver}${P.author ? ` · from ${esc(P.author)}` : ""}</div><div class="rx">${P.kind === "block" ? "Block" : "Programme"} · ${planWeeks(P.plan).length} weeks${P.kind === "block" ? "" : ` · ${planBlocks(P.plan).length} blocks`}${P.updated ? ` · updated ${fmtDate(P.updated.slice(0, 10), true)}` : ""}</div>${P.desc ? `<div class="rx" style="color:var(--ink)">${esc(P.desc)}</div>` : ""}`;
+    if (!mine) h += `<div class="edbtns"><button class="btn primary" data-k="impprog">Add to my library</button><button class="btn text" data-k="impcancel">Cancel</button></div>`;
+    else if (mine.ver >= P.ver) h += `<div class="hint">You already have ${mine.ver === P.ver ? "this version" : `version ${mine.ver}, which is newer`} of ${esc(mine.name)}.</div><div class="edbtns"><button class="btn" data-k="impcopy">Add as a separate copy</button><button class="btn text" data-k="impcancel">Cancel</button></div>`;
+    else h += `<div class="hint">This updates ${esc(mine.name)} from version ${mine.ver} to ${P.ver} in your library.${runs.length ? ` You'll then be offered the update for ${runs.length === 1 ? "your run" : "your runs"} of it, from a week you choose.` : ""}</div><div class="edbtns"><button class="btn primary" data-k="impupgrade">Update to version ${P.ver}</button><button class="btn" data-k="impcopy">Keep both</button><button class="btn text" data-k="impcancel">Cancel</button></div>`;
+    h += `</div>`;
+  }
+  if (D.pending && D.pending.type !== "programme") {
     const P = D.pending, isAll = P.type === "all", pt = Object.keys(P.tpls || {}).length;
     h += `<div class="wform"><div><b>${esc(D.name || "File")}</b></div><div class="rx">${isAll ? `Full backup · ${(P.idx.list || []).length} run(s) · ${pt} template(s)` : `${pt} template(s)`}${P.exported ? ` · exported ${fmtDate(P.exported.slice(0, 10), true)}` : ""}</div>`
       + `<div class="edbtns">${isAll ? `<button class="btn${D.confirm ? " primary" : ""}" data-k="impreplace">${D.confirm ? "Tap again: replace everything" : "Replace all my data with this"}</button>` : ""}${pt ? `<button class="btn" data-k="imptpl">Add its templates to my library</button>` : ""}<button class="btn text" data-k="impcancel">Cancel</button></div>`
@@ -1638,6 +2315,48 @@ let installEvt = null;
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; const b = document.getElementById("installbtn"); if (b) b.hidden = false; });
 window.addEventListener("appinstalled", () => { installEvt = null; const b = document.getElementById("installbtn"); if (b) b.hidden = true; toast("Installed. You'll find it with your other apps."); });
 
+function recordsCard(){
+  const logs = allLogs(); if (!logs.length) return `<div class="section"><h2>Records</h2></div><div class="card"><div class="empty">Your personal records show here once you've logged some sets. Tap any exercise name on the Train screen to see its history.</div></div>`;
+  const names = [...new Set(logs.map(l => l.name))].sort((a, b) => a.localeCompare(b));
+  let h = `<div class="section"><h2>Records</h2><p>Best for every exercise you've logged, across all your runs. Tap one for its full history.</p></div><div class="card">`;
+  names.forEach(n => { const R = records(n), u = R.unit, best = R.best == null ? "–" : u === "none" ? `${fmt(R.best)} reps` : u === "cm" ? `${fmt(R.best)} cm` : u === "+kg" ? `+${fmt(R.best)} kg` : `${fmt(Math.round(R.best))} kg`;
+    h += `<div class="dayrow" style="grid-template-columns:1fr auto;align-items:center;padding-top:8px"><button class="exname" data-k="hist" data-n="${esc(n)}" style="font-weight:600">${esc(n)}</button><span><b>${esc(best)}</b> <span class="rx">${esc(METRIC_NAME[u] || "")}</span></span></div>`; });
+  return h + `</div>`;
+}
+function logWhere(l){ return `${l.runLabel} · week ${l.pos} ${l.short}${l.sub ? " " + l.sub : ""}${l.date ? ` (${shortDate(l.date)})` : ""}`; }
+function viewHistory(){
+  const name = ui.hist || "", R = records(name), u = R.unit || "kg";
+  let h = `<button class="addnote" data-k="histback" style="align-self:flex-start">← Back</button><div class="section"><h2>${esc(name)}</h2><p>Every time you've logged it, across all your runs.</p></div>`;
+  if (!R.count) return h + `<div class="card"><div class="empty">Nothing logged for ${esc(name)} yet.</div></div>`;
+  const logs = allLogs().filter(l => l.name === name);
+  // one point per session: the best set
+  const sessions = []; logs.forEach(l => { const key = `${l.run}|${l.w}|${l.d}`; let g = sessions.find(x => x.key === key); if (!g) { g = {key, l, sets: []}; sessions.push(g); } g.sets.push(l); });
+  sessions.forEach(g => { g.best = Math.max(...g.sets.map(setMetric).filter(x => x != null), -Infinity); if (!isFinite(g.best)) g.best = null; });
+  const unitTxt = u === "none" ? "reps" : u === "cm" ? "cm" : "kg";
+  const tile = (label, val, sub) => `<div class="stat"><span>${label}</span><b>${val}</b>${sub ? `<small>${esc(sub)}</small>` : ""}</div>`;
+  h += `<div class="stats">`;
+  if (u === "kg" || u === "ball") { h += tile("Best e1RM", R.best != null ? `${fmt(Math.round(R.best))} kg` : "–", R.bestLog ? `${fmt(R.bestLog.kg)} × ${fmt(R.bestLog.reps)} · ${logWhere(R.bestLog)}` : ""); h += tile("Heaviest set", R.heaviest != null ? `${fmt(R.heaviest)} kg` : "–", R.heavyLog ? logWhere(R.heavyLog) : ""); }
+  else if (u === "none") h += tile("Most reps", R.mostReps != null ? `${fmt(R.mostReps)}` : "–", "");
+  else h += tile(u === "cm" ? "Best" : "Most added", R.best != null ? `${u === "+kg" ? "+" : ""}${fmt(R.best)} ${unitTxt}` : "–", R.bestLog ? logWhere(R.bestLog) : "");
+  h += tile("Sessions", String(sessions.length), `${R.count} sets logged`) + `</div>`;
+  const pts = sessions.filter(g => g.best != null);
+  if (pts.length) {
+    const spans = []; pts.forEach((g, i) => { const last = spans[spans.length - 1]; if (last && last.run === g.l.run) last.e = i + 1; else spans.push({run: g.l.run, b: spans.length, s: i + 1, e: i + 1}); });
+    CHART_AXIS = {n: pts.length, spans, labels: pts.map(g => logWhere(g.l))};
+    h += `<div class="section"><h2 style="font-size:18px">${u === "kg" || u === "ball" ? "Best e1RM each session" : "Best each session"}</h2></div>` + chartBox("c-hist", [{label: name, color: "var(--s1)", vals: pts.map(g => u === "kg" || u === "ball" ? Math.round(g.best) : Math.round(g.best * 10) / 10)}], unitTxt, "", 200);
+  }
+  if (u === "kg" || u === "ball") {
+    const reps = Object.keys(R.repMax).map(Number).filter(r => r <= 15).sort((a, b) => a - b);
+    if (reps.length) h += `<div class="section"><h2 style="font-size:18px">Rep maxes</h2></div><div class="tbl"><table><thead><tr><th>Reps</th><th>Heaviest</th><th>When</th></tr></thead><tbody>${reps.map(r => `<tr><td>${r}</td><td>${fmt(R.repMax[r].kg)} kg</td><td style="text-align:left;white-space:normal">${esc(logWhere(R.repMax[r].log))}</td></tr>`).join("")}</tbody></table></div>`;
+  }
+  h += `<div class="section"><h2 style="font-size:18px">Sessions</h2></div><div class="card">`;
+  sessions.slice().reverse().forEach(g => {
+    const setsTxt = g.sets.map(l => { const isPR = R.bestLog === l; const t = u === "none" ? `${fmt(l.reps)}` : `${u === "+kg" ? "+" : ""}${fmt(l.kg ?? "–")}${u === "cm" ? "cm" : ""}×${fmt(l.reps ?? "–")}`; return isPR ? `<b>${t} (best)</b>` : t; }).join(", ");
+    h += `<div class="hist-s"><b>${esc(logWhere(g.l))}</b><div class="rx">${setsTxt}${g.best != null && (u === "kg" || u === "ball") ? ` · e1RM ${fmt(Math.round(g.best))} kg` : ""}</div></div>`;
+  });
+  return h + `</div>`;
+}
+
 function viewLook(){
   let h = `<div class="section"><h2>Appearance</h2><p>Colours for this device. Your log and plan aren't affected.</p></div>`;
   h += `<div class="card"><div class="fld"><span>Mode</span><div class="seg" role="group" aria-label="Mode">${[["system","Match device"],["light","Light"],["dark","Dark"]].map(([k, l]) => `<button data-k="lookmode" data-v="${k}" aria-pressed="${LOOK.mode === k}">${l}</button>`).join("")}</div></div>`;
@@ -1648,17 +2367,21 @@ function viewLook(){
 function viewHelp(){
   const sec = (title, body, open) => `<details${open ? " open" : ""}><summary>${title}</summary><div class="hb">${body}</div></details>`;
   let h = `<div class="section"><h2>User guide</h2><p>How to use the app. Tap a topic to open it.</p></div><div class="card help">`;
-  h += sec("Getting around", `<p>The bar at the top is for training: <span class="k">Train</span> for today's session, <span class="k">Progress</span> for charts and benchmarks, and <span class="k">Maxes</span> for the numbers behind your suggested weights.</p><p>The <span class="k">menu</span> button (top left) opens everything else: Programmes &amp; runs, the Programme guide, this User guide and Appearance. On a wide screen the menu stays open at the side.</p><p>The run name above the week number shows which run you're logging, and its dates if it has a start date. Tap it to manage runs.</p>`, true);
+  h += sec("Getting around", `<p>The bar at the top is for training: <span class="k">Train</span> for today's session, <span class="k">Progress</span> for charts and benchmarks, and <span class="k">Maxes</span> for the numbers behind your suggested weights.</p><p><span class="k">Week by week:</span> in any exercise's editor, <span class="k">Week by week</span> shows its sets, reps, load and effort for every week in one table. Change any cell, or fill the % or kg column with a starting value and a weekly step (lighter weeks drop automatically).</p><p><span class="k">Next weights:</span> for exercises with a rep range, the card suggests your next weight from last time. Hit the top of the range on every set and it adds the rounding amount; otherwise it keeps the weight. Turn it off on the Maxes tab.</p><p><span class="k">Session summary:</span> finishing a session shows your sets, reps, volume, any PRs and your best sets against the same day last week. <span class="k">Copy as text</span> makes it easy to send to a coach. Turn it off on the Maxes tab.</p><p>Most actions (editing, removing, moving or skipping) show a pop-up with <span class="k">Undo</span> for a few seconds. When logging, the keyboard's <span class="k">Next</span> key jumps to the next box. When adding or swapping an exercise, type in <span class="k">Find an exercise</span> to filter the list.</p><p>The <span class="k">menu</span> button (top left) opens everything else: Programmes &amp; runs, the Programme guide, this User guide and Appearance. On a wide screen the menu stays open at the side.</p><p>The run name above the week number shows which run you're logging, and its dates if it has a start date. Tap it to manage runs. <span class="k">Today</span>, next to the dates, jumps to today's session.</p><p>Under each day's title: the <span class="k">Track rest</span> switch for the rest timer, and <span class="k">Move or skip</span>. Tap an exercise's name for its history and records.</p>`, true);
   h += sec("Logging a session", `<ol><li>Pick the week with the arrows and the day from the tabs.</li><li>Grey numbers in the set boxes are your targets. Tap <span class="k">✓</span> on an empty set to log it exactly as written, or type what you did.</li><li>Change a weight and the empty sets below follow it.</li><li>"Last" under an exercise shows what you did the previous time it came up.</li><li>Add notes to any exercise, plus session notes at the bottom, then tap <span class="k">Finish session</span>.</li></ol><p>Jumps log height or distance in cm. Bodyweight moves log reps only. Weighted chin-ups and dips log the added weight. Everything saves as you type; the dot top right shows Saving, then Saved.</p>`);
+  h += sec("Rest timer", `<p>Turn on <span class="k">Track rest</span> under the day's title. It's off until you switch it on, and the setting is remembered on this device.</p><ul><li>Ticking a set starts a countdown at the bottom of the screen, using the rest time on that card. For a range like "2–3 min" it counts down from the longer time.</li><li>It shows what's next: the next set, back to the start of a superset, or the next exercise.</li><li>Use <span class="k">−15</span> and <span class="k">+15</span> to adjust, or <span class="k">Skip</span>.</li><li>Between superset cards (A1 → A2) there's no rest: it just tells you to go straight to the next one. The timer starts after the last card in the group.</li><li>When time's up it beeps (turn <span class="k">Sound</span> off if you'd rather not) and vibrates where the phone allows, and the bar turns green. The screen stays on while the timer runs.</li></ul><p>On iPhone, web apps can't vibrate, and the silent switch mutes the beep.</p>`);
+  h += sec("Warm-up sets", `<p>Every barbell or dumbbell card has a <span class="k">Suggested warm-up sets</span> tab. Open it to see a ramp up to your first working set, starting with the empty bar, and tick each one off as you go. The ramp follows your first set's weight, or the suggested weight if you haven't typed one yet.</p><ul><li><span class="k">Your defaults:</span> set your bar weight and default ramp on the <span class="k">Maxes</span> page, written as % of working weight × reps, e.g. "40×5, 60×3, 80×2".</li><li><span class="k">Per exercise:</span> in <span class="k">Edit exercise</span>, choose <span class="k">Tab only</span> or <span class="k">Show on card</span> (open every time), and give it its own ramp if you like.</li><li><span class="k">New exercises:</span> <span class="k">Add exercise</span> has a "show warm-up sets on the card" option.</li></ul><p>Warm-up sets aren't counted in your records or progress.</p>`);
+  h += sec("Today, missed and moved sessions", `<p>Once your run has a start date (Programmes &amp; runs), a <span class="k">Today</span> button appears next to the week's dates. It opens today's session. On a rest day it shows the next session and tells you when it is.</p><p>Earlier sessions this week that aren't done appear at the top under <span class="k">Not done yet this week</span>, with:</p><ul><li><span class="k">Swap with today</span> (or <span class="k">Move to today</span> on a free day): does the missed session today and puts today's session on the missed day, for this week only.</li><li><span class="k">Skip:</span> marks it as skipped. Its tab shows "skipped" and it stops being flagged.</li></ul><p><span class="k">Move or skip</span> under any day's title moves that session to another day of the same week:</p><ul><li><span class="k">A free day:</span> the session simply moves there.</li><li><span class="k">A day that already has a session:</span> the two swap by default, so each day keeps one session. Choose <span class="k">Do both that day</span> if you're training twice; the moved one then gets a heading like "from Wed".</li><li><span class="k">Undoing:</span> <span class="k">Put back on …</span> returns a session (and anything it swapped with) to its usual day. <span class="k">Undo all moves this week</span> resets the whole week.</li></ul><p>Moved sessions show "was Wed" under their tab. Anything you've logged moves with the session, moves only ever affect that one week, and optional days or days before your start date are never flagged.</p>`);
+  h += sec("Records and exercise history", `<p>When a set beats your best from any other session, its set number changes to a red <span class="k">PR</span> and a message tells you what kind:</p><ul><li><span class="k">e1RM PR:</span> your best estimated max (weight × (1 + reps ÷ 30)).</li><li><span class="k">Rep PR:</span> the most weight for that number of reps, e.g. a "5-rep PR".</li><li><span class="k">Heaviest yet</span>, <span class="k">Best yet</span> (jumps) or <span class="k">Rep PR</span> (bodyweight moves).</li></ul><p>Records count across all your runs. You need at least one earlier session of that exercise before anything counts as a PR, so your first session never fills up with them.</p><p>Tap any exercise name on a card to open its history: best e1RM and heaviest set with when you did them, a chart of your best set each session, a rep-max table, and every session listed. The <span class="k">Records</span> list on Progress links to the history of every exercise you've logged.</p>`);
   h += sec("Supersets, circuits and EMOMs", `<p>Cards that share a letter with numbers (A1, A2, A3…) are a superset. They get a coloured border, each points to the next, and the rest comes after the last. Relabel a card in its editor to add it to a superset or take it out.</p><p><span class="k">Add exercise</span> can also add a <span class="k">Circuit</span> (rounds, rest between rounds and any number of parts) or an <span class="k">EMOM</span> (minutes, and one or more moves that rotate each minute). Edit either later to change rounds, minutes or parts.</p>`);
   h += sec("Changing exercises", `<p>Tap <span class="k">Edit exercise</span> on any card to swap the exercise, change its label, sets, reps, effort, rest, weight, coaching note or intensifier, or remove it from the day.</p><p>Every change asks how far it should reach: this week, the rest of the block, or every remaining week. Extra sets scale down in lighter weeks, and intensifiers skip them. <span class="k">Back to plan</span> undoes a change.</p><p>Main lifts keep feeding Progress whatever variation you swap in. <span class="k">Reorder</span> at the bottom of a day moves cards up and down.</p>`);
   h += sec("Warm-ups, benchmark tests and intensifiers", `<p><span class="k">Change warm-up</span> picks a built-in warm-up, one you've written, or none. Edit a warm-up and it changes everywhere it's used.</p><p>Benchmark test cards work the same way: <span class="k">Change test</span> swaps or edits the test and sets whether it counts as your start or end result. <span class="k">Add benchmark test</span> puts a new one on any day. Results you type there appear on Progress.</p><p>Intensifiers (drop sets, myo-reps, cluster sets and more) are picked in an exercise's editor. Edit or add your own in the Programme guide.</p>`);
   h += sec("Days, weeks and blocks", `<p>Tap <span class="k">+ Days</span> at the end of the day tabs to add a day (blank or a copy of another), move a day, rename it, mark it optional or remove it. Two sessions on the same weekday each need their own heading, like AM and PM.</p><p>Tap the block name under the week number to rename the block, set how many weeks it has, repeat or remove single weeks, or add, remove and restore whole blocks.</p><p>Removed days, weeks and exercises keep anything you logged and come back if you put them back.</p>`);
-  h += sec("Programmes, templates and runs", `<p>Open <span class="k">Programmes &amp; runs</span> from the menu.</p><ul><li><span class="k">Save as a template:</span> keep the whole programme, or one block, with all your changes.</li><li><span class="k">Start a run:</span> begin any template again with its own log, maxes, progress and dates. Runs are numbered and dated, so repeats never mix.</li><li><span class="k">Add to this run:</span> put a saved block into the programme you're on.</li><li><span class="k">Share a programme:</span> Backup &amp; data → Download templates only. The other person imports the file and starts their own run.</li><li><span class="k">Update a template:</span> copy this run's guide, or its whole plan, back into one of your templates so future runs start with it.</li><li><span class="k">Your runs:</span> open or archive any run.</li></ul>`);
-  h += sec("Progress and maxes", `<p>Progress charts your best estimated max for each main lift every week, plus bodyweight. Tap a week on a chart for its numbers.</p><p><span class="k">Edit benchmarks</span> renames, reorders, removes or adds tests. Link one to an exercise and it fills in from your log.</p><p>Maxes drive every suggested weight. Each block uses the previous block's max until you enter a new one. At the start of a block, put in your best e1RM from Progress, rounded down.</p>`);
+  h += sec("Programmes, templates and runs", `<p>Open <span class="k">Programmes &amp; runs</span> from the menu.</p><ul><li><span class="k">Save as a template:</span> keep the whole programme, or one block, with all your changes.</li><li><span class="k">Start a run:</span> begin any template again with its own log, maxes, progress and dates. Runs are numbered and dated, so repeats never mix.</li><li><span class="k">Add to this run:</span> put a saved block into the programme you're on.</li><li><span class="k">Create a programme:</span> Programmes &amp; runs → <span class="k">New programme</span>. Name it, set its blocks (weeks each, and whether the last week is lighter) and tick your training days. It then opens in the editor, where you add exercises day by day with the usual tools. "Apply to" picks which weeks each change goes in. When adding a lift you can base its weight on a % of a max that climbs each week. Tap <span class="k">Save programme</span> when you're done, and <span class="k">Close</span> to get back to your own training.</li><li><span class="k">Edit a programme:</span> tap <span class="k">Edit</span> on any of your templates (or <span class="k">Copy and edit</span> on Hybrid 12). Saving only makes a new version once the programme has been shared or a run started from it.</li><li><span class="k">Share a programme:</span> tap <span class="k">Share</span> on any template for a link or a file. The other person taps the link (or imports the file in Backup &amp; data), adds it to their library and starts their own run. Your log and maxes are never included.</li><li><span class="k">Versions:</span> every template has a version number. Updating a template makes a new version, and when you share it again, anyone who already has it is offered the update.</li><li><span class="k">Updating a run:</span> when a newer version of the programme you're running arrives, Programmes &amp; runs offers to switch from a week you choose. Earlier weeks and everything you've logged stay as they are, and your own changes can come across too.</li><li><span class="k">Update a template:</span> copy this run's guide, or its whole plan, back into one of your templates so future runs start with it.</li><li><span class="k">Your runs:</span> open or archive any run.</li></ul>`);
+  h += sec("Progress and maxes", `<p>Progress charts your best estimated max for each main lift every week, plus bodyweight. Tap a week on a chart for its numbers. Below that, <span class="k">Records</span> lists your best for every exercise you've logged.</p><p><span class="k">Edit benchmarks</span> renames, reorders, removes or adds tests. Link one to an exercise and it fills in from your log.</p><p>Maxes drive every suggested weight. Each block uses the previous block's max until you enter a new one. At the start of a block, put in your best e1RM from Progress, rounded down. The Maxes page also holds your bar weight and default warm-up ramp, and the rounding used for suggested weights.</p>`);
   h += IS_APP
     ? sec("Saving, backups and installing", `<p>Everything is saved on this device as you type, and the app works offline. Nothing is sent anywhere.</p><p>Back up regularly from <span class="k">Backup &amp; data</span> in the menu. The backup file can be loaded on another device, or after reinstalling. You can also export just your templates to share a programme with someone.</p><p><span class="k">Install it:</span> on Android or desktop Chrome, use <span class="k">Install app</span> in the menu (or the browser's install option). On iPhone, open it in Safari, tap Share, then <span class="k">Add to Home Screen</span>.</p><p>If something can't be saved, a message pops up and the box that needs changing is outlined.</p>`)
-    : sec("Saving and your devices", `<p>Your log saves to your claude.ai account, so it's on any device where you're signed in. If the dot top right says <span class="k">This device</span>, saving is only happening in this browser. If something can't be saved, a message pops up and the box that needs changing is outlined.</p><p>Back up, or move your data to the installable app, from <span class="k">Backup &amp; data</span> in the menu. Appearance is set per device.</p>`);
+    : sec("Saving and your devices", `<p>Your log saves to your claude.ai account, so it's on any device where you're signed in. If the dot top right says <span class="k">This device</span>, saving is only happening in this browser. If something can't be saved, a message pops up and the box that needs changing is outlined.</p><p>Back up, or move your data to the installable app, from <span class="k">Backup &amp; data</span> in the menu. Programme links open in the installable app; here, paste a link into Backup &amp; data → Import instead. Appearance is set per device.</p>`);
   return h + `</div>`;
 }
 
@@ -1671,31 +2394,63 @@ function viewSettings(){
       + Object.keys(DEFAULT_MAX).map(l => { const arr = (S.settings.e1rm||{})[l] || []; return `<label class="fld"><span>${esc(l === "OHP" ? "OHP" : l === "Clean" ? "Clean" : l)}</span><input class="num" id="mx-${l}-${b}" data-k="max" data-l="${l}" data-b="${b}" inputmode="decimal" value="${esc(arr[b-1] ?? "")}" placeholder="${fmt(maxFor(l, b))}" aria-label="${esc(LIFT_LABEL[l])} ${esc(blockName(b))}"></label>`; }).join("") + `</div>`;
   });
   h += IS_APP ? `<p class="rx">The grey numbers are examples. Enter your own estimated 1RMs: a recent heavy set works, e.g. 100 kg × 5 is about 117 kg (kg × (1 + reps ÷ 30)).</p></div>` : `<p class="rx">Starting points: squat 220 (from 200 for reps), bench 170 (160×3), deadlift 245 (230×3). Overhead press and power clean are estimates; correct them after week 1.</p></div>`;
+  h += `<div class="card"><h3 style="margin:0;font-size:16px">Warm-up sets</h3><div class="fgrid"><label class="fld"><span>Bar weight (kg)</span><input class="num" id="set-bar" data-k="setf" data-f="bar" inputmode="decimal" value="${esc(S.settings.bar ?? "")}" placeholder="20"></label><label class="fld wide"><span>Default ramp (% of working weight × reps)</span><input id="set-wu" data-k="setf" data-f="wu" value="${esc(S.settings.wu ?? "")}" placeholder="${WU_DEFAULT}"></label></div><div class="hint">Every barbell or dumbbell card has a "Suggested warm-up sets" tab built from this, starting with the empty bar. Any exercise can have its own ramp in its editor.</div></div>`;
+  h += `<div class="card"><h3 style="margin:0;font-size:16px">Coaching</h3><label class="chk"><input type="checkbox" data-k="setchk" data-f="nextOff"${S.settings.nextOff ? "" : " checked"}> Suggest next weights</label><div class="hint">For exercises with a rep range (like 3 × 10–12) and no % of max: when every set reaches the top of the range, next time suggests adding the rounding amount below. Otherwise it keeps the weight.</div>`
+    + `<label class="chk"><input type="checkbox" data-k="setchk" data-f="noSummary"${S.settings.noSummary ? "" : " checked"}> Show a summary when I finish a session</label></div>`;
   h += `<div class="card"><label class="lbl" for="round"><b>Rounding</b> <span class="rx">smallest jump on the bar, kg</span></label><input class="num" id="round" data-k="round" inputmode="decimal" value="${esc(S.settings.round ?? 2.5)}" style="max-width:100px"></div>`;
   return h;
 }
 
 // ---------- events ----------
+const UNDOABLE = new Set(["edsave", "edremove", "edrestore", "edreset", "mvtoday", "mvgo", "mvback", "mvundoall", "mvskip", "wkremove", "wkrestore", "wkrepeat", "wklight", "ordsave", "ordreset", "wsave", "wreset", "tremove", "trestore", "tsave", "addsave", "dayssave", "daysreset", "pgsave"]);
 document.addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
+  undoArmed = false;
+  if (b.dataset.k === "undo") { document.getElementById("toast").hidden = true; undoLast(); return; }
+  if (UNDOABLE.has(b.dataset.k)) snapshot([sid(ui.w, ui.d), b.dataset.w && b.dataset.d ? sid(+b.dataset.w, b.dataset.d) : null].filter(Boolean));
   if (b.id === "menubtn") { setDrawer(true); return; }
   if (b.id === "menuclose") { setDrawer(false); return; }
   if (b.dataset.view) { setDrawer(false); ui.plans = ui.plans && b.dataset.view === "plans" ? ui.plans : {}; ui.gedit = null; ui.gint = null; ui.bedit = null; ui.view = b.dataset.view; render(); window.scrollTo(0,0); return; }
-  if (b.id === "prevwk") { stepWeek(-1); ui.reorder = null; ui.test = null; ui.edit = null; ui.blkEdit = null; ui.warm = null; ui.add = null; if (ui.days) openDays(); render(); return; }
-  if (b.id === "nextwk") { stepWeek(1); ui.reorder = null; ui.test = null; ui.edit = null; ui.blkEdit = null; ui.warm = null; ui.add = null; if (ui.days) openDays(); render(); return; }
-  if (b.dataset.day) { ui.d = b.dataset.day; ui.reorder = null; ui.edit = null; ui.warm = null; ui.add = null; ui.days = null; ui.test = null; render(); window.scrollTo(0,0); return; }
+  if (b.id === "prevwk") { stepWeek(-1); ui.move = null; ui.reorder = null; ui.test = null; ui.edit = null; ui.blkEdit = null; ui.warm = null; ui.add = null; if (ui.days) openDays(); render(); return; }
+  if (b.id === "nextwk") { stepWeek(1); ui.move = null; ui.reorder = null; ui.test = null; ui.edit = null; ui.blkEdit = null; ui.warm = null; ui.add = null; if (ui.days) openDays(); render(); return; }
+  if (b.dataset.day) { ui.d = b.dataset.day; ui.move = null; ui.reorder = null; ui.edit = null; ui.warm = null; ui.add = null; ui.days = null; ui.test = null; render(); window.scrollTo(0,0); return; }
   const id = sid(ui.w, ui.d);
   if (b.dataset.k === "tick") {
     const i = +b.dataset.i, k = +b.dataset.s, s = sess(id), it = effItems(ui.w, ui.d)[i];
     const sets = (s.sets[i] ||= []); const st = (sets[k] ||= {});
     if (!st.done) {
-      if (num(st.kg) == null && KG_UNITS.includes(it.unit || "kg")) { const prev = sets.slice(0, k).map(x => num(x.kg)).filter(x => x != null).pop(); const sg = it.pct ? suggested(it, week(ui.w).block) : num(it.load); const v = prev ?? sg; if (v != null) st.kg = String(v); }
+      if (num(st.kg) == null && KG_UNITS.includes(it.unit || "kg")) { const prev = sets.slice(0, k).map(x => num(x.kg)).filter(x => x != null).pop(); const sg = sugFor(it, week(ui.w).block); const v = prev ?? sg; if (v != null) st.kg = String(v); }
       if (num(st.reps) == null) { const r = firstNum(it.reps); if (r) st.reps = r; }
       st.done = true;
     } else st.done = false;
-    save(id); render(); return;
+    save(id); render();
+    if (st.done) {
+      const nm = it.name.split(" — ")[0], prl = prLabel(nm, it.unit || "kg", num(st.kg), num(st.reps), {run: RUNIDX.active, w: ui.w, d: ui.d, i, k});
+      if (prl) toast(`New ${prl}: ${nm}${num(st.kg) != null ? ` ${fmt(num(st.kg))} kg` : ""}${num(st.reps) != null ? ` × ${fmt(num(st.reps))}` : ""}.`);
+      if (RESTCFG.on) {
+        if (it.ss && !it.ss.last) { if (!prl) toast(`Straight to ${it.ss.names[it.ss.pos + 1]}, no rest.`); }
+        else { const sec = parseRest(it.rest); const lastSet = k + 1 >= it.log; if (sec) startRest(sec, `${nm} set ${k + 1}`, lastSet ? "Next exercise" : (it.ss ? `Back to ${it.ss.names[0]}` : `Set ${k + 2} of ${it.log}`)); }
+      }
+    }
+    return;
   }
-  if (b.dataset.k === "edopen") { const i = +b.dataset.i; ui.warm = null; ui.edit = {key: `${ui.w}-${ui.d}-${i}`, i, scope: "week", draft: draftFrom(effItems(ui.w, ui.d)[i])}; render(); const el = document.getElementById("ed-sel"); if (el) el.focus({preventScroll:true}); return; }
+  if (b.dataset.k === "edwu") { ui.edit.draft.wu = b.dataset.v === "true"; render(); return; }
+  if (b.dataset.k === "wutoggle") { const i = +b.dataset.i, key = `${sid(ui.w, ui.d)}-${i}`, it = effItems(ui.w, ui.d)[i]; ui.wuOpen[key] = !(ui.wuOpen[key] ?? !!it.wu); render(); return; }
+  if (b.dataset.k === "wutick") { const i = +b.dataset.i, k = +b.dataset.s, s = sess(id); s.wu = s.wu || {}; const a = (s.wu[i] = s.wu[i] || []); a[k] = !a[k]; save(id); render(); return; }
+  if (b.dataset.k === "restadd") { if (REST && !REST.done) { REST.end += (+b.dataset.v) * 1000; REST.total = Math.max(REST.total + (+b.dataset.v), 5); if (REST.end < Date.now()) REST.end = Date.now(); tickRest(); } return; }
+  if (b.dataset.k === "restskip") { stopRest(); return; }
+  if (b.dataset.k === "hist") { ui.histFrom = ui.view; ui.hist = b.dataset.n; ui.view = "history"; closePanels(); render(); window.scrollTo(0,0); return; }
+  if (b.dataset.k === "histback") { ui.view = ui.histFrom && ui.histFrom !== "history" ? ui.histFrom : "train"; render(); window.scrollTo(0,0); return; }
+  if (b.dataset.k === "today") { goToday(); return; }
+  if (b.dataset.k === "mvskip") { const w = +b.dataset.w, d = b.dataset.d, s = sessFor(w, d); s.skipped = !s.skipped; save(sid(w, d)); render(); toast(s.skipped ? `Marked ${dayWords(w, d)} as skipped.` : `${dayWords(w, d)} is back on.`); return; }
+  if (b.dataset.k === "mvtoday") { moveSession(+b.dataset.w, b.dataset.d, todayShort(), "swap"); return; }
+  if (b.dataset.k === "mvhow") { ui.move.how = b.dataset.v; render(); return; }
+  if (b.dataset.k === "mvback") { ui.move = null; putBack(ui.w, ui.d); return; }
+  if (b.dataset.k === "mvundoall") { ui.move = null; undoWeekMoves(ui.w); return; }
+  if (b.dataset.k === "mvopen") { ui.move = {to: ""}; render(); return; }
+  if (b.dataset.k === "mvcancel") { ui.move = null; render(); return; }
+  if (b.dataset.k === "mvgo") { if (!ui.move.to) { flagError("Pick the day to move it to.", ["mv-to"]); return; } moveSession(ui.w, ui.d, ui.move.to, ui.move.how || "swap"); ui.move = null; return; }
+  if (b.dataset.k === "edopen") { const i = +b.dataset.i; ui.exq = ""; ui.warm = null; ui.edit = {key: `${ui.w}-${ui.d}-${i}`, i, scope: defScope(), draft: draftFrom(effItems(ui.w, ui.d)[i])}; render(); const el = document.getElementById("ed-sel"); if (el) el.focus({preventScroll:true}); return; }
   if (b.dataset.k === "blkopen") { ui.view = "train"; ui.days = null; ui.edit = null; ui.warm = null; ui.add = null; ui.blkEdit = {v: blockName(week(ui.w).block)}; render(); window.scrollTo(0,0); return; }
   if (b.dataset.k === "blklenset") { const n = num(ui.blkEdit.len ?? ""); const bl = week(ui.w).block; if (!n || n < 1 || n > 26) { flagError("Enter a number of weeks from 1 to 26.", ["blk-len"]); return; } if (n) { ui.blkEdit.lenMsg = setBlockLength(bl, n); ui.blkEdit.len = null; } render(); return; }
   if (b.dataset.k === "blkgo") { const bid = +b.dataset.b, f = schedVis().find(e => e.block === bid); if (f) { ui.w = f.id; ui.blkEdit = {v: blockName(bid)}; } render(); window.scrollTo(0,0); return; }
@@ -1740,7 +2495,7 @@ document.addEventListener("click", e => {
     if (Object.keys(f).length) pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, f}, rangeOf(P.scope)));
     ui.test = null; render(); return;
   }
-  if (b.dataset.k === "tremove" || b.dataset.k === "trestore") { const it = effItems(ui.w, ui.d)[ui.test.i]; pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, f: {removed: b.dataset.k === "tremove"}}, rangeOf(ui.test.scope))); ui.test = null; render(); return; }
+  if (b.dataset.k === "tremove" || b.dataset.k === "trestore") { const it = effItems(ui.w, ui.d)[ui.test.i]; pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, f: {removed: b.dataset.k === "tremove"}}, rangeOf(ui.test.scope))); ui.test = null; render(); toast(b.dataset.k === "tremove" ? "Test removed." : "Test is back."); return; }
   if (b.dataset.k === "treset") { const it = effItems(ui.w, ui.d)[ui.test.i]; pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, reset: true}, rangeOf(ui.test.scope))); ui.test = null; render(); return; }
   if (b.dataset.k === "edpartadd") { ui.edit.draft.parts.push({name: "", reps: "", load: ""}); render(); const el = document.getElementById(`ed-p${ui.edit.draft.parts.length - 1}-name`); if (el) el.focus(); return; }
   if (b.dataset.k === "edpartdel") { if (ui.edit.draft.parts.length > 1) ui.edit.draft.parts.splice(+b.dataset.p, 1); render(); return; }
@@ -1751,7 +2506,7 @@ document.addEventListener("click", e => {
   if (b.dataset.k === "ordsave" || b.dataset.k === "ordreset") {
     const rng = rangeOf(ui.reorder.scope), rec = Object.assign({d: ui.d}, rng, b.dataset.k === "ordreset" ? {reset: true} : {order: ui.reorder.list.slice()});
     S.plan.orders = (S.plan.orders || []).filter(o => !(o.d === rec.d && (o.weeks || []).every(w => rec.weeks.includes(w)))).concat([rec]);
-    ui.reorder = null; planChanged(); render(); return;
+    ui.reorder = null; planChanged(); render(); toast(b.dataset.k === "ordreset" ? "Back to the plan's order." : "Order saved."); return;
   }
   if (b.dataset.k === "plsave") { const m = runMeta(RUNIDX.active), e = (ui.plans || {}).edit; if (e) { m.name = (e.name || "").trim().slice(0, 60); m.started = e.started || ""; ui.plans.edit = null; save("runs"); } render(); return; }
   if (b.dataset.k === "pltkind") { const P = ui.plans; P.save = Object.assign({kind: "programme", block: String(blockOrder()[0] || 1), name: "", desc: ""}, P.save, {kind: b.dataset.v}); P.savedMsg = ""; render(); return; }
@@ -1763,7 +2518,7 @@ document.addEventListener("click", e => {
   if (b.dataset.k === "piopen") { const t = tplById(b.dataset.t), ord = blockOrder(); ui.plans.start = null; ui.plans.ins = {tpl: t.id, after: String(ord[ord.length - 1] || 1), pct: ""}; render(); return; }
   if (b.dataset.k === "picancel") { ui.plans.ins = null; render(); return; }
   if (b.dataset.k === "pigo") { const A = ui.plans.ins, w = insertTplBlock(tplById(A.tpl), A.after, A.pct); ui.plans.ins = null; if (w) { ui.w = w; ui.view = "train"; } render(); window.scrollTo(0,0); return; }
-  if (b.dataset.k === "ptdel") { const id = b.dataset.t; if (ui.plans.confirmDel !== id) { ui.plans.confirmDel = id; render(); return; } delete TPLS[id]; ui.plans.confirmDel = null; deleteDid("tpl." + id); render(); return; }
+  if (b.dataset.k === "ptdel") { const id = b.dataset.t; if (ui.plans.confirmDel !== id) { ui.plans.confirmDel = id; render(); return; } delete TPLS[id]; ui.plans.confirmDel = null; deleteDid("tpl." + id); (RUNIDX.list || []).forEach(m => { if (m.builder === id) m.archived = true; }); save("runs"); render(); return; }
   if (b.dataset.k === "plopen") { switchRun(b.dataset.r); ui.plans = {}; ui.view = "train"; render(); window.scrollTo(0,0); return; }
   if (b.dataset.k === "plarch") { const m = runMeta(b.dataset.r); m.archived = !m.archived; if (!m.archived) delete m.archived; save("runs"); render(); return; }
   if (b.dataset.k === "plshowarch") { ui.plans.showArchived = !ui.plans.showArchived; render(); return; }
@@ -1786,16 +2541,62 @@ document.addEventListener("click", e => {
   if (b.dataset.k === "welcomemax") { lsSet(WELCOME_KEY, 1); ui.view = "settings"; render(); window.scrollTo(0,0); return; }
   if (b.dataset.k === "welcomeno") { lsSet(WELCOME_KEY, 1); render(); return; }
   if (b.id === "installbtn") { if (installEvt) { installEvt.prompt(); installEvt.userChoice.finally(() => { installEvt = null; b.hidden = true; }); } return; }
+  if (b.dataset.k === "pgopen") { openProg(ui.edit.i); render(); window.scrollTo(0,0); return; }
+  if (b.dataset.k === "pgcancel") { ui.prog = null; render(); return; }
+  if (b.dataset.k === "pgdofill") { progFill(); return; }
+  if (b.dataset.k === "pgcopy") { const R = ui.prog.rows, r0 = R[0]; R.forEach(r => { r.sets = r0.sets; r.reps = r0.reps; r.target = r0.target; }); render(); return; }
+  if (b.dataset.k === "pgsave") { saveProg(); return; }
+  if (b.dataset.k === "sumopen") { ui.summary = sid(ui.w, ui.d); render(); window.scrollTo(0,0); return; }
+  if (b.dataset.k === "sumclose") { ui.summary = null; render(); return; }
+  if (b.dataset.k === "sumcopy") { const txt = summaryText(ui.w, ui.d); (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => toast("Summary copied. Paste it into a message to your coach.")).catch(() => { ui.sumText = txt; render(); toast("Couldn't copy automatically. Select the text in the summary instead."); }); return; }
+  if (b.dataset.k === "mkopen") { ui.plans.make = newMake(); render(); const el = document.getElementById("mk-name"); if (el) el.focus(); return; }
+  if (b.dataset.k === "mkcancel") { ui.plans.make = null; render(); return; }
+  if (b.dataset.k === "mkbadd") { const M = ui.plans.make, last = M.blocks[M.blocks.length - 1]; M.blocks.push({name: "", weeks: last.weeks, light: last.light, focus: ""}); render(); return; }
+  if (b.dataset.k === "mkbdel") { ui.plans.make.blocks.splice(+b.dataset.r, 1); render(); return; }
+  if (b.dataset.k === "mkgo") { const t = createProgramme(ui.plans.make); if (!t) return; openBuilder(t); render(); window.scrollTo(0,0); toast(`${t.name} created. Add exercises to each day, then tap Save programme.`); return; }
+  if (b.dataset.k === "bdopen") {
+    let t = tplById(b.dataset.t); if (!t) return;
+    if (t.builtin) { const id = "t" + Date.now().toString(36); TPLS[id] = {id, pid: "p" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), ver: 1, author: RUNIDX.author || "", name: `${t.name} (my version)`, kind: "programme", desc: t.desc, created: new Date().toISOString(), plan: {edits: [], schedule: PROGRAM.map(x => ({id: x.w, src: x.w, block: x.block}))}}; saveDid("tpl." + id); t = TPLS[id]; }
+    openBuilder(t); render(); window.scrollTo(0,0); toast(`Editing ${t.name}.`); return;
+  }
+  if (b.dataset.k === "bdsave") { const m = runMeta(RUNIDX.active), t = TPLS[m.builder]; if (!t) return; const r = updateTemplate({tpl: t.id, what: "all"}); m.name = `Editing ${t.name}`; m.tplVer = t.ver; save("runs"); render(); toast(r === "new" ? `Saved as version ${t.ver}. Anyone running or sent the earlier version can be offered the update.` : `${t.name} saved.`); return; }
+  if (b.dataset.k === "bdclose") { closeBuilder(); render(); window.scrollTo(0,0); return; }
+  if (b.dataset.k === "shopen") { ui.plans.start = null; ui.plans.ins = null; ui.plans.share = {tpl: b.dataset.t}; render(); return; }
+  if (b.dataset.k === "shclose") { ui.plans.share = null; render(); return; }
+  if (b.dataset.k === "shlink" || b.dataset.k === "shfile") {
+    const Sh = ui.plans.share, t = tplById(Sh.tpl); if (!t) return;
+    if (Sh.author != null) { RUNIDX.author = Sh.author.trim().slice(0, 60); if (!t.builtin && TPLS[t.id]) { t.author = RUNIDX.author; saveDid("tpl." + t.id); } }
+    if (Sh.url != null) RUNIDX.appUrl = Sh.url.trim();
+    save("runs"); shareProgramme(t, b.dataset.k === "shfile" ? "file" : "share"); return;
+  }
+  if (b.dataset.k === "impcodego") { const code = (ui.data.code || "").trim(); if (!code) { flagError("Paste the link first.", ["imp-code"], "Nothing to open."); return; } unpackCode(code).then(P => receiveProgramme(P, "Shared link")).catch(() => flagError("That link is incomplete or isn't a programme link.", ["imp-code"], "Can't open that link.")); return; }
+  if (b.dataset.k === "impprog" || b.dataset.k === "impcopy") { const t = addProgramme(ui.data.pending, b.dataset.k === "impcopy"); ui.data = {}; render(); toast(`${t.name} added to your library. Start a run from Programmes & runs.`); return; }
+  if (b.dataset.k === "impupgrade") { const P = ui.data.pending, t = upgradeProgramme(tplByPid(P.pid), P); ui.data = {}; ui.view = "plans"; ui.plans = {}; const r = runsOf(t); if (r.some(m => m.id === RUNIDX.active)) ui.plans.rb = null; render(); window.scrollTo(0,0); toast(`${t.name} is now version ${t.ver}.${r.length ? (r.some(m => m.id === RUNIDX.active) ? " Choose when this run switches over." : " Open your run of it to update it.") : ""}`); return; }
+  if (b.dataset.k === "rbcancel") { ui.plans.rbConfirm = false; render(); return; }
+  if (b.dataset.k === "rbgo") {
+    if (!ui.plans.rbConfirm) { ui.plans.rbConfirm = true; render(); return; }
+    snapshot([]); const act = runMeta(RUNIDX.active), t = runTpl(act), U = ui.plans.rb;
+    const res = rebaseRun(t, Math.max(1, +U.from || 1), !!U.keep); ui.plans.rbConfirm = false;
+    if (res.err) { undoArmed = false; flagError(res.err, ["rb-from"], "Can't update."); return; }
+    ui.plans.rb = null; ui.view = "train"; ui.w = res.first; const dl = daysFor(ui.w); ui.d = dl.length ? dl[0].key : ui.d; render(); window.scrollTo(0,0);
+    toast(`Updated to version ${t.ver} from week ${U.from}.${res.carried ? ` ${res.carried} of your changes came across` : ""}${res.unmatched ? `, ${res.unmatched} no longer match an exercise and were left out` : ""}.`); return;
+  }
+  if (b.dataset.k === "setupopen") { ui.view = "train"; ui.setup = {step: 1}; closePanels(); render(); window.scrollTo(0,0); return; }
+  if (b.dataset.k === "setupnext") { ui.setup.step++; render(); window.scrollTo(0,0); return; }
+  if (b.dataset.k === "setupback") { ui.setup.step = Math.max(1, ui.setup.step - 1); render(); return; }
+  if (b.dataset.k === "setupdone") { lsSet(WELCOME_KEY, 1); ui.setup = null; render(); window.scrollTo(0,0); toast("All set. Tap Today to jump to today's session."); return; }
+  if (b.dataset.k === "setupskip") { lsSet(WELCOME_KEY, 1); ui.setup = null; render(); return; }
   if (b.dataset.k === "lookmode") { LOOK.mode = b.dataset.v; try { localStorage.setItem(LOOK_KEY, JSON.stringify(LOOK)); } catch (e) {} applyLook(); render(); return; }
   if (b.dataset.k === "lookpal") { LOOK.palette = b.dataset.v; try { localStorage.setItem(LOOK_KEY, JSON.stringify(LOOK)); } catch (e) {} applyLook(); render(); return; }
+  if (b.dataset.k === "wklight") { const sc = schedAll().map(e => Object.assign({}, e)), e = sc.find(x => x.id === +b.dataset.id); if (e.light) delete e.light; else e.light = true; S.plan.schedule = sc; planChanged(); render(); toast(e.light ? "Marked as a lighter week." : "Back to a normal week."); return; }
   if (b.dataset.k === "wkrepeat") { const src = schedEntry(+b.dataset.id); ui.w = insertWeek(src, src.block, src.id, 0); render(); return; }
-  if (b.dataset.k === "wkremove" || b.dataset.k === "wkrestore") { const sc = schedAll().map(e => Object.assign({}, e)); const e = sc.find(x => x.id === +b.dataset.id); e.hidden = b.dataset.k === "wkremove"; if (!e.hidden) delete e.hidden; S.plan.schedule = sc; planChanged(); render(); return; }
-  if (b.dataset.k === "wkadd") { const bw = blockWeeks(week(ui.w).block); ui.blkEdit.add = {src: String(bw.length ? bw[bw.length - 1].src : week(ui.w).src), after: "end", pct: ""}; render(); return; }
+  if (b.dataset.k === "wkremove" || b.dataset.k === "wkrestore") { const sc = schedAll().map(e => Object.assign({}, e)); const e = sc.find(x => x.id === +b.dataset.id); e.hidden = b.dataset.k === "wkremove"; if (!e.hidden) delete e.hidden; S.plan.schedule = sc; planChanged(); render(); toast(b.dataset.k === "wkremove" ? "Week removed." : "Week put back."); return; }
+  if (b.dataset.k === "wkadd") { const bw = blockWeeks(week(ui.w).block); ui.blkEdit.add = {src: String(S.plan.blank ? (bw.length ? bw[bw.length - 1].id : ui.w) : (bw.length ? bw[bw.length - 1].src : week(ui.w).src)), after: "end", pct: ""}; render(); return; }
   if (b.dataset.k === "wkaddcancel") { ui.blkEdit.add = null; render(); return; }
   if (b.dataset.k === "wkaddsave") {
     const A = ui.blkEdit.add, b0 = week(ui.w).block;
     // copy the latest scheduled week that follows this plan week, so your changes to it come along
-    const srcEntry = schedAll().filter(e => e.src === +A.src && !e.hidden).pop() || {id: +A.src, src: +A.src};
+    const srcEntry = S.plan.blank ? (schedEntry(+A.src) || schedVis().pop()) : (schedAll().filter(e => e.src === +A.src && !e.hidden).pop() || {id: +A.src, src: +A.src});
     ui.w = insertWeek(srcEntry, b0, A.after, num(A.pct) || 0); ui.blkEdit.add = null; render(); return;
   }
   if (b.dataset.k === "wkresetall") { if (!ui.blkEdit.confirmReset) { ui.blkEdit.confirmReset = true; render(); return; } if (Array.isArray(S.plan.baseSchedule)) S.plan.schedule = clone(S.plan.baseSchedule); else delete S.plan.schedule; ui.blkEdit.confirmReset = false; planChanged(); render(); return; }
@@ -1805,10 +2606,10 @@ document.addEventListener("click", e => {
     S.plan.blocks = Object.assign({}, S.plan.blocks); if (v && v !== blockDefault(bl)) S.plan.blocks[bl] = v; else delete S.plan.blocks[bl];
     ui.blkEdit.v = blockName(bl); save("plan"); render(); return;
   }
-  if (b.dataset.k === "wopen") { const i = +b.dataset.i, it = effItems(ui.w, ui.d)[i]; ui.edit = null; ui.warm = {i, scope:"week", sel: it.warmId === "none" ? "bi-" + ui.d : it.warmId, form:null}; render(); return; }
+  if (b.dataset.k === "wopen") { const i = +b.dataset.i, it = effItems(ui.w, ui.d)[i]; ui.edit = null; ui.warm = {i, scope: defScope(), sel: it.warmId === "none" ? "bi-" + ui.d : it.warmId, form:null}; render(); return; }
   if (b.dataset.k === "wcancel") { ui.warm = null; render(); return; }
   if (b.dataset.k === "wscope") { ui.warm.scope = b.dataset.v; render(); return; }
-  if (b.dataset.k === "wsave") { const it = effItems(ui.w, ui.d)[ui.warm.i]; if (ui.warm.sel !== it.warmId) pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, f:{warm: ui.warm.sel}}, warmScope())); ui.warm = null; render(); return; }
+  if (b.dataset.k === "wsave") { const it = effItems(ui.w, ui.d)[ui.warm.i]; if (ui.warm.sel !== it.warmId) { pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, f:{warm: ui.warm.sel}}, warmScope())); toast("Warm-up changed."); } ui.warm = null; render(); return; }
   if (b.dataset.k === "wreset") { const it = effItems(ui.w, ui.d)[ui.warm.i]; pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, reset: true}, warmScope())); ui.warm = null; render(); return; }
   if (b.dataset.k === "wfnew") { ui.warm.form = {isNew:true, id:"", name:"", mins:"8", steps:""}; render(); const el = document.getElementById("wf-name"); if (el) el.focus(); return; }
   if (b.dataset.k === "wfedit") { const W = warmById(ui.warm.sel); ui.warm.form = {isNew:false, id:W.id, name:W.name, mins:String(W.mins), steps:W.steps.join("\n")}; render(); return; }
@@ -1843,8 +2644,8 @@ document.addEventListener("click", e => {
   if (b.dataset.k === "edscope") { ui.edit.scope = b.dataset.v; render(); return; }
   if (b.dataset.k === "edsave") { saveEdit(); return; }
   if (b.dataset.k === "edreset") { resetEdit(); return; }
-  if (b.dataset.k === "edremove" || b.dataset.k === "edrestore") { const it = effItems(ui.w, ui.d)[ui.edit.i]; pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, f:{removed: b.dataset.k === "edremove"}}, scopeRange())); ui.edit = null; render(); return; }
-  if (b.dataset.k === "addopen") { ui.test = null; ui.edit = null; ui.warm = null; ui.add = {scope:"week", draft:{name:"Barbell curl", custom:"", unit:"kg", label: nextFreeLetter(), sets:"3", reps:"10-12", target:"RIR 2", rest:"60s", load:"", rx:"", note:""}}; render(); const el = document.getElementById("ad-sel"); if (el) el.focus({preventScroll:true}); return; }
+  if (b.dataset.k === "edremove" || b.dataset.k === "edrestore") { const it = effItems(ui.w, ui.d)[ui.edit.i]; pushEdit(Object.assign({d: ui.d, slot: it.slot, group: it.group, f:{removed: b.dataset.k === "edremove"}}, scopeRange())); ui.edit = null; render(); toast(b.dataset.k === "edremove" ? `Removed ${it.name.split(" — ")[0]}.` : `${it.name.split(" — ")[0]} is back.`); return; }
+  if (b.dataset.k === "addopen") { ui.exq = ""; ui.test = null; ui.edit = null; ui.warm = null; ui.add = {scope: defScope(), draft:{name:"Barbell curl", custom:"", unit:"kg", label: nextFreeLetter(), sets:"3", reps:"10-12", target:"RIR 2", rest:"60s", load:"", rx:"", note:""}}; render(); const el = document.getElementById("ad-sel"); if (el) el.focus({preventScroll:true}); return; }
   if (b.dataset.k === "adtype") { const t = b.dataset.v; ui.add.type = t; if (t !== "single" && (!ui.add.group || ui.add.group.kind !== t)) ui.add.group = t === "emom" ? {kind: t, name: "", label: ui.add.draft.label, mins: "10", parts: [{name: "KB swing", reps: "10", load: "32 kg"}], note: ""} : {kind: t, name: "", label: ui.add.draft.label, rounds: "3", rest: "90s", parts: [{name: "Farmer's carry", reps: "4 × 10m", load: "50 kg per hand"}, {name: "Sandbag to shoulder", reps: "5", load: "70 kg"}], note: ""}; render(); return; }
   if (b.dataset.k === "agadd") { ui.add.group.parts.push({name: "", reps: "", load: ""}); render(); const el = document.getElementById(`ag-p${ui.add.group.parts.length - 1}-name`); if (el) el.focus(); return; }
   if (b.dataset.k === "agdel") { if (ui.add.group.parts.length > 1) ui.add.group.parts.splice(+b.dataset.p, 1); render(); return; }
@@ -1860,7 +2661,7 @@ document.addEventListener("click", e => {
   if (b.dataset.k === "dayssave") { saveDays(); return; }
   if (b.dataset.k === "daysreset") { const {from, weeks} = daysRange(); S.plan.dayEdits = (S.plan.dayEdits || []).concat(ui.days.rows.map(r => ({d: r.key, from, weeks, reset: true}))); ui.days = null; planChanged(); render(); return; }
   if (b.dataset.k === "opennote") { ui.notesOpen[`${id}-${b.dataset.i}`] = true; render(); const t = document.getElementById(`nt-${id}-${b.dataset.i}`); if (t) t.focus(); return; }
-  if (b.dataset.k === "finish") { const s = sess(id); s.done = !s.done; save(id); render(); if (s.done) window.scrollTo(0,0); return; }
+  if (b.dataset.k === "finish") { const s = sess(id); s.done = !s.done; save(id); ui.sumText = null; ui.summary = s.done && !S.settings.noSummary ? id : null; render(); if (s.done) window.scrollTo(0,0); return; }
 });
 document.addEventListener("input", e => {
   const t = e.target; if (t.classList && t.classList.contains("invalid")) { t.classList.remove("invalid"); t.removeAttribute("aria-invalid"); }
@@ -1876,6 +2677,23 @@ document.addEventListener("input", e => {
   if (k === "daynewf") { ui.days.add[t.dataset.f] = t.value; return; }
   if (k === "wf") { ui.warm.form[t.dataset.f] = t.value; return; }
   if (k === "tf") { ui.test.form[t.dataset.f] = t.value; return; }
+  if (k === "exq") {
+    ui.exq = t.value;
+    // pick the first match so one tap on the list isn't needed
+    const q = t.value.trim().toLowerCase(), hit = q && LIB.flatMap(([c, xs]) => xs).find(x => x.name.toLowerCase().includes(q) && (ui.edit ? (LIBIDX[x.name].cat === "Conditioning") === !(effItems(ui.w, ui.d)[ui.edit.i] || {}).sets : true));
+    if (hit && ui.edit) { ui.edit.draft.name = hit.name; ui.edit.draft.unit = hit.unit; }
+    if (hit && ui.add) { ui.add.draft.name = hit.name; ui.add.draft.unit = hit.unit; }
+    render(); return;
+  }
+  if (k === "calc") { const kg = num((document.getElementById("calc-kg") || {}).value), r = num((document.getElementById("calc-r") || {}).value), o = document.getElementById("calc-out"); if (o) o.textContent = kg && r ? `${fmt(Math.round(kg * (1 + r / 30)))} kg` : "–"; return; }
+  if (k === "pgc") { ui.prog.rows[+t.dataset.r][t.dataset.f] = t.value; t.classList.toggle("chg", t.value !== String(ui.prog.orig[+t.dataset.r][t.dataset.f])); return; }
+  if (k === "pgfill") { ui.prog.fill[t.dataset.f] = t.value; return; }
+  if (k === "mkf") { ui.plans.make[t.dataset.f] = t.value; return; }
+  if (k === "mkb") { ui.plans.make.blocks[+t.dataset.r][t.dataset.f] = t.value; return; }
+  if (k === "mkd") { ui.plans.make.days[t.dataset.day].title = t.value; return; }
+  if (k === "shf") { ui.plans.share[t.dataset.f] = t.value; return; }
+  if (k === "impcode") { ui.data.code = t.value; return; }
+  if (k === "su") { if (t.dataset.f === "started" || t.dataset.f === "name") { const m = runMeta(RUNIDX.active); m[t.dataset.f] = t.value; save("runs"); } return; }
   if (k === "fb") { lsSet(FB_KEY, t.value); return; }
   if (k === "bef") { ui.bedit.rows[+t.dataset.r][t.dataset.f] = t.value; return; }
   if (k === "plf") { const m = runMeta(RUNIDX.active); ui.plans.edit = Object.assign({name: m.name || "", started: m.started || ""}, ui.plans.edit, {[t.dataset.f]: t.value}); return; }
@@ -1894,7 +2712,14 @@ document.addEventListener("input", e => {
   if (k === "bw") { (S.body.bw ||= {})[t.dataset.w] = t.value; save("body"); return; }
   if (k === "bench") { const b = ((S.body.bench ||= {})[t.dataset.b] ||= {}); b[t.dataset.f] = t.value; save("body"); return; }
   if (k === "max") { const a = ((S.settings.e1rm ||= {})[t.dataset.l] ||= [null,null,null]); while (a.length < +t.dataset.b) a.push(null); a[+t.dataset.b - 1] = t.value === "" ? null : t.value; save("settings"); return; }
+  if (k === "setf") { S.settings[t.dataset.f] = t.value; save("settings"); return; }
   if (k === "round") { S.settings.round = t.value; save("settings"); return; }
+});
+document.addEventListener("keydown", e => {
+  if (e.key !== "Enter" || !e.target.matches || !e.target.matches('input[data-k="set"]')) return;
+  e.preventDefault();
+  const all = [...document.querySelectorAll('.sets input[data-k="set"]')], i = all.indexOf(e.target), nxt = all[i + 1];
+  if (nxt) { nxt.focus(); nxt.scrollIntoView({block: "center", behavior: "smooth"}); } else e.target.blur();
 });
 document.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.id === "blk-name") { e.preventDefault(); document.querySelector('[data-k="blksave"]').click(); } });
 function planChangedKeepCache(){ planVer++; EFF.clear(); }
@@ -1904,12 +2729,25 @@ document.addEventListener("change", e => {
   if (dk === "tsel" && ui.test) { ui.test.sel = t.value; ui.test.form = t.value === "__new" ? {isNew: true, key: "", label: "", unit: "", better: "higher", how: "", link: ""} : null; render(); return; }
   if (dk === "tfsel" && ui.test && ui.test.form) { ui.test.form[t.dataset.f] = t.value; if (t.dataset.f === "link" && t.value && !ui.test.form.label) ui.test.form.label = t.value; render(); return; }
   if (dk === "ptsel" && ui.plans) { ui.plans.save = Object.assign({kind: "block", block: "1", name: "", desc: ""}, ui.plans.save, {[t.dataset.f]: t.value}); render(); return; }
+  if (dk === "adwu" && ui.add) { ui.add.draft.wu = t.checked; return; }
+  if (dk === "pgrestart" && ui.prog) { ui.prog.fill.restart = t.checked; return; }
+  if (dk === "setchk") { S.settings[t.dataset.f] = !t.checked; save("settings"); render(); return; }
+  if (dk === "mkbl" && ui.plans && ui.plans.make) { ui.plans.make.blocks[+t.dataset.r].light = t.checked; return; }
+  if (dk === "mkdon" && ui.plans && ui.plans.make) { ui.plans.make.days[t.dataset.day].on = t.checked; render(); const el = t.checked && document.getElementById(`mk-d${t.dataset.day}-title`); if (el) el.focus(); return; }
+  if (dk === "mkdopt" && ui.plans && ui.plans.make) { ui.plans.make.days[t.dataset.day].optional = t.checked; return; }
+  if (dk === "rbsel" && ui.plans && ui.plans.rb) { ui.plans.rb.from = t.value; ui.plans.rbConfirm = false; render(); return; }
+  if (dk === "rbkeep" && ui.plans && ui.plans.rb) { ui.plans.rb.keep = t.checked; return; }
+  if (dk === "sumode") { LOOK.mode = t.value; try { localStorage.setItem(LOOK_KEY, JSON.stringify(LOOK)); } catch (e) {} applyLook(); return; }
+  if (dk === "restcfg") { RESTCFG[t.dataset.f] = t.checked; saveRestCfg(); if (t.dataset.f === "on" && !t.checked) stopRest(); if (t.checked) ensureAudio(); render(); return; }
+  if (dk === "mvsel" && ui.move) { ui.move.to = t.value; render(); return; }
   if (dk === "pusel" && ui.plans && ui.plans.upd) { ui.plans.upd[t.dataset.f] = t.value; ui.plans.updConfirm = false; render(); return; }
   if (dk === "pisel" && ui.plans && ui.plans.ins) { ui.plans.ins[t.dataset.f] = t.value; return; }
   if (dk === "besel" && ui.bedit) { const r = ui.bedit.rows[+t.dataset.r]; r[t.dataset.f] = t.value; if (t.dataset.f === "link" && t.value && !r.label) r.label = t.value; render(); return; }
   if (dk === "nbsel" && ui.blkEdit && ui.blkEdit.newBlock) { ui.blkEdit.newBlock[t.dataset.f] = t.value; return; }
   if (dk === "wasel" && ui.blkEdit && ui.blkEdit.add) { ui.blkEdit.add[t.dataset.f] = t.value; return; }
   if (dk === "adsel" && ui.add) { const d = ui.add.draft; if (t.value === "__custom") { d.name = "__custom"; } else { d.name = t.value; d.unit = LIBIDX[t.value].unit; } render(); return; }
+  if (dk === "adlmode" && ui.add) { ui.add.draft.lmode = t.value; render(); return; }
+  if (dk === "adlift" && ui.add) { ui.add.draft.lift = t.value; return; }
   if (dk === "adunit" && ui.add) { ui.add.draft.unit = t.value; render(); return; }
   if (dk === "dayday" && ui.days) { ui.days.rows[+t.dataset.r].short = t.value; ui.days.err = ""; render(); return; }
   if (dk === "dayopt" && ui.days) { ui.days.rows[+t.dataset.r].optional = t.checked; return; }
@@ -1924,7 +2762,7 @@ document.addEventListener("change", e => { const k = e.target.dataset && e.targe
 function refreshPlaceholders(i){
   const id = sid(ui.w, ui.d), it = effItems(ui.w, ui.d)[i], s = sess(id), sets = s.sets[i] || [];
   if (!KG_UNITS.includes(it.unit || "kg")) return;
-  let prev = it.pct ? suggested(it, week(ui.w).block) : num(it.load);
+  let prev = sugFor(it, week(ui.w).block);
   for (let k = 0; k < it.log; k++) { const el = document.getElementById(`kg-${id}-${i}-${k}`); const v = num((sets[k]||{}).kg); if (el && v == null) el.placeholder = prev != null ? fmt(prev) : ""; if (v != null) prev = v; }
 }
 function updateE1(i){ const id = sid(ui.w, ui.d), el = document.getElementById(`e1-${id}-${i}`); if (!el) return; const e = e1rm((sess(id).sets||{})[i]); el.innerHTML = e ? `Best e1RM <b>${fmt(Math.round(e))} kg</b>` : ""; }
@@ -1994,7 +2832,13 @@ function flushAll(){ Object.keys(timers).forEach(id => { clearTimeout(timers[id]
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushAll(); });
 window.addEventListener("pagehide", flushAll);
 try { document.getElementById("exlist").innerHTML = LIB.flatMap(([c, xs]) => xs.map(x => `<option value="${esc(x.name)}">`)).join(""); } catch (e) {}
+if (IS_APP && !lsGet(WELCOME_KEY)) ui.setup = {step: 1};
 render(); setStatus(); connect();
+(function openSharedLink(){
+  const m = location.hash.match(/^#p=([A-Za-z0-9_-]+)/); if (!m) return;
+  try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+  unpackCode(m[1]).then(P => receiveProgramme(P, "Shared link")).catch(() => { ui.view = "data"; render(); flagError("That link is incomplete or isn't a programme link.", ["imp-code"], "Can't open that link."); });
+})();
 </script>
 
 <script>
