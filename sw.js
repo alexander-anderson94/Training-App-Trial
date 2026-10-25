@@ -1,5 +1,5 @@
 // Training App service worker: keeps the app working offline.
-const CACHE = "training-app-86717db5-g3";
+const CACHE = "training-app-8fa02b78-g3";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "maskable-512.png", "apple-touch-icon.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith("training-app-") && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
