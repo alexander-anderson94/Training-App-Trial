@@ -188,6 +188,12 @@ tfoot td{font-weight:600}
 .fld span{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .fld input,.fld select{width:100%;min-width:0;border:1px solid var(--line);background:var(--sunk);border-radius:8px;padding:9px 10px;font-size:16px;color:var(--ink)}
 .fld.wide{grid-column:1/-1}
+/* iOS gives date boxes a wide built-in size that ignores width:100%, so they spill into the next cell: reset it, and give dates their own row */
+input[type=date],input[type=time]{-webkit-appearance:none;appearance:none;display:block;width:100%;min-width:0;max-width:100%;min-height:42px;line-height:1.25;text-align:left}
+input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+input[type=date]::-webkit-calendar-picker-indicator{margin-left:auto}
+.fgrid > *,.dayrow > *,.sets > *,.stiles > *,.partrow > *{min-width:0}
+.fgrid > .fld:has(input[type=date]){grid-column:1/-1}
 .hint{font-size:12px;color:var(--muted)}
 .seg{display:flex;flex-wrap:wrap;gap:4px;background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:3px}
 .seg button{flex:1 1 auto;border:0;background:none;border-radius:8px;padding:8px 10px;font-size:14px;font-weight:600;color:var(--muted)}
@@ -233,6 +239,58 @@ tfoot td{font-weight:600}
 .legend i.dash{height:0;border-top:2px dashed var(--ink);width:14px;border-radius:0;vertical-align:3px}
 .stab tr.hd td{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .stab tr.sub td{border-top:0;padding-top:0;font-size:12px;color:var(--muted);white-space:normal}
+.prof .up{color:var(--good,#2f8f5b)}.prof .down{color:var(--warn,#c0392b)}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:baseline;padding:3px 0;border-top:1px dashed var(--line)}
+.prow > span:first-child{overflow-wrap:anywhere}
+.card.danger{border:1px solid var(--warn,#c0392b)}
+.btn.danger{background:var(--warn,#c0392b);border-color:var(--warn,#c0392b);color:#fff}
+.ovbar{gap:10px}
+h3.ovblock{margin:10px 0 0;font-family:var(--display);font-size:18px;text-transform:uppercase;letter-spacing:.03em;color:var(--blk)}
+details.ovweek{gap:8px}
+details.ovweek summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;list-style:none}
+details.ovweek summary::-webkit-details-marker{display:none}
+details.ovweek summary::before{content:"▸";color:var(--muted)}details.ovweek[open] summary::before{content:"▾"}
+.ovsum{margin-left:auto}
+.ovday{display:flex;flex-direction:column;border-top:1px dashed var(--line);padding-top:6px}
+.ovdayhd,.ovrow{border:0;background:none;text-align:left;font:inherit;color:inherit;padding:4px 0;cursor:pointer}
+.ovdayhd{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}.ovdayhd .rx{margin-left:auto}
+.ovrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 8px;align-items:baseline}
+.ovrow .tag{grid-row:span 2;min-width:28px;height:22px;font-size:13px}
+.ovn{font-weight:600;overflow-wrap:anywhere}.ovp{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.ovtbl th small{display:block;font-weight:400;text-transform:none;letter-spacing:0}
+.ovtbl th.cur{color:var(--accent)}
+.ovtbl .ovsticky{position:sticky;left:0;background:var(--surface);z-index:1;text-align:left;white-space:normal;min-width:9em;max-width:11em;font-size:13px;text-transform:none;letter-spacing:0;color:var(--ink)}
+.ovtbl .ovsticky .tag{display:inline-grid;min-width:26px;height:20px;font-size:12px;margin-right:4px;vertical-align:1px}
+.ovtbl td{white-space:nowrap}
+.ovtbl thead .ovsticky{font-size:11px;text-transform:uppercase;color:var(--muted)}
+.ovtbl td{padding:4px}
+.ovcell{border:0;background:var(--sunk);border-radius:8px;padding:6px 8px;font:inherit;color:inherit;display:flex;flex-direction:column;align-items:center;min-width:64px;cursor:pointer}
+.ovcell b{font-size:13px}.ovcell span{font-size:12px;color:var(--muted)}.ovcell i{font-size:11px;color:var(--warn);max-width:9em;white-space:normal}
+.ovdays{margin-bottom:-4px}
+.card.flash{box-shadow:0 0 0 3px var(--accent)}
+@media print{
+  header.top,.drawer,.scrim,.toast,.ovbar,.card.build,.restbar{display:none!important}
+  header.top,main{margin-left:0!important}
+  body{background:#fff;color:#000}
+  .card{break-inside:avoid;border-color:#bbb}
+  details.ovweek > *{display:revert}
+}
+.card.back{border:2px solid var(--s4,#eda100);gap:6px}
+.card.travel{gap:8px;border:1px solid var(--accent)}
+.trrow{display:flex;gap:8px;align-items:flex-start}.trrow s{color:var(--muted)}
+.card.ready{gap:8px;border:1px solid var(--accent)}
+.rdrow{display:grid;grid-template-columns:minmax(0,7.5em) 1fr;gap:8px;align-items:center}
+.rdrow > span{font-size:13px;font-weight:600}.rdrow small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.rdrow .seg button{padding-left:4px;padding-right:4px}
+.rdrec{font-size:14px;border-left:3px solid var(--good,#2f8f5b);padding:4px 0 4px 10px}
+.rdrec.lvl1{border-color:var(--s4,#eda100)}.rdrec.lvl2{border-color:var(--warn,#c0392b)}
+.rdline{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--muted);padding:2px 2px 0}
+.rdline span:last-child{display:flex;gap:12px}
+.vidpanel{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:10px;margin-top:4px}
+.vidrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.vidrow .btn{text-decoration:none;display:inline-flex;align-items:center}
+.vidrow a.btn{color:var(--ink)}.vidrow a.btn.primary{color:#fff}
+.vidplay{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;text-decoration:none;margin-left:6px;vertical-align:2px}
 .expick{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card)}
 .expick b{display:block}.expick .rx{margin:0}
 .exlist{grid-column:1/-1;max-height:300px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;background:var(--card);-webkit-overflow-scrolling:touch}
@@ -259,7 +317,8 @@ h3.subchart{margin:10px 0 0;font-size:15px}
 .summary .up{color:var(--good,#2f8f5b)}.summary .down{color:var(--warn,#c0392b)}
 .sblk h4{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .sblk > div{padding:2px 0}
-.stab{width:100%;border-collapse:collapse;font-size:14px}.stab td{padding:4px 4px 4px 0;border-top:1px solid var(--line);vertical-align:top}
+.stab{width:100%;border-collapse:collapse;font-size:14px;table-layout:fixed}.stab td{padding:4px 4px 4px 0;border-top:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.review .stab td:first-child{width:38%}.summary .stab td:first-child{width:36%}
 .chip.pr{color:var(--good,#2f8f5b)}
 .ptab-wrap{overflow-x:auto;margin:0 -4px}
 .ptab{border-collapse:collapse;width:100%;font-size:14px}
@@ -352,7 +411,7 @@ body.has-rest .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
   <div class="drawer-group"><span>Training</span>
     <button data-view="train" id="dv-train">Train</button><button data-view="progress" id="dv-progress">Progress</button><button data-view="settings" id="dv-settings">Maxes</button></div>
   <div class="drawer-group"><span>Plan</span>
-    <button data-view="plans" id="dv-plans">Programmes &amp; runs</button><button data-view="guide" id="dv-guide">Programme guide</button></div>
+    <button data-view="plans" id="dv-plans">Programmes &amp; runs</button><button data-view="overview" id="dv-overview">Programme overview</button><button data-view="guide" id="dv-guide">Programme guide</button></div>
   <div class="drawer-group"><span>Help &amp; settings</span>
     <button data-view="help" id="dv-help">User guide</button><button data-view="look" id="dv-look">Appearance</button><button data-view="data" id="dv-data">Backup &amp; data</button><button data-view="feedback" id="dv-feedback">Feedback</button><button id="installbtn" hidden>Install app</button></div>
 </nav>
@@ -424,6 +483,7 @@ function blankRun(){ return {sessions:{}, settings:{e1rm:{}, round:2.5}, body:{b
 let RUNS = {main: blankRun()};
 let RUNIDX = {active: "main", list: [{id: "main", name: "", tpl: "hybrid", tplName: "Hybrid 12", seq: 1, started: "", created: ""}]};
 let TPLS = {};
+let EPOCH = 0; // which "start fresh" this device has seen
 let S = RUNS.main;
 let ui = {view:"train", w:1, d:"mon", notesOpen:{}, wuOpen:{}, move:null, edit:null};
 let mode = "local"; // "db" | "local"
@@ -447,14 +507,19 @@ function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 (function bootLook(){ try { const l = JSON.parse(localStorage.getItem(LOOK_KEY) || "null"); if (l) LOOK = Object.assign(LOOK, l); } catch (e) {} applyLook(); })();
 (function boot(){
   const c = lsGet(LS_KEY);
-  if (c && c.runs) { RUNS = c.runs; if (c.idx && Array.isArray(c.idx.list)) RUNIDX = c.idx; TPLS = c.tpls || {}; }
+  if (c && c.runs) { RUNS = c.runs; if (c.idx && Array.isArray(c.idx.list)) RUNIDX = c.idx; TPLS = c.tpls || {}; EPOCH = +c.epoch || 0; }
   else if (c) { Object.assign(RUNS.main.sessions, c.sessions||{}); if(c.settings) RUNS.main.settings = c.settings; if(c.body) RUNS.main.body = c.body; if(c.plan && Array.isArray(c.plan.edits)) RUNS.main.plan = c.plan; }
   Object.values(RUNS).forEach(R => { R.plan = R.plan || {edits:[]}; normalizePlan(R.plan); });
   if (!RUNS[RUNIDX.active]) RUNS[RUNIDX.active] = blankRun();
   S = RUNS[RUNIDX.active];
-  const u = lsGet(UI_KEY); if(u){ ui = Object.assign(ui, u, {notesOpen:{}, wuOpen:{}, move:null, setup:null, exq:"", prog:null, summary:null, sumText:null, review:null, rvMax:null, act:null, lifts:null, edit:null, blkEdit:null, warm:null, gedit:null, gint:null, add:null, days:null, test:null, bedit:null, reorder:null, plans:null, data:null}); }
+  const u = lsGet(UI_KEY); if(u){ ui = Object.assign(ui, u, {notesOpen:{}, wuOpen:{}, move:null, setup:null, exq:"", prog:null, summary:null, sumText:null, review:null, rvMax:null, act:null, lifts:null, vid:null, travel:null, ov:null, edit:null, blkEdit:null, warm:null, gedit:null, gint:null, add:null, days:null, test:null, bedit:null, reorder:null, plans:null, data:null}); }
 })();
-function cache(){ lsSet(LS_KEY, {runs: RUNS, idx: RUNIDX, tpls: TPLS}); }
+function cache(){ lsSet(LS_KEY, {runs: RUNS, idx: RUNIDX, tpls: TPLS, epoch: EPOCH}); }
+// a brand-new start: Hybrid 12 as the only programme, one empty run, no templates, logs or pins
+function freshState(){
+  RUNS = {main: blankRun()}; RUNIDX = {active: "main", list: [{id: "main", name: "", tpl: "hybrid", tplName: "Hybrid 12", seq: 1, started: "", created: todayISO()}]}; TPLS = {};
+  S = RUNS.main; planVer++; EFF.clear(); LOGCACHE = null; UNDO = null;
+}
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const num = v => { const n = parseFloat(String(v).replace(",", ".")); return isFinite(n) ? n : null; };
@@ -473,9 +538,10 @@ function blockWeeks(b){ return schedVis().filter(e => e.block === b); }
 const WEEK_CACHE = new Map();
 function week(id){
   const e = schedEntry(id) || {id, src: Math.min(12, Math.max(1, id)), block: 1};
-  if (S.plan.blank) { const f = ((S.plan.focus || {})[e.block] || "").trim(); return {w: e.id, pos: posOf(e.id), src: e.src, srcBlock: e.block, block: e.block, blockName: "", light: !!e.light, focus: e.light ? "Lighter week: about 10% less on % lifts. Recover and move well." + (f ? " " + f : "") : f, days: [], pctAdj: e.pctAdj || 0, copyOf: e.copyOf || null, hidden: !!e.hidden}; }
+  if (e.brk) return {w: e.id, pos: posOf(e.id), src: e.src, srcBlock: e.block, block: e.block, blockName: "", light: false, brk: true, focus: "Break week: no training planned. The plan picks up again next week.", days: [], pctAdj: 0, copyOf: null, hidden: !!e.hidden};
+  if (S.plan.blank) { const f = ((S.plan.focus || {})[e.block] || "").trim(); if (e.reentry) return {w: e.id, pos: posOf(e.id), src: e.src, srcBlock: e.block, block: e.block, blockName: "", light: false, reentry: true, focus: "Re-entry week: about 10% lighter on the % lifts and one fewer set on accessories. Move well and leave reps in the tank.", days: [], pctAdj: e.pctAdj || 0, copyOf: e.copyOf || null, hidden: !!e.hidden}; return {w: e.id, pos: posOf(e.id), src: e.src, srcBlock: e.block, block: e.block, blockName: "", light: !!e.light, focus: e.light ? "Lighter week: about 10% less on % lifts. Recover and move well." + (f ? " " + f : "") : f, days: [], pctAdj: e.pctAdj || 0, copyOf: e.copyOf || null, hidden: !!e.hidden}; }
   const t = PROGRAM[e.src - 1];
-  return {w: e.id, pos: posOf(e.id), src: e.src, srcBlock: t.block, block: e.block, blockName: t.blockName, light: t.light, focus: t.focus, days: t.days, pctAdj: e.pctAdj || 0, copyOf: e.copyOf || null, hidden: !!e.hidden};
+  return {w: e.id, pos: posOf(e.id), src: e.src, srcBlock: t.block, block: e.block, blockName: t.blockName, light: e.reentry ? false : t.light, reentry: !!e.reentry, focus: e.reentry ? "Re-entry week: about 10% lighter on the % lifts and one fewer set on accessories. Move well and leave reps in the tank." : t.focus, days: t.days, pctAdj: e.pctAdj || 0, copyOf: e.copyOf || null, hidden: !!e.hidden};
 }
 function inWeeks(r, w){ return Array.isArray(r.weeks) ? r.weeks.includes(w) : (w >= r.from && w <= r.to); }
 // older records stored a from–to range of week numbers; turn them into explicit week lists once
@@ -593,6 +659,9 @@ function blockOrd(b){ const i = blockOrder(true).indexOf(b); return i < 0 ? b : 
 function blockDefault(b){ return (!S.plan.blank && BLOCK_DEFAULT[b]) || `Block ${blockOrd(b)}`; }
 function isLightEntry(e){ return S.plan.blank ? !!e.light : !!(PROGRAM[e.src - 1] || {}).light; }
 function isBuilder(){ return !!runMeta(RUNIDX.active).builder; }
+const PLANVIEW_KEY = "training-app-planview";
+// editing a programme shows the plan without logging boxes, unless you switch it off
+function planView(){ return isBuilder() && lsGet(PLANVIEW_KEY) !== false; }
 function defScope(){ if (!isBuilder()) return "week"; const L = Object.fromEntries(scopeLabels()); return L.all ? "all" : L.block ? "block" : "week"; }
 // % lifts added to a day can climb each week of a block; blank programmes drop them on lighter weeks
 function stepPct(b, w){
@@ -606,7 +675,7 @@ function stepPct(b, w){
   return Math.max(.3, Math.min(1, Math.round(p * 1000) / 1000));
 }
 function blockName(b){ const n = ((S.plan.blocks || {})[b] || "").trim(); return n || blockDefault(b); }
-function weekFocus(wk){ const o = BLOCK_DEFAULT[wk.srcBlock] + ":"; return wk.focus.startsWith(o) ? blockName(wk.block) + ":" + wk.focus.slice(o.length) : wk.focus; }
+function weekFocus(wk){ if (wk.brk || wk.reentry) return wk.focus; const o = BLOCK_DEFAULT[wk.srcBlock] + ":"; return wk.focus.startsWith(o) ? blockName(wk.block) + ":" + wk.focus.slice(o.length) : wk.focus; }
 function slotsFor(items){ const seen = {}; return items.map(it => { if (it.xid) return "x" + it.xid; const n = (seen[it.tag] = (seen[it.tag] || 0) + 1); return n > 1 ? `${it.tag}~${n}` : it.tag; }); }
 let planVer = 0; const EFF = new Map();
 function effItems(w, d){
@@ -633,6 +702,8 @@ function effItems(w, d){
       if (f.bslot != null) { it.bslot = f.bslot; it.edited = true; }
       if (f.prog != null) { if (f.prog === "auto") delete it.prog; else it.prog = f.prog; it.edited = true; }
       if (f.lift != null && it.pct) { it.lift = f.lift; it.edited = true; }
+      if (f.nopct) { delete it.pct; delete it.pctStep; it.load = "Pick for target"; it.edited = true; }
+      if (f.kind) { it.kind = f.kind; if (f.kind === "cond") { delete it.sets; delete it.log; it.rx = it.rx || "As written"; } it.edited = true; }
       if (f.pctDelta != null && b.pct) { it.pct = Math.max(.3, Math.min(1, Math.round((b.pct + f.pctDelta) * 1000) / 1000)); it.edited = true; }
       if (e.slot !== slots[i]) continue;
       ["reps","target","rest","note","rx","parts","wu","wuScheme"].forEach(k => { if (f[k] != null) it[k] = f[k]; });
@@ -649,6 +720,7 @@ function effItems(w, d){
       if (!it.bslot) { const vis = schedVis(), p = posOf(w); it.bslot = week(w).src === 12 ? "w12" : week(w).src === 1 ? "w1" : (p > Math.ceil(vis.length / 2) ? "w12" : "w1"); }
     }
     if (it.kind === "warm") { if (!it.warmId) it.warmId = defaultWarm(d); if (it.warmId !== "none" && !warmById(it.warmId)) it.warmId = defaultWarm(d); }
+    if (it.sets >= 3 && !it.pct && it.kind !== "main" && week(w).reentry && !it.prog && !autoLift(baseName(it))) it.sets = it.sets - 1;
     if (it.sets) it.log = /^15 \+/.test(String(it.reps)) ? 1 : it.sets;
     it.pl = !it.sets || it.prog === "" ? null : (it.prog || autoLift(baseName(it)));
     if (!it.log) delete it.log;
@@ -837,7 +909,7 @@ function flagError(msg, ids, title){
     if (k === 0) { el.scrollIntoView({block: "center", behavior: reduce ? "auto" : "smooth"}); el.focus({preventScroll: true}); }
   });
 }
-function closePanels(){ Object.assign(ui, {edit: null, warm: null, add: null, days: null, test: null, reorder: null, blkEdit: null, gedit: null, gint: null, bedit: null}); }
+function closePanels(){ Object.assign(ui, {travel: null, vid: null, edit: null, warm: null, add: null, days: null, test: null, reorder: null, blkEdit: null, gedit: null, gint: null, bedit: null}); }
 function switchRun(id){
   if (!RUNS[id]) RUNS[id] = blankRun();
   RUNIDX.active = id; S = RUNS[id]; planVer++; EFF.clear(); closePanels();
@@ -854,7 +926,7 @@ function blockSubset(b){
   const P = clone(S.plan), sched = schedAll().filter(e => e.block === b && !e.hidden).map(e => clone(e)), ids = new Set(sched.map(e => e.id));
   const out = {edits: [], schedule: sched, blocks: {[b]: blockName(b)}};
   ["edits", "added", "customDays", "dayEdits", "orders"].forEach(k => (P[k] || []).forEach(r => { if (!Array.isArray(r.weeks)) return; const ws = r.weeks.filter(w => ids.has(w)); if (ws.length) (out[k] = out[k] || []).push(Object.assign({}, r, {weeks: ws, from: ws[0]})); }));
-  ["warmups", "intens", "bench", "guide", "lifts", "blank", "focus"].forEach(k => { if (P[k] != null) out[k] = P[k]; });
+  ["warmups", "intens", "bench", "guide", "lifts", "blank", "focus", "videos"].forEach(k => { if (P[k] != null) out[k] = P[k]; });
   return out;
 }
 function saveTemplate(T){
@@ -890,6 +962,7 @@ function startRun(tpl, opts){
   return id;
 }
 function mergeLib(T){
+  if (T.videos) S.plan.videos = Object.assign({}, T.videos, S.plan.videos);
   if (Array.isArray(T.lifts)) { const cur = liftList().slice(), have = new Set(cur.map(x => x.key)); let add = false; T.lifts.forEach(x => { if (!have.has(x.key)) { cur.push(x); add = true; } }); if (add || !Array.isArray(S.plan.lifts)) S.plan.lifts = cur; }
   ["warmups", "intens"].forEach(k => { if (!Array.isArray(T[k])) return; const have = new Set((S.plan[k] || []).map(x => x.id)); S.plan[k] = (S.plan[k] || []).concat(T[k].filter(x => !have.has(x.id))); });
   if (Array.isArray(T.bench)) { const cur = benchList().slice(), have = new Set(cur.map(x => x.key)); T.bench.forEach(x => { if (!have.has(x.key)) cur.push(x); }); S.plan.bench = cur; }
@@ -938,7 +1011,39 @@ function nextLoad(it){
   const L = lastSession(it.name, ui.w, ui.d); return L ? verdict(it, L.sets) : null;
 }
 // the weight to suggest on a card: % of max, then your last session, then the plan's starting weight
-function sugFor(it, block){ if (it.pct) return suggested(it, block); const n = nextLoad(it); return n ? n.kg : num(it.load); }
+function sugFor(it, block){ if (it.pct) return adjKg(suggested(it, block)); const n = nextLoad(it); return n ? n.kg : num(it.load); }
+// ---------- readiness check-in: a quick check before training that can ease the session off ----------
+const READY_Q = [["sleep", "Sleep", ["Poor", "OK", "Good"]], ["sore", "Soreness", ["Very sore", "A bit", "Fresh"]], ["energy", "Energy", ["Low", "OK", "High"]]];
+const READY_TXT = {"-1": "You're flying. Train as planned, or add 2.5% to the % lifts if the bar moves fast.", "0": "Good to go. Train as planned.", "1": "A bit flat. Take 2.5% off the % lifts and keep the reps crisp.", "2": "Rough day. Take 5% off the % lifts and do one fewer set on accessories. Showing up still counts."};
+function readyRec(R){
+  if (!R || READY_Q.some(([k]) => R[k] == null)) return null;
+  const sc = R.sleep + R.sore + R.energy; let lvl = sc >= 4 ? 0 : sc >= 2 ? 1 : 2;
+  if (R.feel === -1) lvl = Math.min(2, lvl + 1); if (R.feel === 1) lvl = Math.max(-1, lvl - 1);
+  return {sc, lvl, pct: {"-1": 0.025, "0": 0, "1": -0.025, "2": -0.05}[lvl], drop: lvl === 2};
+}
+function curAdj(){ const s = S.sessions[sid(ui.w, ui.d)]; return s && s.adj ? s.adj : null; }
+function adjKg(kg){ const a = curAdj(); if (!a || !a.pct || kg == null) return kg; const r = num(S.settings.round) || 2.5; return Math.round(kg * (1 + a.pct) / r) * r; }
+// one fewer set on accessories when the check-in says so (never below two)
+function logCount(it){ const a = curAdj(); return a && a.drop && it.log >= 3 && !it.pl && it.kind !== "main" && !it.pct ? it.log - 1 : it.log; }
+function adjText(a){ return [a.pct ? `${a.pct > 0 ? "+" : "−"}${Math.abs(a.pct * 100)}% on % lifts` : "", a.drop ? "one fewer set on accessories" : ""].filter(Boolean).join(", "); }
+function readyCard(id, s){
+  if (S.settings.noReady || isBuilder() || s.done || s.skipped) return "";
+  const dy = day(ui.w, ui.d), dd = dayDate(ui.w, dy.short); if (dd && dd > new Date(new Date().setHours(23, 59, 59))) return "";
+  const R = s.ready || {}, rec = readyRec(R);
+  if (R.skipped) return "";
+  if (rec && (R.done || s.adj) && !R.open) return `<div class="rdline"><span>Readiness <b>${rec.sc}/6</b>${s.adj ? ` · adjusted: ${esc(adjText(s.adj))}` : rec.lvl <= 0 ? " · training as planned" : " · training as planned anyway"}</span><span>${s.adj ? `<button class="addnote" data-k="rdundo">Undo</button>` : ""}<button class="addnote" data-k="rdedit">Change</button></span></div>`;
+  let h = `<div class="card ready"><div class="ghead"><b>How are you today?</b><button class="addnote" data-k="rdskip">Skip</button></div>`;
+  READY_Q.forEach(([k, label, opts]) => { h += `<div class="rdrow"><span>${label}</span><div class="seg" role="group" aria-label="${label}">${opts.map((o, v) => `<button data-k="rdq" data-f="${k}" data-v="${v}" aria-pressed="${R[k] === v}">${o}</button>`).join("")}</div></div>`; });
+  h += `<div class="rdrow"><span>First warm-up set <small>(optional)</small></span><div class="seg" role="group" aria-label="Warm-up feel">${[[-1, "Heavy"], [0, "Normal"], [1, "Light"]].map(([v, o]) => `<button data-k="rdq" data-f="feel" data-v="${v}" aria-pressed="${R.feel === v}">${o}</button>`).join("")}</div></div>`;
+  if (rec) {
+    h += `<div class="rdrec lvl${rec.lvl}"><b>${rec.sc}/6.</b> ${esc(READY_TXT[rec.lvl])}</div><div class="edbtns">`;
+    if (rec.lvl >= 1) h += `<button class="btn primary" data-k="rdapply">Apply: ${esc(adjText(rec))}</button><button class="btn" data-k="rdplan">Train as planned</button>`;
+    else if (rec.lvl === -1) h += `<button class="btn primary" data-k="rdplan">Train as planned</button><button class="btn" data-k="rdapply">Add 2.5%</button>`;
+    else h += `<button class="btn primary" data-k="rdplan">Let's go</button>`;
+    h += `</div>`;
+  }
+  return h + `</div>`;
+}
 
 function lastTime(name, w, d0, i0){
   const vis = schedVis(), wi = vis.findIndex(e => e.id === w);
@@ -1011,7 +1116,7 @@ function renderBar(){
   const wk = week(ui.w);
   document.documentElement.style.setProperty("--blk", blkVar(wk.block));
   ["train","progress","settings"].forEach(v => document.getElementById("v-"+v).setAttribute("aria-pressed", ui.view === v));
-  ["train","progress","settings","plans","guide","help","look","data","feedback","history"].forEach(v => { const b = document.getElementById("dv-"+v); if (b) { if (ui.view === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); } });
+  ["train","progress","settings","plans","overview","guide","help","look","data","feedback","history"].forEach(v => { const b = document.getElementById("dv-"+v); if (b) { if (ui.view === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); } });
   const rmD = runMeta(RUNIDX.active); document.getElementById("drawer-run").innerHTML = `<b>${esc(runLabel(rmD))}</b>${rmD.started ? `Started ${fmtDate(rmD.started, true)}` : "No start date yet"} · ${schedVis().length} weeks`;
   document.getElementById("trainbar").hidden = ui.view !== "train";
   document.getElementById("wklabel").innerHTML = `<b>Week ${wk.pos}</b><button class="blkname" data-k="blkopen" aria-label="Edit block ${blockOrd(wk.block)}">Block ${blockOrd(wk.block)} · ${esc(blockName(wk.block))}${wk.light ? (wk.src===12 ? " · Retest" : " · Lighter") : ""}<svg width="11" height="11" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.5 1.5l3 3L5 14H2v-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>`;
@@ -1032,7 +1137,7 @@ function render(){
   const f = document.activeElement, fid = f && f.id, sel = f && "selectionStart" in f ? [f.selectionStart, f.selectionEnd] : null;
   renderBar();
   const v = document.getElementById("view");
-  v.innerHTML = builderBar() + (ui.view === "train" ? viewTrain() : ui.view === "progress" ? viewProgress() : ui.view === "guide" ? viewGuide() : ui.view === "plans" ? viewPlans() : ui.view === "help" ? viewHelp() : ui.view === "look" ? viewLook() : ui.view === "history" ? viewHistory() : ui.view === "data" ? viewData() : ui.view === "feedback" ? viewFeedback() : viewSettings());
+  v.innerHTML = builderBar() + (ui.view === "train" ? viewTrain() : ui.view === "progress" ? viewProgress() : ui.view === "guide" ? viewGuide() : ui.view === "overview" ? viewOverview() : ui.view === "plans" ? viewPlans() : ui.view === "help" ? viewHelp() : ui.view === "look" ? viewLook() : ui.view === "history" ? viewHistory() : ui.view === "data" ? viewData() : ui.view === "feedback" ? viewFeedback() : viewSettings());
   if (fid) { const n = document.getElementById(fid); if (n) { n.focus({preventScroll:true}); if (sel) try { n.setSelectionRange(sel[0], sel[1]); } catch(e){} } }
   lsSet(UI_KEY, {view:ui.view, w:ui.w, d:ui.d});
 }
@@ -1040,6 +1145,7 @@ function viewTrain(){
   const wk = week(ui.w), dy = day(ui.w, ui.d), id = sid(ui.w, ui.d), s = S.sessions[id] || {sets:{}, notes:{}, results:{}};
   let h = "";
   if (ui.days) return daysPanel();
+  if (wk.brk) { const nx = schedVis().find(e => posOf(e.id) > wk.pos && !e.brk), nd = nx && weekMonday(nx.id); return `${behindBanner()}<div class="focus">${esc(wk.focus)}</div><div class="card"><b>Week ${wk.pos} is a break week.</b><div class="rx">${nd ? `Training starts again on ${esc(nd.toLocaleDateString("en-GB", {weekday: "long", day: "numeric", month: "long"}))}.` : "There are no more training weeks after it."}</div><div class="edbtns"><button class="btn" data-k="brkremove" data-id="${wk.w}">Remove this break week</button></div></div>`; }
   if (!daysFor(ui.w).length) return `<div class="focus">${esc(weekFocus(wk))}</div><div class="nowarm"><span>No training days in week ${wk.pos}.</span><button class="addnote" data-k="daysopen">Add a day</button></div>`;
   if (ui.blkEdit) return blockPanel();
   if (ui.prog) return progPanel();
@@ -1049,10 +1155,14 @@ function viewTrain(){
   if (false) h += `<div class="card" style="border:2px solid var(--accent)"><h3 style="margin:0;font-size:17px">Welcome</h3><p style="margin:0">Suggested weights come from your maxes. The ones filled in are only examples, so set your own before your first session. The User guide in the menu explains everything else.</p><div class="edbtns"><button class="btn primary" data-k="welcomemax">Set my maxes</button><button class="btn" data-k="welcomeno">Not now</button></div></div>`;
   if (ui.reorder) return h + reorderPanel();
   if (ui.summary === id && s.done) h += summaryCard(ui.w, ui.d);
+  h += behindBanner();
+  h += targetBanner();
   h += missedBanner();
+  h += readyCard(id, s);
   const sk = (S.sessions[id] || {}).skipped;
-  h += `<div class="dayopts"><label class="switch"><input type="checkbox" id="rest-on" data-k="restcfg" data-f="on"${RESTCFG.on ? " checked" : ""}> Track rest</label>${RESTCFG.on ? `<label class="switch"><input type="checkbox" id="rest-snd" data-k="restcfg" data-f="sound"${RESTCFG.sound ? " checked" : ""}> Sound</label>` : ""}<button class="addnote" data-k="mvopen" style="margin-left:auto">${sk ? "Skipped · undo" : weekMoves(ui.w).length ? "Move, skip or undo" : "Move or skip"}</button></div>`;
+  if (!planView()) h += `<div class="dayopts"><label class="switch"><input type="checkbox" id="rest-on" data-k="restcfg" data-f="on"${RESTCFG.on ? " checked" : ""}> Track rest</label>${RESTCFG.on ? `<label class="switch"><input type="checkbox" id="rest-snd" data-k="restcfg" data-f="sound"${RESTCFG.sound ? " checked" : ""}> Sound</label>` : ""}<button class="addnote" data-k="tropen" style="margin-left:auto">Travel swaps</button><button class="addnote" data-k="mvopen">${sk ? "Skipped · undo" : weekMoves(ui.w).length ? "Move, skip or undo" : "Move or skip"}</button></div>`;
   if (ui.move) h += movePanel();
+  if (ui.travel) h += travelPanel();
   const items = effItems(ui.w, ui.d), shownSS = new Set();
   displayOrder(ui.w, ui.d).forEach(i => { const it = items[i];
     if (it.ss && !shownSS.has(it.ss.letter) && !it.removed) { shownSS.add(it.ss.letter); const kind = it.ss.size === 2 ? "Superset" : it.ss.size === 3 ? "Tri-set" : "Giant set"; h += `<div class="ssbar"><b>${kind} ${esc(it.ss.letter)}</b> · ${it.ss.names.map(esc).join(" → ")}, then rest ${esc(it.ss.rest)}</div>`; }
@@ -1061,6 +1171,7 @@ function viewTrain(){
   if (ui.add) h += addPanel();
   else if (ui.test && ui.test.add) h += `<div class="card">${testPanel({})}</div>`;
   else h += `<div class="edbtns"><button class="btn" data-k="addopen">Add exercise</button><button class="btn" data-k="taddopen">Add benchmark test</button><button class="btn" data-k="ordopen">Reorder</button></div>`;
+  if (planView()) { h += `<div class="hint" style="text-align:center">Plan view: logging is hidden while you edit. Switch it off on the editing card to see the full session.</div>`; return h; }
   h += sessionEffort(id, s);
   h += `<div class="card"><label class="rx" for="sn-${id}"><b>Session notes</b> (sleep, energy, anything that felt off)</label><textarea id="sn-${id}" data-k="snote" rows="2">${esc(s.note)}</textarea></div>`;
   h += `<button class="finish ${s.done ? "is-done" : ""}" id="fin-${id}" data-k="finish">${s.done ? "✓ Session done · tap to undo" : "Finish session"}</button>`;
@@ -1074,15 +1185,15 @@ function card(it, i, s, block){
   if (it.removed && !(ui.edit && ui.edit.key === `${ui.w}-${ui.d}-${i}`)) return `<div class="nowarm"><span><b>${esc(it.label || it.tag)}</b> ${esc(it.name)} · removed</span><button class="addnote" data-k="edopen" data-i="${i}">Put back</button></div>`;
   let sug = "";
   const u = it.unit || "kg";
-  if (it.pct) { const kg = suggested(it, block); sug = `<div class="sug">Suggested<b>${fmt(kg)} kg</b><small>${Math.round(it.pct*1000)/10}% e1RM</small></div>`; }
+  if (it.pct) { const kg = adjKg(suggested(it, block)), a = curAdj(); sug = `<div class="sug">Suggested<b>${fmt(kg)} kg</b><small>${Math.round(it.pct*1000)/10}% e1RM${a && a.pct ? ` ${a.pct > 0 ? "+" : "−"}${Math.abs(a.pct * 100)}%` : ""}</small></div>`; }
   else if (nextLoad(it)) { const n = nextLoad(it); sug = `<div class="sug">Next<b>${fmt(n.kg)}<small style="display:inline;font-size:13px"> kg</small></b><small>${n.up ? `+${fmt(n.up)} kg` : "same weight"}</small></div>`; }
   else if (it.load && KG_UNITS.includes(u) && /kg$/.test(it.load)) sug = `<div class="sug">Start<b>${esc(it.load.replace(" kg",""))}${/kg$/.test(it.load) ? '<small style="display:inline;font-size:13px"> kg</small>' : ""}</b><small>${esc(it.basis||"")}</small></div>`;
   const rx = it.sets ? `<b>${it.sets} × ${esc(it.reps)}</b> · ${esc(it.target)}${it.rest ? " · rest " + esc(it.rest) : ""}` : `<b>${esc(it.rx)}</b> · ${esc(it.target)}`;
-  let h = `<div class="card ${it.kind === "main" ? "main" : ""}${it.ss ? " ssc" : ""}"><div class="ch"><span class="tag">${esc(it.label || it.tag)}</span><div class="ttl"><h3>${it.log ? `<button class="exname" data-k="hist" data-n="${esc(it.name.split(" — ")[0])}" title="History and records">${esc(it.name)}</button>` : esc(it.name)}${it.edited ? '<span class="chip">Edited</span>' : ""}</h3><div class="rx">${rx}</div></div>${sug}</div>`;
+  let h = `<div class="card ${it.kind === "main" ? "main" : ""}${it.ss ? " ssc" : ""}"><div class="ch"><span class="tag">${esc(it.label || it.tag)}</span><div class="ttl"><h3>${it.log ? `<button class="exname" data-k="hist" data-n="${esc(it.name.split(" — ")[0])}" title="History and records">${esc(it.name)}</button>` : esc(it.name)}${it.edited ? '<span class="chip">Edited</span>' : ""}${videoFor(it.name) ? `<a class="vidplay" href="${esc(videoFor(it.name).url)}" target="_blank" rel="noopener" aria-label="Watch ${esc(it.name.split(" — ")[0])} demo" title="Watch demo">▶</a>` : ""}</h3><div class="rx">${rx}</div></div>${sug}</div>`;
   if (it.note) h += `<div class="note">${esc(it.note)}</div>`;
   if (it.intens && it.intens !== "none") { const I = intById(it.intens); if (I) h += `<div class="note"><b>${esc(I.name)}:</b> ${esc(I.how)}</div>`; }
   if (it.parts) h += `<div class="parts">${it.parts.map((p, k) => `<div><b>${it.emom ? `<span class="rx" style="margin:0">${it.parts.length > 1 ? `Min ${k + 1}` : "Every min"}</span> ` : ""}${esc(p.name)} · ${esc(p.reps)}</b><span>${esc(p.load || "")}${p.basis && p.load && /kg/.test(p.load) ? " " + esc(p.basis.toLowerCase()) : ""}</span></div>`).join("")}</div>`;
-  if (it.log) {
+  if (it.log && !planView()) {
     const last = lastTime(it.name, ui.w); if (last) h += `<div class="last">Last: ${esc(last)}</div>`;
     const nl = nextLoad(it); if (nl) h += `<div class="last nexthint">${nl.up ? "↑ " : ""}${esc(nl.why)}</div>`;
     const sets = (s.sets && s.sets[i]) || [];
@@ -1099,7 +1210,7 @@ function card(it, i, s, block){
     }
     h += `<div class="sets"${noLoad ? ' style="grid-template-columns:28px 1fr 44px"' : ""}><span class="hd">Set</span>${noLoad ? "" : `<span class="hd">${UNIT_HEAD[u]}</span>`}<span class="hd">${SECOND_HEAD[u] || "Reps"}</span><span></span>`;
     let prevKg = null;
-    for (let k = 0; k < it.log; k++) {
+    for (let k = 0; k < logCount(it); k++) {
       const st = sets[k] || {}; const ph = num(st.kg) == null ? (prevKg ?? sugKg) : null;
       if (num(st.kg) != null) prevKg = num(st.kg);
       const prl = (num(st.kg) != null || num(st.reps) != null) && (st.done || (num(st.kg) != null && num(st.reps) != null)) ? prLabel(it.name.split(" — ")[0], u, num(st.kg), num(st.reps), {run: RUNIDX.active, w: ui.w, d: ui.d, i, k}) : null;
@@ -1110,15 +1221,17 @@ function card(it, i, s, block){
     }
     h += `</div>`;
     if ((it.pl || it.kind === "main") && u === "kg" && (!it.pl || liftByKey(it.pl).type === "max")) { const e = e1rm(sets); h += `<div class="e1" id="e1-${id}-${i}">${e ? `Best e1RM <b>${fmt(Math.round(e))} kg</b>` : ""}</div>`; }
-  } else if (it.kind !== "warm") {
+  } else if (it.kind !== "warm" && !planView()) {
     h += `<input class="txt" id="res-${id}-${i}" data-k="result" data-i="${i}" value="${esc((s.results||{})[i] ?? "")}" placeholder="${it.kind === "test" ? "Result" : "Result (calories, metres, time…)"}" aria-label="Result for ${esc(it.name)}">`;
   }
-  const note = (s.notes||{})[i];
+  const note = planView() ? null : (s.notes||{})[i];
   const key = `${id}-${i}`;
   if (note || ui.notesOpen[key]) h += `<textarea id="nt-${key}" data-k="note" data-i="${i}" rows="1" placeholder="Notes">${esc(note)}</textarea>`;
   const editing = ui.edit && ui.edit.key === `${ui.w}-${ui.d}-${i}`;
   const canEdit = it.kind !== "test";
-  if (!editing) h += `<div class="actions">${note || ui.notesOpen[key] ? "" : `<button class="addnote" data-k="opennote" data-i="${i}">Add note</button>`}${canEdit ? `<button class="addnote" data-k="edopen" data-i="${i}">Edit exercise</button>` : ""}</div>`;
+  const vkey = `${id}-${i}`, vOpen = ui.vid && ui.vid.key === vkey, vv = videoFor(it.name);
+  if (vOpen && !editing) h += videoPanel(it, i);
+  if (!editing) h += `<div class="actions">${planView() ? (it.sets ? `<button class="addnote" data-k="pgopenI" data-i="${i}">Week by week</button>` : "") : note || ui.notesOpen[key] ? "" : `<button class="addnote" data-k="opennote" data-i="${i}">Add note</button>`}${canEdit ? `<button class="addnote" data-k="edopen" data-i="${i}">Edit exercise</button>` : ""}${vOpen ? "" : `<button class="addnote vidbtn" data-k="vidopen" data-i="${i}">${vv ? "▶ Demo" : "Find a demo"}</button>`}</div>`;
   else h += editor(it, i);
   return h + `</div>`;
 }
@@ -1142,12 +1255,12 @@ function testCard(it, i){
   else {
     if (B.how) h += `<div class="note">${esc(B.how)}</div>`;
     if (B.link) { const T = exerciseTrack(B.link); h += `<div class="last">Filled in from your ${esc(B.link)} log${T.first ? `: start ${fmt(T.first.v)} (wk ${T.first.pos})` : ""}${T.last ? `, latest ${fmt(T.last.v)} (wk ${T.last.pos})` : ""}.</div>`; }
-    else { const v = (S.body.bench || {})[B.key] || {}; h += `<label class="fld"><span>${benchSlotLabel(it.bslot)} result${B.unit ? ` (${esc(B.unit)})` : ""}</span><input class="num" style="text-align:left" id="tb-${ui.w}-${ui.d}-${i}" data-k="bench" data-b="${esc(B.key)}" data-f="${it.bslot}" inputmode="decimal" value="${esc(v[it.bslot] ?? "")}"></label>`; }
+    else if (!planView()) { const v = (S.body.bench || {})[B.key] || {}; h += `<label class="fld"><span>${benchSlotLabel(it.bslot)} result${B.unit ? ` (${esc(B.unit)})` : ""}</span><input class="num" style="text-align:left" id="tb-${ui.w}-${ui.d}-${i}" data-k="bench" data-b="${esc(B.key)}" data-f="${it.bslot}" inputmode="decimal" value="${esc(v[it.bslot] ?? "")}"></label>`; }
   }
   const note = ((S.sessions[sid(ui.w, ui.d)] || {}).notes || {})[i], key = `${sid(ui.w, ui.d)}-${i}`;
   if (note || ui.notesOpen[key]) h += `<textarea id="nt-${key}" data-k="note" data-i="${i}" rows="1" placeholder="Notes">${esc(note)}</textarea>`;
   if (open) return h + testPanel(it) + `</div>`;
-  return h + `<div class="actions">${note || ui.notesOpen[key] ? "" : `<button class="addnote" data-k="opennote" data-i="${i}">Add note</button>`}<button class="addnote" data-k="topen" data-i="${i}">Change test</button></div></div>`;
+  return h + `<div class="actions">${note || ui.notesOpen[key] || planView() ? "" : `<button class="addnote" data-k="opennote" data-i="${i}">Add note</button>`}<button class="addnote" data-k="topen" data-i="${i}">Change test</button></div></div>`;
 }
 function testPanel(it){
   const P = ui.test, list = benchList();
@@ -1234,7 +1347,7 @@ function blockPanel(){
   if (B.lenMsg) h += `<div class="hint">${esc(B.lenMsg)}</div>`;
   inBlock.forEach(e => {
     const t = PROGRAM[e.src - 1] || {}, p = visPos(e.id);
-    const desc = S.plan.blank ? (e.light ? "Lighter week" : "Training week") + (e.pctAdj ? ` · % lifts ${e.pctAdj > 0 ? "+" : ""}${e.pctAdj}%` : "")
+    const desc = e.brk ? "Break week" : e.reentry ? "Re-entry week (lighter)" : S.plan.blank ? (e.light ? "Lighter week" : "Training week") + (e.pctAdj ? ` · % lifts ${e.pctAdj > 0 ? "+" : ""}${e.pctAdj}%` : "")
       : (e.copyOf ? `Repeat of plan week ${e.src}` : `Plan week ${e.src}`) + (t.light ? (e.src === 12 ? " · retest" : " · lighter") : "") + (e.pctAdj ? ` · main lifts ${e.pctAdj > 0 ? "+" : ""}${e.pctAdj}%` : "");
     const logged = Object.keys(S.sessions).some(k => k.startsWith(`w${e.id}-`) && hasData(S.sessions[k]));
     h += `<div class="dayrow${e.hidden ? " off" : ""}" style="grid-template-columns:1fr auto;align-items:center"><div><b>${e.hidden ? "Removed week" : `Week ${p}`}</b>${e.id === ui.w ? ' <span class="chip">Viewing</span>' : ""}<div class="rx">${esc(desc)}${logged ? " · has logged sessions" : ""}</div></div>`
@@ -1307,6 +1420,113 @@ function setBlockLength(b, n){
   let what = "last week";
   while (have < n) { const v = schedVis().filter(e => e.block === b), last = v[v.length - 1]; const hard = v.slice().reverse().find(e => !isLightEntry(e)) || last; if (hard !== last) what = "last hard week, placed before its lighter week"; insertWeek(hard, b, hard.id, 0); have++; added++; }
   return added ? `Added ${added} repeat${added === 1 ? "" : "s"} of the block's ${what}.` : "Put back the weeks you'd removed.";
+}
+// ---------- getting back on track after time off ----------
+function mondayOf(d){ const x = new Date(d); x.setHours(12, 0, 0, 0); x.setDate(x.getDate() - ((x.getDay() + 6) % 7)); return x; }
+function isoOf(d){ return new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); }
+function weekTouched(id){ return daysFor(id).some(d => { const s = S.sessions[sid(id, d.key)]; return s && (s.done || s.skipped); }); }
+// the week to pick up from: the first untouched week after the last one you trained in, if it's already in the past
+function behindInfo(){
+  const m = runMeta(RUNIDX.active); if (!m.started || isBuilder()) return null;
+  const vis = schedVis().filter(e => !e.brk); if (!vis.length) return null;
+  let last = -1; vis.forEach((e, i) => { if (weekTouched(e.id)) last = i; });
+  const R = vis[last + 1]; if (!R) return null;
+  const rm = weekMonday(R.id); if (!rm) return null;
+  const cur = mondayOf(todayDate()), gap = Math.round((cur - mondayOf(rm)) / (7 * 864e5));
+  if (gap < 1) return null;
+  if (m.behindAck === isoOf(cur)) return null;
+  return {R, gap, never: last < 0, pos: posOf(R.id)};
+}
+function behindBanner(){
+  const B = behindInfo(); if (!B) return "";
+  const wk = B.gap === 1 ? "a week" : `${B.gap} weeks`;
+  if (B.never) return `<div class="card back"><b>Your run started ${wk} ago and nothing's logged yet.</b><div class="rx">Move the start to this week so week 1 lines up with today.</div><div class="edbtns"><button class="btn primary" data-k="bkstart">Start from this week</button><button class="btn text" data-k="bkdismiss">Not now</button></div></div>`;
+  return `<div class="card back"><b>Welcome back. You're ${wk} behind the plan.</b><div class="rx">Week ${B.pos} is where you left off. Easing back in adds a lighter re-entry week now, then picks up week ${B.pos} next week. Everything after moves back ${B.gap + 1} week${B.gap + 1 === 1 ? "" : "s"}, and nothing you've logged changes.${targetAfterNote(B.gap + 1)}</div>`
+    + `<div class="edbtns"><button class="btn primary" data-k="bkease">Ease back in</button><button class="btn" data-k="bkpick">Pick up week ${B.pos} now</button><button class="btn text" data-k="bkdismiss">Not now</button></div></div>`;
+}
+// put break weeks (and a re-entry week) in front of the week you left off at, so it lands on the right date
+function insertBreaks(R, nBreak, reentry){
+  normalizePlan();
+  const sc = schedAll().map(e => Object.assign({}, e)), at = sc.findIndex(e => e.id === R.id); if (at < 0) return null;
+  let wid = nextWeekId(); const add = [];
+  for (let i = 0; i < nBreak; i++) add.push({id: wid++, src: R.src, block: R.block, brk: true});
+  let re = null; if (reentry) { re = {id: wid++, src: R.src, block: R.block, copyOf: R.id, reentry: true, pctAdj: (R.pctAdj || 0) - 10}; if (R.light) re.light = false; add.push(re); }
+  sc.splice(at, 0, ...add); S.plan.schedule = sc;
+  if (re) cloneWeekChanges(R.id, re.id);
+  planChanged(); return re ? re.id : R.id;
+}
+// ---------- target date ----------
+function weekPosOfDate(iso){ const m = runMeta(RUNIDX.active); if (!m.started || !iso) return null; const s0 = mondayOf(new Date(m.started + "T12:00:00")), t = mondayOf(new Date(iso + "T12:00:00")); return Math.round((t - s0) / (7 * 864e5)) + 1; }
+function targetInfo(){
+  const m = runMeta(RUNIDX.active); if (!m.target || !m.started || isBuilder()) return null;
+  const tp = weekPosOfDate(m.target), last = schedVis().length; if (tp == null) return null;
+  return {pos: tp, last, diff: tp - last, name: (m.targetName || "").trim() || "your target", date: m.target, past: new Date(m.target + "T23:59:59") < new Date()};
+}
+function targetAfterNote(add){ const T = targetInfo(); if (!T || T.past) return ""; const d = T.diff - add; return d < 0 && T.diff >= 0 ? ` That takes the end of the plan ${-d} week${d === -1 ? "" : "s"} past ${esc(T.name)}, which you can fix afterwards.` : ""; }
+function targetBlock(){ const ord = blockOrder(); return ord.length > 1 ? ord[ord.length - 2] : ord[0]; }
+function targetBanner(){
+  const T = targetInfo(); if (!T || T.past || T.diff === 0) return "";
+  if (runMeta(RUNIDX.active).targetAck === `${T.diff}|${T.date}|${T.last}`) return "";
+  const n = Math.abs(T.diff), wk = `${n} week${n === 1 ? "" : "s"}`, b = targetBlock(), when = fmtDate(T.date, true);
+  if (T.diff > 0) return `<div class="card back"><b>Your plan ends ${wk} before ${esc(T.name)} (${esc(when)}).</b><div class="rx">Adding ${wk} to ${esc(blockName(b))} (repeats of its last hard week) keeps your final block and taper leading into the day.</div><div class="edbtns"><button class="btn primary" data-k="tgfix" data-n="${T.diff}">Add ${wk} to ${esc(blockName(b))}</button><button class="btn text" data-k="tgack">Leave it</button></div></div>`;
+  return `<div class="card back"><b>Your plan runs ${wk} past ${esc(T.name)} (${esc(when)}).</b><div class="rx">Removing ${wk} from ${esc(blockName(b))} (future, non-lighter weeks you haven't logged) puts your final block and taper back on the day.</div><div class="edbtns"><button class="btn primary" data-k="tgfix" data-n="${T.diff}">Remove ${wk} from ${esc(blockName(b))}</button><button class="btn text" data-k="tgack">Leave it</button></div></div>`;
+}
+function alignTarget(n){
+  const b = targetBlock(), now = mondayOf(todayDate());
+  if (n > 0) { for (let i = 0; i < n; i++) { const v = schedVis().filter(e => e.block === b && !e.brk); const hard = v.slice().reverse().find(e => !isLightEntry(e) && !e.reentry) || v[v.length - 1]; if (!hard) return {err: "That block has no weeks to repeat."}; insertWeek(hard, b, hard.id, 0); } return {ok: true}; }
+  const cand = schedVis().filter(e => e.block === b && !e.brk && !e.reentry && !isLightEntry(e) && !weekTouched(e.id) && weekMonday(e.id) && mondayOf(weekMonday(e.id)) > now).reverse();
+  const keep = schedVis().filter(e => e.block === b && !e.brk).length - 1;
+  if (cand.length < -n || keep < -n) return {err: `There aren't ${-n} future weeks in ${blockName(b)} that can go without touching its lighter week or anything you've logged. Remove weeks by hand from the block panel instead.`};
+  const ids = new Set(cand.slice(0, -n).map(e => e.id)), sc = schedAll().map(e => Object.assign({}, e)); sc.forEach(e => { if (ids.has(e.id)) e.hidden = true; }); S.plan.schedule = sc; planChanged(); return {ok: true};
+}
+
+// ---------- travel: swap exercises for the kit you've got ----------
+const KITS = {hotel: "Hotel gym", db: "Dumbbells", bw: "Bodyweight"};
+const KIT_SWAP = {
+  "Squat": {hotel: "Goblet squat", db: "Goblet squat", bw: "Bodyweight squat|none"},
+  "Hinge": {hotel: "Single-leg RDL", db: "Single-leg RDL", bw: "Single-leg hip thrust|none"},
+  "Single leg": {hotel: "DB walking lunge", db: "DB walking lunge", bw: "Walking lunge|none"},
+  "Hamstrings": {hotel: "Lying leg curl", db: "Single-leg RDL", bw: "Sliding leg curl|none"},
+  "Horizontal press": {hotel: "DB bench press", db: "DB bench press", bw: "Push-up|none"},
+  "Vertical press": {hotel: "Seated DB press", db: "Seated DB press", bw: "Pike push-up|none"},
+  "Pull": {hotel: "Lat pulldown", db: "Single-arm DB row", bw: "Inverted row|none"},
+  "Shoulders": {hotel: "DB lateral raise", db: "DB lateral raise", bw: "Prone Y-raise|none"},
+  "Biceps": {hotel: "Incline DB curl", db: "Incline DB curl", bw: "Chin-up|none"},
+  "Triceps": {hotel: "Rope pushdown", db: "DB Tate press", bw: "Diamond push-up|none"},
+  "Core": {hotel: "Dead bug|none", db: "Dead bug|none", bw: "Dead bug|none"},
+  "Power & jumps": {hotel: "DB snatch", db: "DB snatch", bw: "Broad jump|cm"},
+  "Throws": {hotel: "Plyo push-up|none", db: "Plyo push-up|none", bw: "Plyo push-up|none"},
+  "Olympic": {hotel: "DB snatch", db: "DB snatch", bw: "Broad jump|cm"},
+  "Strongman": {hotel: "Farmer's carry|sec", db: "Farmer's carry|sec", bw: "Walking lunge|none"},
+  "Conditioning": {hotel: "Bike or treadmill intervals|cond", db: "Burpee intervals|cond", bw: "Burpee intervals|cond"},
+};
+function kitOK(name, unit, kit){
+  const n = String(name).toLowerCase(), u = unit || "kg";
+  const bw = (u === "none" && !/ab wheel|hanging|toes-to-bar|swiss ball|nordic|glute-ham/.test(n)) || /push-up|burpee|shuttle|broad jump|lateral bound|depth jump|continuous easy run|dead bug|copenhagen|bodyweight squat|walking lunge|inverted row|y-raise|plank|sliding leg curl|single-leg hip thrust/.test(n);
+  if (kit === "bw") return bw;
+  const db = bw || /\bdb\b|dumbbell|goblet|single-leg rdl|farmer's carry|farmer's hold|plyo|nordic|ab wheel|chin-up|pull-up|jump rope/.test(n) && u !== "+kg";
+  if (kit === "db") return db;
+  return db || /cable|machine|pulldown|leg press|leg curl|pushdown|seated cable row|bike|row intervals|row repeats|ski erg|treadmill|hack squat|pallof|chop|face pull|rope|hanging|toes-to-bar|pull-up|chin-up|bench dip|box jump|back extension/.test(n);
+}
+function kitSwapFor(it, kit){
+  const nm = baseName(it), cat = (LIBIDX[nm] || {}).cat || (it.kind === "cond" ? "Conditioning" : null);
+  if (it.kind === "warm" || it.kind === "test" || it.kind === "circuit" || it.removed) return null;
+  if (kitOK(nm, it.unit, kit)) return null;
+  if (it.unit === "+kg") { const plain = nm.replace(/^weighted\s+/i, ""); const nn = plain.charAt(0).toUpperCase() + plain.slice(1); if (nn !== nm && kitOK(nn, "none", kit)) return {name: nn, unit: "none"}; }
+  // jumps just need floor space; explosive lifts become a dumbbell snatch
+  if (cat === "Power & jumps" && (it.unit === "cm" || it.unit === "none")) return /broad jump/i.test(nm) ? null : {name: "Broad jump", unit: "cm"};
+  const row = KIT_SWAP[cat]; if (!row) return null;
+  const [name, unit] = row[kit].split("|"); if (name.toLowerCase() === nm.toLowerCase()) return null;
+  return {name, unit: unit || (LIBIDX[name] || {}).unit || "kg"};
+}
+function travelPanel(){
+  const T = ui.travel, items = effItems(ui.w, ui.d), rows = [];
+  items.forEach((it, i) => { const sw = kitSwapFor(it, T.kit); if (sw) rows.push({i, it, sw}); });
+  let h = `<div class="card travel"><div class="ghead"><b>Travelling or short on kit?</b><button class="addnote" data-k="trclose">Close</button></div><div class="fld"><span>What have you got?</span><div class="seg" role="group" aria-label="Kit">${Object.entries(KITS).map(([k, l]) => `<button data-k="trkit" data-v="${k}" aria-pressed="${T.kit === k}">${l}</button>`).join("")}</div></div>`;
+  if (!rows.length) return h + `<div class="hint">Everything in this session works with that kit.</div></div>`;
+  h += `<div class="hint">Swaps for this session only. % weights become "pick it on the day", and swapped exercises don't count towards your main lifts.</div>`;
+  rows.forEach(r => { const on = T.off ? !T.off[r.i] : true; h += `<label class="chk trrow"><input type="checkbox" data-k="trpick" data-i="${r.i}"${on ? " checked" : ""}><span><s>${esc(baseName(r.it))}</s> → <b>${esc(r.sw.name)}</b></span></label>`; });
+  return h + `<div class="edbtns"><button class="btn primary" data-k="trsave">Swap for this session</button></div></div>`;
 }
 function nextWeekId(){ return Math.max(12, ...schedAll().map(e => e.id)) + 1; }
 // a new week takes on every change that applies to the week it copies
@@ -1703,6 +1923,90 @@ function editor(it, i){
 }
 function scopeRange(){ return rangeOf(ui.edit.scope); }
 
+// ---------- programme overview: the whole plan on one page ----------
+function presc(it, block){
+  if (it.kind === "warm") { const W = it.warmId && it.warmId !== "none" ? warmById(it.warmId) : null; return W ? `${W.mins} min` : "None"; }
+  if (it.kind === "test") { const B = benchByKey(it.bench); return B ? `Test: ${B.label}` : "Benchmark test"; }
+  if (it.parts) return `${it.rx || ""}`;
+  if (!it.sets) return `${it.rx || ""}`;
+  let t = `${it.sets} × ${it.reps}`;
+  if (it.pct) { const kg = suggested(it, block); t += ` @ ${Math.round(it.pct * 1000) / 10}%${kg ? ` (${fmt(kg)} kg)` : ""}`; }
+  else if (it.load && /kg$/.test(it.load)) t += ` @ ${it.load}`;
+  return t;
+}
+function itemName(it){ if (it.kind === "warm") { const W = it.warmId && it.warmId !== "none" ? warmById(it.warmId) : null; return W ? W.name : "Warm-up"; } if (it.kind === "test") return "Benchmark test"; return baseName(it); }
+// rough session length: work + rest for each set, plus the warm-up and conditioning
+function estMins(w, d){
+  let sec = 0;
+  effItems(w, d).forEach(it => {
+    if (it.removed) return;
+    if (it.kind === "warm") { const W = it.warmId && it.warmId !== "none" ? warmById(it.warmId) : null; sec += (W ? num(W.mins) || 8 : 0) * 60; return; }
+    if (it.kind === "test") { sec += 300; return; }
+    if (it.sets) { const r = it.ss && !it.ss.last ? 0 : (parseRest(it.rest) ?? 90); sec += it.sets * (40 + Math.min(r, 300)); return; }
+    const rx = String(it.rx || ""), mins = rx.match(/(\d+)\s*min/i), iv = rx.match(/(\d+)\s*[×x]\s*(\d+)\s*s[^\d]+(\d+)\s*s/i), rounds = rx.match(/(\d+)\s*rounds?/i);
+    sec += mins ? +mins[1] * 60 : iv ? +iv[1] * (+iv[2] + +iv[3]) : rounds ? +rounds[1] * Math.max(1, (it.parts || []).length) * 75 : 600;
+  });
+  return Math.round(sec / 300) * 5;
+}
+function ovItems(w, d){ return displayOrder(w, d).map(i => [i, effItems(w, d)[i]]).filter(([i, it]) => !it.removed); }
+function viewOverview(){
+  const O = ui.ov || (ui.ov = {mode: "week", open: {}}), vis = schedVis(), m = runMeta(RUNIDX.active);
+  const title = m.builder && TPLS[m.builder] ? TPLS[m.builder].name : runLabel(m);
+  let h = `<div class="section"><h2>Programme overview</h2><p>${esc(title)}: ${vis.length} weeks in ${blockOrder().length} block${blockOrder().length === 1 ? "" : "s"}. Tap anything to go to it.</p></div>`;
+  h += `<div class="card ovbar"><div class="seg" role="group" aria-label="Show">${[["week", "By week"], ["ex", "By exercise"]].map(([k, l]) => `<button data-k="ovmode" data-v="${k}" aria-pressed="${O.mode === k}">${l}</button>`).join("")}</div>`
+    + `<div class="edbtns"><button class="btn" data-k="ovcsv">Download spreadsheet (CSV)</button><button class="btn" data-k="ovprint">Print or save as PDF</button>${O.mode === "week" ? `<button class="btn text" data-k="ovall">${Object.values(O.open).some(Boolean) && vis.every(e => O.open[e.id]) ? "Collapse all" : "Expand all"}</button>` : ""}</div></div>`;
+  if (O.mode === "ex") return h + overviewByExercise();
+  let lastB = null;
+  vis.forEach(e => {
+    const wk = week(e.id);
+    if (e.block !== lastB) { lastB = e.block; const n = vis.filter(x => x.block === e.block).length; h += `<h3 class="ovblock" style="--blk:${blkVar(e.block)}">Block ${blockOrd(e.block)} · ${esc(blockName(e.block))} <span class="rx">${n} week${n === 1 ? "" : "s"}</span></h3>`; }
+    const open = O.open[e.id] ?? (e.id === ui.w), dl = daysFor(e.id), mon = weekMonday(e.id);
+    const tags = [wk.brk ? "Break" : "", wk.reentry ? "Re-entry" : "", wk.light && !wk.brk ? "Lighter" : "", e.pctAdj && !wk.reentry ? `${e.pctAdj > 0 ? "+" : ""}${e.pctAdj}%` : ""].filter(Boolean);
+    h += `<details class="card ovweek" data-w="${e.id}"${open ? " open" : ""}><summary><b>Week ${wk.pos}</b>${mon ? ` <span class="rx">${shortDate(mon)}</span>` : ""}${tags.map(t => ` <span class="chip">${t}</span>`).join("")}<span class="rx ovsum">${wk.brk ? "No sessions" : `${dl.length} session${dl.length === 1 ? "" : "s"} · ~${dl.reduce((a, d) => a + estMins(e.id, d.key), 0)} min`}</span></summary>`;
+    if (open) {
+      if (weekFocus(wk)) h += `<div class="focus">${esc(weekFocus(wk))}</div>`;
+      dl.forEach(dy => {
+        h += `<div class="ovday"><button class="ovdayhd" data-k="ovgo" data-w="${e.id}" data-d="${dy.key}"><b>${esc(WEEKDAY_LONG[dy.short] || dy.short)}${dy.sub ? " " + esc(dy.sub) : ""}</b> · ${esc(dy.title || "")}${dy.optional ? " <span class=\"chip\">Optional</span>" : ""}<span class="rx">~${estMins(e.id, dy.key)} min</span></button>`;
+        ovItems(e.id, dy.key).forEach(([i, it]) => { h += `<button class="ovrow" data-k="ovgo" data-w="${e.id}" data-d="${dy.key}" data-i="${i}"><span class="tag">${esc(it.label || it.tag)}</span><span class="ovn">${esc(itemName(it))}${it.pl ? " ★" : ""}</span><span class="ovp">${esc(presc(it, e.block))}${it.target && it.sets ? ` · ${esc(it.target)}` : ""}</span></button>`; });
+        h += `</div>`;
+      });
+    }
+    h += `</details>`;
+  });
+  return h;
+}
+// one row per exercise slot on a day, one column per week
+function overviewByExercise(){
+  const O = ui.ov, vis = schedVis().filter(e => !e.brk), keys = [];
+  vis.forEach(e => daysFor(e.id).forEach(d => { if (!keys.some(k => k.key === d.key)) keys.push({key: d.key, short: d.short, sub: d.sub, title: d.title}); }));
+  keys.sort((a, b) => WEEKDAYS.indexOf(a.short) - WEEKDAYS.indexOf(b.short));
+  if (!keys.length) return `<div class="card"><div class="empty">No training days yet.</div></div>`;
+  const d = O.day && keys.some(k => k.key === O.day) ? O.day : keys[0].key; O.day = d;
+  let h = `<div class="seg ovdays" role="group" aria-label="Day">${keys.map(k => `<button data-k="ovday" data-v="${k.key}" aria-pressed="${k.key === d}">${esc(k.short)}${k.sub ? " " + esc(k.sub) : ""}</button>`).join("")}</div>`;
+  const rows = [], idx = {};
+  vis.forEach(e => { if (!daysFor(e.id).some(x => x.key === d)) return; ovItems(e.id, d).forEach(([i, it]) => { if (it.kind === "warm") return; let r = idx[it.slot]; if (!r) { r = idx[it.slot] = {slot: it.slot, label: it.label || it.tag, name: itemName(it), cells: {}}; rows.push(r); } r.cells[e.id] = {i, it}; }); });
+  if (!rows.length) return h + `<div class="card"><div class="empty">Nothing planned on this day yet.</div></div>`;
+  const wks = vis.filter(e => daysFor(e.id).some(x => x.key === d));
+  h += `<div class="tbl ovtbl"><table><thead><tr><th class="ovsticky">Exercise</th>${wks.map(e => `<th${e.id === ui.w ? ' class="cur"' : ""}>Wk ${posOf(e.id)}${week(e.id).light ? "<small>light</small>" : week(e.id).reentry ? "<small>re-entry</small>" : ""}</th>`).join("")}</tr></thead><tbody>`;
+  rows.forEach(r => {
+    h += `<tr><th class="ovsticky"><span class="tag">${esc(r.label)}</span> ${esc(r.name)}</th>`;
+    wks.forEach(e => { const c = r.cells[e.id]; if (!c) { h += `<td class="rx">–</td>`; return; } const it = c.it, nm = itemName(it), sw = nm !== r.name;
+      h += `<td><button class="ovcell" data-k="ovgo" data-w="${e.id}" data-d="${d}" data-i="${c.i}">${sw ? `<i>${esc(nm)}</i>` : ""}${it.sets ? `<b>${esc(`${it.sets}×${it.reps}`)}</b>${it.pct ? `<span>${Math.round(it.pct * 1000) / 10}%</span>` : it.load && /kg$/.test(it.load) ? `<span>${esc(it.load)}</span>` : ""}` : `<span>${esc(presc(it, e.block))}</span>`}</button></td>`; });
+    h += `</tr>`;
+  });
+  return h + `</tbody></table></div><div class="hint">Tap a cell to open that week. Swapped exercises are shown in italics.</div>`;
+}
+function csvCell(v){ const t = String(v ?? ""); return /[",\n]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t; }
+function overviewCSV(){
+  const L = [["Week", "Date", "Block", "Day", "Session", "Label", "Exercise", "Sets", "Reps", "% of max", "Suggested kg", "Load", "Effort", "Rest", "Note"].join(",")];
+  schedVis().forEach(e => { const wk = week(e.id), mon = weekMonday(e.id);
+    if (wk.brk) { L.push([wk.pos, mon ? isoOf(mon) : "", blockName(e.block), "", "Break week"].map(csvCell).join(",")); return; }
+    daysFor(e.id).forEach(dy => ovItems(e.id, dy.key).forEach(([i, it]) => {
+      L.push([wk.pos, mon ? isoOf(dayDate(e.id, dy.short)) : "", blockName(e.block), dy.short + (dy.sub ? " " + dy.sub : ""), dy.title, it.label || it.tag, itemName(it), it.sets || "", it.sets ? it.reps : it.rx || "", it.pct ? Math.round(it.pct * 1000) / 10 : "", it.pct ? suggested(it, e.block) : "", it.pct ? "" : (it.load || ""), it.target || "", it.rest || "", it.note || ""].map(csvCell).join(","));
+    })); });
+  return L.join("\n");
+}
+
 // ---------- training load: session effort (1–10) × minutes, for lifting, conditioning and anything else ----------
 function autoMins(s){ if (s && s.t0 && s.t1 && s.t1 > s.t0) { const m = Math.round((s.t1 - s.t0) / 60000) + 10; return m > 10 && m < 300 ? m : null; } return null; }
 function sessMins(s){ return num(s && s.mins) ?? autoMins(s); }
@@ -1768,6 +2072,68 @@ function loadCard(){
   return h + `</div>`;
 }
 
+// ---------- athletic profile: strength, power and conditioning side by side ----------
+function benchKind(B){
+  const t = `${B.label} ${B.link || ""} ${B.key}`.toLowerCase();
+  if (/\b(bw|waist)\b|bodyweight|body weight|waist/.test(t)) return null;
+  if (/jump|broad|vertical|throw|sprint|bound|med ball|clean|snatch|jerk|power/.test(t)) return "power";
+  if (/row|run|bike|ski|5k|10k|mile|swim|erg|beep|yo-?yo|cardio|conditioning|hyrox|walk|carry/.test(t) || ["sec", "min", "s", "cal"].includes(String(B.unit || "").toLowerCase())) return "cond";
+  if (/chin|pull-?up|push-?up|dip|plank/.test(t)) return "strength";
+  return null;
+}
+function profItem(label, unit, a, z, better, fmtv){ if (a == null || z == null || !isFinite(a) || !isFinite(z) || a === 0) return {label, unit, a, z, better, pct: null, fmtv}; const raw = (z - a) / Math.abs(a); return {label, unit, a, z, better, pct: better === "lower" ? -raw : raw, fmtv}; }
+function latestBW(){ const vals = schedVis().map(e => num((S.body.bw || {})[e.id])).filter(x => x); return {first: vals[0] || null, last: vals.length ? vals[vals.length - 1] : null}; }
+function athleticProfile(){
+  const rows = progressRows(), G = {strength: [], power: [], cond: []}, bw = latestBW(), rel = [];
+  liftList().forEach(L => {
+    const vals = rows.map(r => r[L.key]).filter(x => x != null); if (!vals.length) return;
+    if (L.type === "max") { const best = Math.max(...vals); G.strength.push(profItem(L.name, "kg", vals[0], best, "higher", v => fmt(Math.round(v)))); if (bw.last) rel.push({label: L.short, v: best / bw.last}); }
+    else if (L.type === "event") G.cond.push(profItem(L.name, liftUnit(L), vals[0], vals.reduce((a, x) => liftBetter(L, x, a) ? x : a), L.ev === "m" ? "higher" : "lower", v => fmt(Math.round(v * 10) / 10)));
+    else G.strength.push(profItem(L.name, "reps", vals[0], Math.max(...vals), "higher", v => fmt(v)));
+  });
+  // jumps and explosive lifts you've logged in this run
+  const seen = new Set(liftList().map(L => (L.ex || L.name).toLowerCase()));
+  [...new Set(allLogs().filter(l => l.run === RUNIDX.active).map(l => l.name))].forEach(nm => {
+    const cat = (LIBIDX[nm] || {}).cat; if (!["Power & jumps", "Olympic"].includes(cat) || seen.has(nm.toLowerCase())) return;
+    const T = exerciseTrack(nm); if (!T.first) return; if (T.unit === "ball" || T.unit === "none") return;
+    G.power.push(profItem(nm, T.unit === "cm" ? "cm" : "kg", T.first.v, (T.last || T.first).v, "higher", v => fmt(v)));
+  });
+  benchList().forEach(B => {
+    const k = benchKind(B); if (!k) return; let a, z;
+    if (B.link) { const T = exerciseTrack(B.link); a = T.first ? T.first.v : null; z = T.last ? T.last.v : null; }
+    else { const v = (S.body.bench || {})[B.key] || {}; a = num(v.w1); z = num(v.w12); }
+    if (a == null && z == null) return;
+    G[k].push(profItem(B.label, B.unit || "", a, z, B.better || "higher", v => fmt(v)));
+  });
+  const avg = xs => { const v = xs.map(x => x.pct).filter(x => x != null); return v.length ? v.reduce((p, x) => p + x, 0) / v.length : null; };
+  return {G, ch: {strength: avg(G.strength), power: avg(G.power), cond: avg(G.cond)}, bw, rel};
+}
+function profileMsg(ch){
+  const s = ch.strength, p = ch.power, c = ch.cond, pc = x => `${x >= 0 ? "+" : "−"}${Math.abs(Math.round(x * 1000) / 10)}%`;
+  if (s == null && p == null && c == null) return "Log a few sessions and record your benchmarks, and this shows how strength, power and conditioning are moving together.";
+  if (s != null && p != null) {
+    if (s - p > 0.03) return `Strength ${pc(s)}, power ${pc(p)}: you're getting stronger faster than you're getting more explosive. Keep jumps and throws fresh and fast, early in the session, and stop sets when speed drops.`;
+    if (p - s > 0.03) return `Power ${pc(p)}, strength ${pc(s)}: explosiveness is moving faster than strength. Good sign; make sure the main lifts are getting enough heavy work.`;
+  }
+  if (c != null && s != null && c < -0.02 && s > 0.02) return `Strength is up but conditioning has slipped (${pc(c)}). Protect the conditioning finishers, even if the session runs long.`;
+  return "Strength, power and conditioning are moving together. That's the balance the plan is after.";
+}
+function profileCard(){
+  const P = athleticProfile(), T = {strength: "Strength", power: "Power", cond: "Conditioning"};
+  let h = `<div class="section"><h2>Athletic profile</h2><p>Strength, power and conditioning side by side: your first result in this run against your best or latest.</p></div><div class="card prof">`;
+  h += `<div class="stiles">${Object.keys(T).map(k => { const v = P.ch[k]; return `<div class="stile"><b class="${v == null ? "" : v > 0.005 ? "up" : v < -0.005 ? "down" : ""}">${v == null ? "–" : `${v >= 0 ? "+" : "−"}${Math.abs(Math.round(v * 1000) / 10)}%`}</b><span>${T[k]}</span><small>${P.G[k].filter(x => x.pct != null).length} measure${P.G[k].filter(x => x.pct != null).length === 1 ? "" : "s"}</small></div>`; }).join("")}</div>`;
+  h += `<div class="hint">${esc(profileMsg(P.ch))}</div>`;
+  if (P.rel.length) h += `<div class="sblk"><h4>Strength for your bodyweight (${fmt(P.bw.last)} kg)</h4><div class="liftpills">${P.rel.map(r => `<span>${esc(r.label)}<small>${fmt(Math.round(r.v * 100) / 100)}× BW</small></span>`).join("")}</div></div>`;
+  else h += `<div class="hint">Add your bodyweight in the table below to see strength for your bodyweight.</div>`;
+  Object.keys(T).forEach(k => {
+    const xs = P.G[k]; if (!xs.length) return;
+    h += `<div class="sblk"><h4>${T[k]}</h4>${xs.map(x => `<div class="prow"><span>${esc(x.label)}</span><span class="rx">${x.a != null ? esc(x.fmtv(x.a)) : "–"} → ${x.z != null ? esc(x.fmtv(x.z)) : "–"} ${esc(x.unit)}</span><b class="${x.pct == null ? "" : x.pct > 0.005 ? "up" : x.pct < -0.005 ? "down" : ""}">${x.pct == null ? "–" : `${x.pct >= 0 ? "+" : "−"}${Math.abs(Math.round(x.pct * 1000) / 10)}%`}</b></div>`).join("")}</div>`;
+  });
+  if (!P.G.power.length) h += `<div class="hint">No power measures yet: log jumps or cleans, or add a jump or sprint benchmark below.</div>`;
+  if (!P.G.cond.length) h += `<div class="hint">No conditioning measures yet: add a benchmark like a 500m row or a 5K and record it at the start and end.</div>`;
+  return h + `</div>`;
+}
+
 // ---------- block review ----------
 function reviewLifts(){ return liftList().map(L => L.key); }
 function blockStatus(b){
@@ -1787,6 +2153,7 @@ function reviewData(b){
     const s = S.sessions[sid(e.id, dy.key)] || {};
     if (dy.optional) { if (s.done) D.optDone++; return; }
     D.planned++; if (s.done) D.done++;
+    if (readyRec(s.ready)) { D.rdN = (D.rdN || 0) + 1; D.rdSum = (D.rdSum || 0) + readyRec(s.ready).sc; if (s.adj && s.adj.pct < 0) D.rdDown = (D.rdDown || 0) + 1; }
     effItems(e.id, dy.key).forEach((it, i) => { if (!it.log || it.removed) return; D.pSets += it.log; D.lSets += ((s.sets || {})[i] || []).filter(x => num(x.reps) != null).length;
       // logged weight and reps against what the plan suggested
       if (it.pct && it.lift && liftByKey(it.lift).type === "max" && reviewLifts().includes(it.lift)) { const sg = suggested(it, e.block), rp = num(firstNum(it.reps)), E = D.effort[it.lift] || (D.effort[it.lift] = {n: 0, ratio: 0, reps: 0, rn: 0});
@@ -1840,6 +2207,7 @@ function reviewCard(b){
   const adh = D.planned ? Math.round(D.done / D.planned * 100) : null, sadh = D.pSets ? Math.round(D.lSets / D.pSets * 100) : null;
   h += `<div class="stiles"><div class="stile"><b>${adh ?? "–"}${adh != null ? "%" : ""}</b><span>sessions</span><small>${D.done} of ${D.planned}${D.optDone ? ` + ${D.optDone} optional` : ""}</small></div><div class="stile"><b>${sadh ?? "–"}${sadh != null ? "%" : ""}</b><span>sets logged</span><small>${D.lSets} of ${D.pSets}</small></div><div class="stile"><b>${D.load ? Math.round(D.load) : "–"}</b><span>load / week</span>${D.load && D.loadPrev ? `<small class="${D.load >= D.loadPrev ? "up" : "down"}">${D.load >= D.loadPrev ? "+" : "−"}${Math.abs(Math.round((D.load / D.loadPrev - 1) * 100))}% vs last block</small>` : ""}</div></div>`;
   if (D.spikes.length) h += `<div class="hint">Load spiked in week${D.spikes.length > 1 ? "s" : ""} ${D.spikes.join(", ")}.</div>`;
+  if (D.rdN) h += `<div class="hint">Readiness: checked in on ${D.rdN} session${D.rdN === 1 ? "" : "s"}, average ${fmt(Math.round(D.rdSum / D.rdN * 10) / 10)}/6${D.rdDown ? `; eased off on ${D.rdDown}` : ""}.</div>`;
   const lifts = Object.entries(D.lifts);
   if (lifts.length) {
     h += `<div class="sblk"><h4>Main lifts</h4><table class="stab"><tr class="hd"><td>Lift</td><td>Max / wt</td><td>Best</td>${D.prevB != null ? `<td class="rx">vs last</td>` : ""}</tr>`;
@@ -1859,6 +2227,7 @@ function reviewCard(b){
 }
 function reviewText(b){
   const D = reviewData(b), R = (S.body.reviews || {})[b] || {}, L = [`${runLabel(runMeta(RUNIDX.active))} · Block ${blockOrd(b)} review (${blockName(b)})`];
+  if (D.rdN) L.push(`Readiness: ${D.rdN} check-ins, average ${fmt(Math.round(D.rdSum / D.rdN * 10) / 10)}/6${D.rdDown ? `, eased off on ${D.rdDown}` : ""}`);
   L.push(`Sessions ${D.done}/${D.planned}${D.optDone ? ` (+${D.optDone} optional)` : ""} · sets logged ${D.lSets}/${D.pSets}${D.load ? ` · load ${Math.round(D.load)}/week` : ""}`);
   Object.entries(D.lifts).forEach(([l, x]) => L.push(x.other ? `- ${liftByKey(l).name}: ${x.why}` : `- ${liftByKey(l).name}: max ${fmt(x.used)}, best e1RM ${x.best ? fmt(Math.round(x.best)) : "–"}${x.E ? `. ${effortLine(x.E)}` : ""} Next: ${fmt(num(ui.rvMax && ui.rvMax._b === b ? ui.rvMax[l] : x.prop))}`));
   D.improved.slice(0, 6).forEach(x => L.push(`- ${x.nm}: ${fmtSet(x.x.unit, x.x)} (${x.pct >= 0 ? "+" : ""}${Math.round(x.pct)}%)`));
@@ -1870,6 +2239,50 @@ function reviewList(){
   if (ui.review != null && schedVis().some(e => e.block === ui.review)) return h + reviewCard(ui.review);
   h += `<div class="card">`;
   blockOrder().forEach(b => { const st = blockStatus(b); h += `<div class="dayrow" style="grid-template-columns:1fr auto;align-items:center"><div><b>Block ${blockOrd(b)} · ${esc(blockName(b))}</b><div class="rx">${st.state === "done" ? "Complete" : st.state === "now" ? "In progress" : "Not started"}${(S.body.reviews || {})[b] && (S.body.reviews || {})[b].applied ? " · maxes set for the next block" : ""}</div></div>${st.state === "later" ? "" : `<button class="btn${st.state === "done" && !((S.body.reviews || {})[b] || {}).applied ? " primary" : ""}" data-k="rvopen" data-b="${b}">Review</button>`}</div>`; });
+  return h + `</div>`;
+}
+
+// ---------- demo videos: search YouTube, then pin the one you like to the exercise ----------
+const YT_RE = /^(?:https?:\/\/)?(?:www\.|m\.|music\.)?(?:youtube\.com\/(?:watch\?(?:[^#]*&)?v=|shorts\/|live\/|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/i;
+function ytStart(s){
+  const m = String(s).match(/[?&#](?:t|start)=([0-9hms]+)/i); if (!m) return 0;
+  const v = m[1]; if (/^\d+$/.test(v)) return +v;
+  const p = v.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/i); return p ? (+(p[1] || 0)) * 3600 + (+(p[2] || 0)) * 60 + (+(p[3] || 0)) : 0;
+}
+// a pasted link becomes a clean URL; YouTube links of any shape become one standard form (keeping a start time)
+function parseVideo(raw){
+  const s = String(raw || "").trim().replace(/^<|>$/g, ""); if (!s) return null;
+  const m = s.match(YT_RE);
+  if (m) { const t = ytStart(s); return {url: `https://www.youtube.com/watch?v=${m[1]}${t ? `&t=${t}s` : ""}`, yt: m[1], t}; }
+  try { const u = new URL(/^https?:\/\//i.test(s) ? s : "https://" + s); if (!/^https?:$/.test(u.protocol) || !/\.[a-z]{2,}$/i.test(u.hostname) || /\s/.test(s)) return null; return {url: u.href}; } catch (e) { return null; }
+}
+function vidKey(name){ return String(name || "").split(" — ")[0].trim().toLowerCase(); }
+function videoFor(name){ const k = vidKey(name), mine = (RUNIDX.videos || {})[k], prog = (S.plan.videos || {})[k];
+  if (isBuilder()) return prog ? Object.assign({src: "programme"}, prog) : null;
+  return mine ? Object.assign({src: "mine"}, mine) : prog ? Object.assign({src: "programme"}, prog) : null; }
+function ytSearch(name){ return "https://www.youtube.com/results?search_query=" + encodeURIComponent(`${String(name).split(" — ")[0]} technique`); }
+function vidLabel(v){ if (!v) return ""; if (YT_RE.test(v.url)) { const t = ytStart(v.url); return `YouTube${t ? ` · starts at ${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}` : ""}`; } try { return new URL(v.url).hostname.replace(/^www\./, ""); } catch (e) { return "Link"; } }
+function pinVideo(name, raw){
+  const v = parseVideo(raw); if (!v) return false;
+  const k = vidKey(name), rec = {url: v.url, name: String(name).split(" — ")[0], added: todayISO()};
+  if (isBuilder()) { S.plan.videos = Object.assign({}, S.plan.videos, {[k]: rec}); planChanged(); }
+  else { RUNIDX.videos = Object.assign({}, RUNIDX.videos, {[k]: rec}); save("runs"); }
+  return true;
+}
+function unpinVideo(name){
+  const k = vidKey(name), v = videoFor(name); if (!v) return;
+  if (v.src === "mine") { const o = Object.assign({}, RUNIDX.videos); delete o[k]; RUNIDX.videos = o; save("runs"); }
+  else { const o = Object.assign({}, S.plan.videos); delete o[k]; S.plan.videos = o; planChanged(); }
+}
+function cleanVideos(o){ const out = {}; if (o && typeof o === "object" && !Array.isArray(o)) Object.entries(o).forEach(([k, v]) => { const pv = v && parseVideo(v.url); if (pv && k) out[String(k).toLowerCase().slice(0, 80)] = {url: pv.url, name: String(v.name || k).slice(0, 80), added: String(v.added || "").slice(0, 10)}; }); return out; }
+function videoPanel(it, i){
+  const nm = it.name.split(" — ")[0], v = videoFor(it.name), D = ui.vid;
+  let h = `<div class="vidpanel">`;
+  if (v) h += `<div class="vidrow"><a class="btn primary" href="${esc(v.url)}" target="_blank" rel="noopener">▶ Watch demo</a><span class="rx">${esc(vidLabel(v))} · ${v.src === "mine" ? "pinned by you" : "from this programme"}</span></div>`;
+  h += `<div class="vidrow"><a class="btn" href="${esc(ytSearch(nm))}" target="_blank" rel="noopener">Search YouTube</a><span class="rx">for "${esc(nm)} technique"</span></div>`;
+  h += `<label class="fld"><span>${v ? "Pin a different video" : "Found a good one? Paste its link to pin it"}</span><input id="vid-url" data-k="vidf" value="${esc(D.url || "")}" placeholder="https://youtu.be/…" inputmode="url" autocomplete="off" autocapitalize="off" autocorrect="off"></label>`;
+  h += `<div class="edbtns"><button class="btn primary" data-k="vidpin" data-i="${i}">Pin</button>${navigator.clipboard && navigator.clipboard.readText ? `<button class="btn" data-k="vidpaste" data-i="${i}">Paste and pin</button>` : ""}${v ? `<button class="btn text" data-k="vidunpin" data-i="${i}">${D.confirm ? "Tap again to unpin" : "Unpin"}</button>` : ""}<button class="btn text" data-k="vidclose">Close</button></div>`;
+  h += `<div class="hint">In YouTube, tap Share → Copy link, then come back here. A pinned video shows on every card for ${esc(nm)}${isBuilder() ? " in this programme, and goes with it when you share it" : ", in all your programmes"}.</div>`;
   return h + `</div>`;
 }
 
@@ -1898,6 +2311,7 @@ function summaryCard(w, d){
   const dlt = (a, b, unit) => b == null || !b ? "" : `<small class="${a >= b ? "up" : "down"}">${a >= b ? "+" : "−"}${fmt(Math.abs(Math.round(a - b)))}${unit} vs week ${posOf(pw)}</small>`;
   let h = `<div class="card summary"><div class="ghead"><h3 style="margin:0;font-size:17px">Session summary</h3><span class="chip">Week ${posOf(w)} · ${esc(dy.short)}</span></div>`;
   h += `<div class="stiles">${tile(D.sets, "sets")}${tile(D.reps, "reps", P ? dlt(D.reps, P.reps, "") : "")}${D.vol ? tile(`${fmt(Math.round(D.vol / 10) / 100)}t`, "volume", P && P.vol ? `<small class="${D.vol >= P.vol ? "up" : "down"}">${D.vol >= P.vol ? "+" : "−"}${Math.abs(Math.round((D.vol / P.vol - 1) * 100))}% vs week ${posOf(pw)}</small>` : "") : ""}${tile(D.prs.length, D.prs.length === 1 ? "PR" : "PRs")}${sessLoad(w, d) ? tile(sessLoad(w, d), "load") : ""}</div>`;
+  { const rr = readyRec(s.ready); if (rr) h += `<div class="hint">Readiness ${rr.sc}/6${s.adj ? ` · adjusted: ${esc(adjText(s.adj))}` : " · trained as planned"}.</div>`; }
   if (!num(s.srpe)) h += `<div class="hint">Rate the session's effort at the bottom of the page to add it to your training load.</div>`;
   { const ws = schedVis().filter(e => e.block === week(w).block); if (ws.length && ws[ws.length - 1].id === w) h += `<div class="edbtns"><button class="btn primary" data-k="rvopen" data-b="${week(w).block}">Review block ${blockOrd(week(w).block)}</button></div>`; }
   if (D.prs.length) h += `<div class="sblk"><h4>Records</h4>${D.prs.map(x => `<div><b>${esc(x.nm)}</b> ${esc(x.set)} <span class="chip pr">${esc(x.p)}</span></div>`).join("")}</div>`;
@@ -1924,6 +2338,7 @@ function summaryText(w, d){
   D.ex.forEach(e => L.push(`- ${e.nm}: ${e.sets.map(x => fmtSet(e.u, x).replace(" kg × ", "×").replace(" reps", "")).join(", ")}`));
   D.res.forEach(x => L.push(`- ${x}`));
   if (D.prs.length) L.push(`PRs: ${D.prs.map(x => `${x.nm} ${x.set} (${x.p})`).join("; ")}`);
+  { const rr = readyRec(s.ready); if (rr) L.push(`Readiness ${rr.sc}/6${s.adj ? ` (adjusted: ${adjText(s.adj)})` : ""}`); }
   if (s.note) L.push(`Notes: ${s.note}`);
   return L.join("\n");
 }
@@ -2064,6 +2479,7 @@ function viewProgress(){
   const first = L => { const r = rows.find(r => r[L.key] != null); return r ? r[L.key] : null; };
   h += `</tbody><tfoot><tr><td>Best</td>${LL.map(L => `<td>${fmtLiftVal(L, best(L))}</td>`).join("")}<td></td></tr>`;
   h += `<tr><td>Change</td>${LL.map(L => { const b = best(L), f = first(L); if (b == null || f == null) return "<td>–</td>"; const d = Math.round((b - f) * (L.type === "max" ? 1 : 10)) / (L.type === "max" ? 1 : 10), good = d !== 0 && liftBetter(L, b, f); return `<td class="${good ? "up" : ""}">${d > 0 ? "+" : ""}${fmt(d)}</td>`; }).join("")}<td></td></tr></tfoot></table></div>`;
+  h = profileCard() + h;
   h += reviewList();
   h += loadCard();
   h += recordsCard();
@@ -2267,9 +2683,11 @@ function viewPlans(){
   let h = "";
   if (act.builder) h += `<div class="section"><h2>Editing a programme</h2><p>You're in the editor for a programme, not one of your runs. Save it, then close the editor (above) to get back to your training.</p></div>`;
   h += `<div class="section"><h2>This run</h2><p>Each run has its own log, maxes and progress, so running a programme again never mixes with earlier runs.</p></div>`;
-  const ed = P.edit || {name: act.name || "", started: act.started || ""};
+  const ed = P.edit || {name: act.name || "", started: act.started || "", target: act.target || "", targetName: act.targetName || ""};
   h += `<div class="card"><div class="fgrid"><label class="fld wide"><span>Run name</span><input id="pl-name" data-k="plf" data-f="name" value="${esc(ed.name)}" maxlength="60" placeholder="${esc(runLabel(Object.assign({}, act, {name: ""})))}"></label>`
-    + `<label class="fld"><span>Start date</span><input id="pl-start" type="date" data-k="plf" data-f="started" value="${esc(ed.started)}"></label></div>`
+    + `<label class="fld"><span>Start date</span><input id="pl-start" type="date" data-k="plf" data-f="started" value="${esc(ed.started)}"></label>`
+    + `<label class="fld"><span>Target date (optional)</span><input id="pl-target" type="date" data-k="plf" data-f="target" value="${esc(ed.target ?? "")}"></label><label class="fld wide"><span>What's on that day</span><input id="pl-tname" data-k="plf" data-f="targetName" value="${esc(ed.targetName ?? "")}" maxlength="40" placeholder="e.g. Strongman comp, 5K, testing day"></label></div>`
+    + (() => { const T = targetInfo(); if (!T) return ""; return `<div class="rx">${T.past ? `${esc(T.name)} was on ${esc(fmtDate(T.date, true))}.` : T.diff === 0 ? `✓ Your plan finishes the week of ${esc(T.name)} (${esc(fmtDate(T.date, true))}).` : T.diff > 0 ? `Your plan ends ${T.diff} week${T.diff === 1 ? "" : "s"} before ${esc(T.name)}. The Train screen offers to line it up.` : `Your plan runs ${-T.diff} week${T.diff === -1 ? "" : "s"} past ${esc(T.name)}. The Train screen offers to line it up.`}</div>`; })()
     + `<div class="rx">From the <b>${esc(act.tplName || "Hybrid 12")}</b> template · run ${act.seq || 1} · ${weeks} weeks in ${blocks.length} block${blocks.length === 1 ? "" : "s"}${act.started && weeks ? ` · ${fmtDate(act.started, true)} to ${fmtDate(new Date(weekMonday(schedVis()[weeks - 1].id).getTime() + 6 * 864e5).toISOString().slice(0, 10), true)}` : " · add a start date to see dates on every week and day"}</div>`
     + `<div class="edbtns"><button class="btn primary" data-k="plsave">Save</button></div></div>`;
   h += updateRunPanel(act);
@@ -2284,6 +2702,7 @@ function viewPlans(){
     + `<label class="fld wide"><span>Notes (optional)</span><input id="pt-desc" data-k="ptf" data-f="desc" value="${esc(T.desc)}" maxlength="300" placeholder="What it's for, what you changed"></label></div>`
     + `<div class="edbtns"><button class="btn primary" data-k="ptsave">Save template</button>${P.savedMsg ? `<span class="rx">${esc(P.savedMsg)}</span>` : ""}</div></div>`;
 
+  h += `<div class="edbtns"><button class="btn" data-k="ovopen">See the whole plan (overview)</button></div>`;
   h += `<div class="section"><h2>Create a programme</h2><p>Build one from scratch: your blocks, weeks and training days, then the exercises for each day. Good for coaches writing a plan to share.</p></div>`;
   h += P.make ? makePanel() : `<div class="card"><div class="edbtns"><button class="btn primary" data-k="mkopen">New programme</button></div><div class="hint">To start from an existing programme instead, tap Copy and edit on it in the library below.</div></div>`;
   h += `<div class="section"><h2>Template library</h2></div>`;
@@ -2386,6 +2805,7 @@ function builderBar(){
   const dirty = builderDirty(t), tip = ui.view === "train" && !ui.days && !ui.blkEdit && !ui.prog ? ` Add exercises to each day with Add exercise; blocks and weeks are under the block name.` : "";
   return `<div class="card build${dirty ? " dirty" : ""}"><div class="ghead"><b>✎ Editing programme: ${esc(t.name)}</b><span class="chip">v${t.ver}</span></div>`
     + `<div class="rx">${dirty ? `<b class="unsaved">● Unsaved changes.</b>` : `<b class="saved">✓ All changes saved.</b>`} When you're finished, save the programme, then close the editor to get back to your training.${tip}</div>`
+    + `<div class="edbtns" style="gap:8px 16px"><label class="switch"><input type="checkbox" data-k="planview"${planView() ? " checked" : ""}> Plan view</label><span class="hint" style="flex:1;min-width:10em">${planView() ? "Hides set boxes, notes and Finish while you edit." : "Showing the full logging view."}</span><button class="addnote" data-k="ovopen">Overview</button></div>`
     + `<div class="edbtns">${dirty ? `<button class="btn primary" data-k="bdsave">Save programme</button><button class="btn" data-k="bdsaveclose">Save and close</button><button class="btn text" data-k="bdclose">${ui.bdConfirm ? "Tap again to close without saving" : "Close without saving"}</button>` : `<button class="btn primary" data-k="bdclose">Close editor</button>`}</div></div>`;
 }
 
@@ -2426,9 +2846,12 @@ function updateTemplate(U){
 
 // ---------- programme sharing ----------
 const PFORMAT = "training-app/programme", PSCHEMA = 1;
+function programmeExercises(plan){ const out = new Set(); const R = {sessions: {}, settings: {e1rm: {}, round: 2.5}, body: {bw: {}, bench: {}}, plan: clone(plan)}; normalizePlan(R.plan); const tmp = "__px" + Date.now(); RUNS[tmp] = R; try { withRun(tmp, () => schedVis().forEach(e => daysFor(e.id).forEach(dy => effItems(e.id, dy.key).forEach(it => { if (!it.removed && it.name) out.add(vidKey(it.name)); })))); } finally { delete RUNS[tmp]; } return out; }
 function programmePayload(t){
   tplMeta(t); const plan = clone(t.plan); delete plan.baseSchedule;
   ["edits", "added", "customDays", "dayEdits", "orders"].forEach(k => (plan[k] || []).forEach(r => { delete r.tpl; delete r.carried; }));
+  // your own pinned demos travel with it, for exercises the programme uses, unless it already has one
+  const mine = RUNIDX.videos || {}; if (Object.keys(mine).length) { const used = programmeExercises(t.plan), vids = Object.assign({}, plan.videos); Object.entries(mine).forEach(([k, v]) => { if (used.has(k) && !vids[k]) vids[k] = v; }); if (Object.keys(vids).length) plan.videos = vids; }
   return {format: PFORMAT, schema: PSCHEMA, pid: t.pid, ver: t.ver || 1, name: t.name, kind: t.kind || "programme", desc: t.desc || "", author: t.author || RUNIDX.author || "", created: t.created || null, updated: t.updated || null, plan};
 }
 // check a shared programme and bring older formats up to date; returns {ok, P} or {ok:false, why}
@@ -2441,6 +2864,7 @@ function readProgramme(P){
   const plan = P.plan; plan.edits = Array.isArray(plan.edits) ? plan.edits : [];
   if (plan.schedule != null && !Array.isArray(plan.schedule)) return {ok: false, why: "That programme's weeks are damaged."};
   if (plan.lifts != null) { if (!Array.isArray(plan.lifts)) return {ok: false, why: "That programme's main lifts are damaged."}; plan.lifts = normLifts(plan.lifts); }
+  if (plan.videos != null) { const v = cleanVideos(plan.videos); if (Object.keys(v).length) plan.videos = v; else delete plan.videos; }
   normalizePlan(plan);
   return {ok: true, P: Object.assign({}, P, {ver: Math.max(1, Math.round(+P.ver || 1)), name: String(P.name || "Shared programme").slice(0, 60), kind: P.kind === "block" ? "block" : "programme", desc: String(P.desc || "").slice(0, 300), author: String(P.author || "").slice(0, 60)})};
 }
@@ -2515,6 +2939,7 @@ function rebaseRun(t, fromPos, keepMine){
   if (Array.isArray(N.bench)) { const byKey = Object.fromEntries(benchList().map(x => [x.key, x])); N.bench.forEach(x => { byKey[x.key] = x; }); P.bench = Object.values(byKey); }
   if (N.guide) P.guide = clone(N.guide);
   if (Array.isArray(N.lifts)) { const mine = (Array.isArray(P.lifts) ? P.lifts : LIFTS_DEFAULT).filter(x => !N.lifts.some(y => y.key === x.key)); P.lifts = clone(N.lifts).concat(mine); }
+  if (N.videos) P.videos = Object.assign({}, P.videos, N.videos);
   P.blocks = Object.assign({}, P.blocks, N.blocks || {});
   const m = runMeta(RUNIDX.active); m.tplVer = t.ver; m.tplPid = t.pid; m.tpl = t.id; m.tplName = t.name; m.rebased = {fromPos, ver: t.ver, on: todayISO()};
   planChanged(); save("runs");
@@ -2585,7 +3010,8 @@ function addTemplates(tpls){
 function replaceAll(P){
   const old = allDids();
   RUNS = clone(P.runs); RUNIDX = clone(P.idx); TPLS = clone(P.tpls || {});
-  Object.values(RUNS).forEach(R => { R.sessions = R.sessions || {}; R.settings = R.settings || {e1rm: {}, round: 2.5}; R.body = R.body || {bw: {}, bench: {}}; R.plan = R.plan || {edits: []}; normalizePlan(R.plan); if (R.plan.lifts != null) { const L = normLifts(R.plan.lifts); if (L) R.plan.lifts = L; else delete R.plan.lifts; } });
+  if (RUNIDX.videos != null) RUNIDX.videos = cleanVideos(RUNIDX.videos);
+  Object.values(RUNS).forEach(R => { R.sessions = R.sessions || {}; R.settings = R.settings || {e1rm: {}, round: 2.5}; R.body = R.body || {bw: {}, bench: {}}; R.plan = R.plan || {edits: []}; normalizePlan(R.plan); if (R.plan.lifts != null) { const L = normLifts(R.plan.lifts); if (L) R.plan.lifts = L; else delete R.plan.lifts; } if (R.plan.videos != null) R.plan.videos = cleanVideos(R.plan.videos); });
   if (!RUNS[RUNIDX.active]) RUNIDX.active = Object.keys(RUNS)[0] || "main";
   if (!RUNS[RUNIDX.active]) RUNS[RUNIDX.active] = blankRun();
   S = RUNS[RUNIDX.active]; planVer++; EFF.clear(); closePanels();
@@ -2616,7 +3042,11 @@ function viewData(){
       + `<div class="edbtns">${isAll ? `<button class="btn${D.confirm ? " primary" : ""}" data-k="impreplace">${D.confirm ? "Tap again: replace everything" : "Replace all my data with this"}</button>` : ""}${pt ? `<button class="btn" data-k="imptpl">Add its templates to my library</button>` : ""}<button class="btn text" data-k="impcancel">Cancel</button></div>`
       + (isAll ? `<div class="hint">Replacing swaps every run, log and template ${IS_APP ? "on this device" : "in your account"} for the ones in the file. Download a backup first if you might want them back.</div>` : "") + `</div>`;
   }
-  return h + `</div>`;
+  h += `</div>`;
+  const F = D.fresh || 0;
+  h += `<div class="card danger"><h3 style="margin:0;font-size:16px">Start fresh</h3><div class="rx">Clears every run, log, template, main-lift change, pinned video and setting${IS_APP ? " on this device" : " in your account, on every device"}, and leaves Hybrid 12 as the only programme, as if you'd just installed the app. Appearance stays as it is. This can't be undone, so download a full backup first if you might want anything back.</div>`
+    + `<div class="edbtns">${F === 0 ? `<button class="btn" data-k="freshgo">Start fresh…</button>` : F === 1 ? `<button class="btn" data-k="expall">Download full backup first</button><button class="btn danger" data-k="freshgo">Yes, clear everything</button><button class="btn text" data-k="freshcancel">Cancel</button>` : ""}</div></div>`;
+  return h;
 }
 
 // ---------- feedback ----------
@@ -2646,7 +3076,9 @@ function recordsCard(){
 function logWhere(l){ return `${l.runLabel} · week ${l.pos} ${l.short}${l.sub ? " " + l.sub : ""}${l.date ? ` (${shortDate(l.date)})` : ""}`; }
 function viewHistory(){
   const name = ui.hist || "", R = records(name), u = R.unit || "kg", logs = allLogs().filter(l => l.name === name);
+  const hv = videoFor(name);
   let h = `<button class="addnote" data-k="histback" style="align-self:flex-start">← Back</button><div class="section"><h2>${esc(name)}</h2><p>Every time you've logged it, across all your runs.</p></div>`;
+  h += `<div class="card"><div class="vidrow">${hv ? `<a class="btn primary" href="${esc(hv.url)}" target="_blank" rel="noopener">▶ Watch demo</a><span class="rx">${esc(vidLabel(hv))}</span>` : `<a class="btn" href="${esc(ytSearch(name))}" target="_blank" rel="noopener">Search YouTube for a demo</a><span class="rx">Pin one from any card for this exercise.</span>`}</div></div>`;
   if (!R.count) return h + `<div class="card"><div class="empty">Nothing logged for ${esc(name)} yet.</div></div>`;
   // one point per session: the best set
   const sessions = []; logs.forEach(l => { const key = `${l.run}|${l.w}|${l.d}`; let g = sessions.find(x => x.key === key); if (!g) { g = {key, l, sets: []}; sessions.push(g); } g.sets.push(l); });
@@ -2687,7 +3119,7 @@ function viewLook(){
 function viewHelp(){
   const sec = (title, body, open) => `<details${open ? " open" : ""}><summary>${title}</summary><div class="hb">${body}</div></details>`;
   let h = `<div class="section"><h2>User guide</h2><p>How to use the app. Tap a topic to open it.</p></div><div class="card help">`;
-  h += sec("Getting around", `<p>The bar at the top is for training: <span class="k">Train</span> for today's session, <span class="k">Progress</span> for charts and benchmarks, and <span class="k">Maxes</span> for the numbers behind your suggested weights.</p><p><span class="k">Week by week:</span> in any exercise's editor, <span class="k">Week by week</span> shows its sets, reps, load and effort for every week in one table. Change any cell, or fill the % or kg column with a starting value and a weekly step (lighter weeks drop automatically).</p><p><span class="k">Next weights:</span> for exercises with a rep range, the card suggests your next weight from last time. Hit the top of the range on every set and it adds the rounding amount; otherwise it keeps the weight. Turn it off on the Maxes tab.</p><p><span class="k">Main lifts:</span> each programme has its own. On the Maxes tab, <span class="k">Edit main lifts</span> adds, renames or removes them, or adds a preset (strongman, Olympic, powerlifting). A lift can be <span class="k">Max weight</span> (estimated 1RM and % suggestions), <span class="k">Reps at a weight</span> (most reps at or above your working weight), or an <span class="k">Event</span> logged as weight plus time or distance (yoke, farmer's carry). Each main lift is an exercise from the list, so wherever that exercise appears in your plan it counts automatically. To count a variation as well (pause squats as squat, say), set "Main lift" in that exercise's editor. Progress, block reviews and carry-over maxes all follow your list.</p><p><span class="k">Training load:</span> at the bottom of each day, rate how hard the whole session was (1–10). Minutes fill in from when you ticked your first set to when you tapped Finish, or type your own. Progress shows weekly load for lifting and conditioning together, plus any other activity you add, and marks weeks more than 30% above your recent average.</p><p><span class="k">Block reviews:</span> Progress → Block reviews shows sessions and sets completed, each main lift against the max you used, how your logged weights compared with the suggestions, best sets against earlier blocks, and load. It proposes maxes for the next block from what you actually lifted; edit them and tap Use these. Copy as text sends it to a coach.</p><p><span class="k">Session summary:</span> finishing a session shows your sets, reps, volume, any PRs and your best sets against the same day last week. <span class="k">Copy as text</span> makes it easy to send to a coach. Turn it off on the Maxes tab.</p><p>Most actions (editing, removing, moving or skipping) show a pop-up with <span class="k">Undo</span> for a few seconds. When logging, the keyboard's <span class="k">Next</span> key jumps to the next box. When adding or swapping an exercise, type to search and tap one; the list closes and shows your choice, with <span class="k">Change</span> to pick again. <span class="k">Put it in</span> at the top of Add exercise chooses which weeks it goes in, and it remembers your last choice (when building a programme it starts with every week). <span class="k">Add, then add another</span> keeps the panel open for the next one.</p><p>The <span class="k">menu</span> button (top left) opens everything else: Programmes &amp; runs, the Programme guide, this User guide and Appearance. On a wide screen the menu stays open at the side.</p><p>The run name above the week number shows which run you're logging, and its dates if it has a start date. Tap it to manage runs. <span class="k">Today</span>, next to the dates, jumps to today's session.</p><p>Under each day's title: the <span class="k">Track rest</span> switch for the rest timer, and <span class="k">Move or skip</span>. Tap an exercise's name for its history and records.</p>`, true);
+  h += sec("Getting around", `<p>The bar at the top is for training: <span class="k">Train</span> for today's session, <span class="k">Progress</span> for charts and benchmarks, and <span class="k">Maxes</span> for the numbers behind your suggested weights.</p><p><span class="k">Week by week:</span> in any exercise's editor, <span class="k">Week by week</span> shows its sets, reps, load and effort for every week in one table. Change any cell, or fill the % or kg column with a starting value and a weekly step (lighter weeks drop automatically).</p><p><span class="k">Next weights:</span> for exercises with a rep range, the card suggests your next weight from last time. Hit the top of the range on every set and it adds the rounding amount; otherwise it keeps the weight. Turn it off on the Maxes tab.</p><p><span class="k">Programme overview:</span> in the menu under Plan (or from the editing card), see the whole plan on one page. <span class="k">By week</span> lists every day's exercises with sets, reps, % and suggested weight, plus a rough session length. <span class="k">By exercise</span> picks a day and shows each exercise across all the weeks, so you can check the progression at a glance. Tap anything to go to it. Download it as a spreadsheet, or print it or save it as a PDF.</p><p><span class="k">Plan view:</span> while you edit a programme, cards show just the plan, without set boxes, notes or Finish. Turn it off with the switch on the editing card. Each card has a <span class="k">Week by week</span> shortcut in plan view.</p><p><span class="k">Time off:</span> if you come back after a week or more away, the Train screen offers to <span class="k">Ease back in</span>: the missed weeks become break weeks, this week becomes a lighter re-entry week (about 10% off the % lifts, one fewer set on accessories), and the plan picks up where you left off next week. Or pick up straight away with no re-entry week. Nothing you've logged changes, and a break week can be removed from its own page.</p><p><span class="k">Travel swaps:</span> next to Move or skip, <span class="k">Travel swaps</span> swaps the session's exercises for what you've got: a hotel gym, dumbbells only, or bodyweight only. Untick any you want to keep. It only changes that session, and each card's editor has Back to plan.</p><p><span class="k">Target date:</span> add a competition, race or test day to your run in Programmes &amp; runs. If the plan would finish before or after it, the Train screen offers to line it up by adding or removing weeks in the block before your final block, so your taper still lands on the day.</p><p><span class="k">Athletic profile:</span> the top of Progress compares how your strength, power and conditioning have moved in this run, using your main lifts, jumps and cleans you've logged, and your benchmarks (jump or sprint tests count as power; rows, runs and carries as conditioning). It also shows each lift against your bodyweight, and flags it when strength is running ahead of power or conditioning.</p><p><span class="k">Readiness check-in:</span> before a session, tap how you slept, how sore you are and your energy (and, if you like, how your first warm-up set felt). On a flat day it suggests taking 2.5% off the % lifts; on a rough day, 5% and one fewer set on accessories. Tap Apply and the suggested weights for that session change; nothing else in the plan does. Block reviews show how often you checked in and eased off. Turn it off on the Maxes tab.</p><p><span class="k">Demo videos:</span> tap <span class="k">Find a demo</span> on any exercise, then <span class="k">Search YouTube</span>. When you find a good one, tap Share → Copy link in YouTube, come back and tap <span class="k">Paste and pin</span> (or paste it into the box and tap Pin). From then on every card for that exercise has a ▶ button that opens it. Pins you make in your runs apply to all your programmes; pins made while editing a programme belong to it and go with it when you share it.</p><p><span class="k">Main lifts:</span> each programme has its own. On the Maxes tab, <span class="k">Edit main lifts</span> adds, renames or removes them, or adds a preset (strongman, Olympic, powerlifting). A lift can be <span class="k">Max weight</span> (estimated 1RM and % suggestions), <span class="k">Reps at a weight</span> (most reps at or above your working weight), or an <span class="k">Event</span> logged as weight plus time or distance (yoke, farmer's carry). Each main lift is an exercise from the list, so wherever that exercise appears in your plan it counts automatically. To count a variation as well (pause squats as squat, say), set "Main lift" in that exercise's editor. Progress, block reviews and carry-over maxes all follow your list.</p><p><span class="k">Training load:</span> at the bottom of each day, rate how hard the whole session was (1–10). Minutes fill in from when you ticked your first set to when you tapped Finish, or type your own. Progress shows weekly load for lifting and conditioning together, plus any other activity you add, and marks weeks more than 30% above your recent average.</p><p><span class="k">Block reviews:</span> Progress → Block reviews shows sessions and sets completed, each main lift against the max you used, how your logged weights compared with the suggestions, best sets against earlier blocks, and load. It proposes maxes for the next block from what you actually lifted; edit them and tap Use these. Copy as text sends it to a coach.</p><p><span class="k">Session summary:</span> finishing a session shows your sets, reps, volume, any PRs and your best sets against the same day last week. <span class="k">Copy as text</span> makes it easy to send to a coach. Turn it off on the Maxes tab.</p><p>Most actions (editing, removing, moving or skipping) show a pop-up with <span class="k">Undo</span> for a few seconds. When logging, the keyboard's <span class="k">Next</span> key jumps to the next box. When adding or swapping an exercise, type to search and tap one; the list closes and shows your choice, with <span class="k">Change</span> to pick again. <span class="k">Put it in</span> at the top of Add exercise chooses which weeks it goes in, and it remembers your last choice (when building a programme it starts with every week). <span class="k">Add, then add another</span> keeps the panel open for the next one.</p><p>The <span class="k">menu</span> button (top left) opens everything else: Programmes &amp; runs, the Programme guide, this User guide and Appearance. On a wide screen the menu stays open at the side.</p><p>The run name above the week number shows which run you're logging, and its dates if it has a start date. Tap it to manage runs. <span class="k">Today</span>, next to the dates, jumps to today's session.</p><p>Under each day's title: the <span class="k">Track rest</span> switch for the rest timer, and <span class="k">Move or skip</span>. Tap an exercise's name for its history and records.</p>`, true);
   h += sec("Logging a session", `<ol><li>Pick the week with the arrows and the day from the tabs.</li><li>Grey numbers in the set boxes are your targets. Tap <span class="k">✓</span> on an empty set to log it exactly as written, or type what you did.</li><li>Change a weight and the empty sets below follow it.</li><li>"Last" under an exercise shows what you did the previous time it came up.</li><li>Add notes to any exercise, plus session notes at the bottom, then tap <span class="k">Finish session</span>.</li></ol><p>Jumps log height or distance in cm. Bodyweight moves log reps only. Weighted chin-ups and dips log the added weight. Everything saves as you type; the dot top right shows Saving, then Saved.</p>`);
   h += sec("Rest timer", `<p>Turn on <span class="k">Track rest</span> under the day's title. It's off until you switch it on, and the setting is remembered on this device.</p><ul><li>Ticking a set starts a countdown at the bottom of the screen, using the rest time on that card. For a range like "2–3 min" it counts down from the longer time.</li><li>It shows what's next: the next set, back to the start of a superset, or the next exercise.</li><li>Use <span class="k">−15</span> and <span class="k">+15</span> to adjust, or <span class="k">Skip</span>.</li><li>Between superset cards (A1 → A2) there's no rest: it just tells you to go straight to the next one. The timer starts after the last card in the group.</li><li>When time's up it beeps (turn <span class="k">Sound</span> off if you'd rather not) and vibrates where the phone allows, and the bar turns green. The screen stays on while the timer runs.</li></ul><p>On iPhone, web apps can't vibrate, and the silent switch mutes the beep.</p>`);
   h += sec("Warm-up sets", `<p>Every barbell or dumbbell card has a <span class="k">Suggested warm-up sets</span> tab. Open it to see a ramp up to your first working set, starting with the empty bar, and tick each one off as you go. The ramp follows your first set's weight, or the suggested weight if you haven't typed one yet.</p><ul><li><span class="k">Your defaults:</span> set your bar weight and default ramp on the <span class="k">Maxes</span> page, written as % of working weight × reps, e.g. "40×5, 60×3, 80×2".</li><li><span class="k">Per exercise:</span> in <span class="k">Edit exercise</span>, choose <span class="k">Tab only</span> or <span class="k">Show on card</span> (open every time), and give it its own ramp if you like.</li><li><span class="k">New exercises:</span> <span class="k">Add exercise</span> has a "show warm-up sets on the card" option.</li></ul><p>Warm-up sets aren't counted in your records or progress.</p>`);
@@ -2741,13 +3173,14 @@ function viewSettings(){
   h += IS_APP || Array.isArray(S.plan.lifts) ? `<p class="rx">The grey numbers are examples. Enter your own estimated 1RMs: a recent heavy set works, e.g. 100 kg × 5 is about 117 kg (kg × (1 + reps ÷ 30)).</p></div>` : `<p class="rx">Starting points: squat 220 (from 200 for reps), bench 170 (160×3), deadlift 245 (230×3). Overhead press and power clean are estimates; correct them after week 1.</p></div>`;
   h += `<div class="card"><h3 style="margin:0;font-size:16px">Warm-up sets</h3><div class="fgrid"><label class="fld"><span>Bar weight (kg)</span><input class="num" id="set-bar" data-k="setf" data-f="bar" inputmode="decimal" value="${esc(S.settings.bar ?? "")}" placeholder="20"></label><label class="fld wide"><span>Default ramp (% of working weight × reps)</span><input id="set-wu" data-k="setf" data-f="wu" value="${esc(S.settings.wu ?? "")}" placeholder="${WU_DEFAULT}"></label></div><div class="hint">Every barbell or dumbbell card has a "Suggested warm-up sets" tab built from this, starting with the empty bar. Any exercise can have its own ramp in its editor.</div></div>`;
   h += `<div class="card"><h3 style="margin:0;font-size:16px">Coaching</h3><label class="chk"><input type="checkbox" data-k="setchk" data-f="nextOff"${S.settings.nextOff ? "" : " checked"}> Suggest next weights</label><div class="hint">For exercises with a rep range (like 3 × 10–12) and no % of max: when every set reaches the top of the range, next time suggests adding the rounding amount below. Otherwise it keeps the weight.</div>`
-    + `<label class="chk"><input type="checkbox" data-k="setchk" data-f="noSummary"${S.settings.noSummary ? "" : " checked"}> Show a summary when I finish a session</label></div>`;
+    + `<label class="chk"><input type="checkbox" data-k="setchk" data-f="noSummary"${S.settings.noSummary ? "" : " checked"}> Show a summary when I finish a session</label>`
+    + `<label class="chk"><input type="checkbox" data-k="setchk" data-f="noReady"${S.settings.noReady ? "" : " checked"}> Readiness check-in before each session</label><div class="hint">Three taps (sleep, soreness, energy) that can ease the session off on a rough day. It only changes that one session.</div></div>`;
   h += `<div class="card"><label class="lbl" for="round"><b>Rounding</b> <span class="rx">smallest jump on the bar, kg</span></label><input class="num" id="round" data-k="round" inputmode="decimal" value="${esc(S.settings.round ?? 2.5)}" style="max-width:100px"></div>`;
   return h;
 }
 
 // ---------- events ----------
-const UNDOABLE = new Set(["edsave", "edremove", "edrestore", "edreset", "mvtoday", "mvgo", "mvback", "mvundoall", "mvskip", "wkremove", "wkrestore", "wkrepeat", "wklight", "ordsave", "ordreset", "wsave", "wreset", "tremove", "trestore", "tsave", "addsave", "addmore", "dayssave", "daysreset", "pgsave", "lfsave"]);
+const UNDOABLE = new Set(["edsave", "edremove", "edrestore", "edreset", "mvtoday", "mvgo", "mvback", "mvundoall", "mvskip", "wkremove", "wkrestore", "wkrepeat", "wklight", "ordsave", "ordreset", "wsave", "wreset", "tremove", "trestore", "tsave", "addsave", "addmore", "dayssave", "daysreset", "pgsave", "lfsave", "trsave"]);
 document.addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
   undoArmed = false;
@@ -2854,7 +3287,7 @@ document.addEventListener("click", e => {
     S.plan.orders = (S.plan.orders || []).filter(o => !(o.d === rec.d && (o.weeks || []).every(w => rec.weeks.includes(w)))).concat([rec]);
     ui.reorder = null; planChanged(); render(); toast(b.dataset.k === "ordreset" ? "Back to the plan's order." : "Order saved."); return;
   }
-  if (b.dataset.k === "plsave") { const m = runMeta(RUNIDX.active), e = (ui.plans || {}).edit; if (e) { m.name = (e.name || "").trim().slice(0, 60); m.started = e.started || ""; ui.plans.edit = null; save("runs"); } render(); return; }
+  if (b.dataset.k === "plsave") { const m = runMeta(RUNIDX.active), e = (ui.plans || {}).edit; if (e) { if (e.target && e.started && e.target < e.started) { flagError("The target date needs to be after the start date.", ["pl-target"], "Can't save yet."); return; } m.name = (e.name || "").trim().slice(0, 60); m.started = e.started || ""; if (e.target != null) m.target = e.target || ""; if (e.targetName != null) m.targetName = (e.targetName || "").trim().slice(0, 40); ui.plans.edit = null; save("runs"); } render(); return; }
   if (b.dataset.k === "pltkind") { const P = ui.plans; P.save = Object.assign({kind: "programme", block: String(blockOrder()[0] || 1), name: "", desc: ""}, P.save, {kind: b.dataset.v}); P.savedMsg = ""; render(); return; }
   if (b.dataset.k === "ptsave") { const P = ui.plans, T = P.save || {kind: "programme", block: String(blockOrder()[0] || 1), name: "", desc: ""}; const id = saveTemplate(T); P.save = null; P.savedMsg = `Saved "${TPLS[id].name}".`; render(); toast(`Template "${TPLS[id].name}" saved to your library.`); return; }
   if (b.dataset.k === "psopen") { const t = tplById(b.dataset.t); ui.plans.ins = null; ui.plans.start = {tpl: t.id, name: "", started: nextMondayISO(), repeat: t.kind === "block" ? "1" : "", pct: "", maxes: "carry"}; render(); return; }
@@ -2914,6 +3347,58 @@ document.addEventListener("click", e => {
   if (b.dataset.k === "lfadd") { ui.lifts.rows.forEach(r => r.pick = false); ui.lifts.rows.push({key: "", ex: "", name: "", short: "", type: "max", def: 0, isNew: true, pick: true}); ui.lifts.confirm = null; ui.exq = ""; render(); const el = document.getElementById("ex-q"); if (el) { el.scrollIntoView({block: "center"}); el.focus({preventScroll: true}); } return; }
   if (b.dataset.k === "lfdel") { const i = +b.dataset.r, L = ui.lifts.rows[i]; if (!L.isNew && ui.lifts.confirm !== i) { ui.lifts.confirm = i; render(); return; } ui.lifts.rows.splice(i, 1); ui.lifts.confirm = null; render(); return; }
   if (b.dataset.k === "lfsave") { saveLifts(); return; }
+  if (b.dataset.k === "freshcancel") { ui.data.fresh = 0; render(); return; }
+  if (b.dataset.k === "freshgo") {
+    if (!ui.data.fresh) { ui.data.fresh = 1; render(); return; }
+    const old = allDids(); Object.keys(timers).forEach(d => { clearTimeout(timers[d]); delete timers[d]; }); EPOCH = Date.now(); freshState(); cache(); lsSet(UI_KEY, null); try { localStorage.removeItem(WELCOME_KEY); } catch (e) {}
+    if (mode === "db") { old.forEach(d => deleteDid(d)); db.collection("data/users/" + uid).doc("reset").set({at: EPOCH}).catch(() => {}); }
+    ui.data = {}; ui.view = "train"; closePanels(); const v0 = schedVis(); ui.w = v0[0].id; ui.d = daysFor(ui.w)[0].key; ui.setup = {step: 1}; render(); window.scrollTo(0,0); toast("Started fresh. Hybrid 12 is ready when you are."); return;
+  }
+  if (b.dataset.k === "bkdismiss") { const m = runMeta(RUNIDX.active); m.behindAck = isoOf(mondayOf(todayDate())); save("runs"); render(); return; }
+  if (b.dataset.k === "bkstart") { snapshot([]); const m = runMeta(RUNIDX.active); m.started = isoOf(mondayOf(todayDate())); save("runs"); planChanged(); closePanels(); ui.view = "train"; ui.w = schedVis()[0].id; const dl = daysFor(ui.w); if (dl.length) ui.d = dl[0].key; render(); window.scrollTo(0,0); toast("Week 1 now starts this week."); return; }
+  if (b.dataset.k === "bkease" || b.dataset.k === "bkpick") {
+    const B = behindInfo(); if (!B) return; snapshot([]);
+    insertBreaks(B.R, B.gap, b.dataset.k === "bkease");
+    closePanels(); ui.view = "train"; const tw = weekOfDate(todayDate()) || B.R.id; ui.w = tw; const dl = daysFor(tw); if (dl.length) ui.d = (dl.find(x => !(S.sessions[sid(tw, x.key)] || {}).done) || dl[0]).key; render(); window.scrollTo(0,0);
+    toast(b.dataset.k === "bkease" ? `Added a re-entry week this week. Week ${posOf(B.R.id)} starts next week.` : `Picked up where you left off. ${B.gap === 1 ? "The missed week is" : `The ${B.gap} missed weeks are`} now break weeks.`); return;
+  }
+  if (b.dataset.k === "brkremove") { snapshot([]); const sc = schedAll().map(e => Object.assign({}, e)), e = sc.find(x => x.id === +b.dataset.id); if (e) e.hidden = true; S.plan.schedule = sc; planChanged(); fixWeek(); render(); toast("Break week removed. Later weeks move a week earlier."); return; }
+  if (b.dataset.k === "tgack") { const T = targetInfo(), m = runMeta(RUNIDX.active); if (T) { m.targetAck = `${T.diff}|${T.date}|${T.last}`; save("runs"); } render(); return; }
+  if (b.dataset.k === "tgfix") { snapshot([]); const r = alignTarget(+b.dataset.n); if (r.err) { undoArmed = false; flagError(r.err, [], "Can't line it up automatically."); return; } fixWeek(); render(); const T = targetInfo(); toast(T && T.diff === 0 ? `Lined up: your plan now finishes on the week of ${T.name}.` : "Plan adjusted."); return; }
+  if (b.dataset.k === "tropen") { ui.move = null; ui.travel = {kit: ui.lastKit || "hotel", off: {}}; render(); return; }
+  if (b.dataset.k === "trclose") { ui.travel = null; render(); return; }
+  if (b.dataset.k === "trkit") { ui.travel.kit = b.dataset.v; ui.lastKit = b.dataset.v; ui.travel.off = {}; render(); return; }
+  if (b.dataset.k === "trsave") {
+    const T = ui.travel, items = effItems(ui.w, ui.d); let n = 0;
+    items.forEach((it, i) => { if (T.off[i]) return; const sw = kitSwapFor(it, T.kit); if (!sw) return;
+      const f = {name: sw.name, unit: sw.unit === "cond" ? "kg" : sw.unit, prog: ""}; if (it.pct) f.nopct = true; if (sw.unit === "cond") f.kind = "cond"; else if (it.kind === "cond") f.kind = "lift";
+      if (sw.unit !== "cond" && it.kind === "cond") { f.sets = 3; f.reps = "10"; }
+      pushEdit({d: ui.d, slot: it.slot, group: it.group, f, from: ui.w, weeks: [ui.w]}); n++; });
+    ui.travel = null; render(); toast(n ? `Swapped ${n} exercise${n === 1 ? "" : "s"} for ${{hotel: "a hotel gym", db: "dumbbells only", bw: "bodyweight only"}[T.kit]}. Back to plan from each card's editor, or Undo.` : "Nothing swapped."); return;
+  }
+  if (b.dataset.k === "rdq") { const s = sess(id), R = (s.ready ||= {}); const v = +b.dataset.v; R[b.dataset.f] = R[b.dataset.f] === v && b.dataset.f === "feel" ? null : v; R.at = new Date().toISOString(); save(id); render(); return; }
+  if (b.dataset.k === "rdapply") { const s = sess(id), rec = readyRec(s.ready); if (!rec) return; snapshot([id]); s.adj = {pct: rec.pct, drop: rec.drop}; s.ready.done = true; s.ready.open = false; s.ready.applied = rec.lvl; save(id); render(); toast(`Adjusted for today: ${adjText(s.adj)}.`); return; }
+  if (b.dataset.k === "rdplan") { const s = sess(id); if (!s.ready) return; delete s.adj; s.ready.done = true; s.ready.open = false; delete s.ready.applied; save(id); render(); return; }
+  if (b.dataset.k === "rdundo") { const s = sess(id); snapshot([id]); delete s.adj; if (s.ready) delete s.ready.applied; save(id); render(); toast("Back to the planned weights."); return; }
+  if (b.dataset.k === "rdedit") { const s = sess(id); (s.ready ||= {}).open = true; save(id); render(); return; }
+  if (b.dataset.k === "rdskip") { const s = sess(id); s.ready = Object.assign(s.ready || {}, {skipped: true}); save(id); render(); return; }
+  if (b.dataset.k === "vidopen") { ui.vid = {key: `${sid(ui.w, ui.d)}-${b.dataset.i}`, url: ""}; render(); const el = document.querySelector(".vidpanel"); if (el) el.scrollIntoView({block: "nearest"}); return; }
+  if (b.dataset.k === "vidclose") { ui.vid = null; render(); return; }
+  if (b.dataset.k === "vidpin" || b.dataset.k === "vidpaste") {
+    const it = effItems(ui.w, ui.d)[+b.dataset.i], nm = it.name.split(" — ")[0];
+    const go = raw => { if (!pinVideo(it.name, raw)) { if (raw != null) ui.vid.url = raw; render(); flagError(raw ? "That doesn't look like a video link. In YouTube, tap Share → Copy link, then paste it here." : "Paste a video link first.", ["vid-url"], "Can't pin that."); return; } ui.vid = null; render(); toast(`Video pinned to ${nm}.`); };
+    if (b.dataset.k === "vidpaste") { navigator.clipboard.readText().then(txt => go(txt)).catch(() => flagError("Couldn't read the clipboard. Paste the link into the box instead.", ["vid-url"], "Can't paste.")); return; }
+    go(ui.vid.url); return;
+  }
+  if (b.dataset.k === "vidunpin") { if (!ui.vid.confirm) { ui.vid.confirm = true; render(); return; } const it = effItems(ui.w, ui.d)[+b.dataset.i]; unpinVideo(it.name); ui.vid.confirm = false; render(); toast(`Video unpinned from ${it.name.split(" — ")[0]}.`); return; }
+  if (b.dataset.k === "ovopen") { ui.view = "overview"; closePanels(); render(); window.scrollTo(0,0); return; }
+  if (b.dataset.k === "ovmode") { ui.ov.mode = b.dataset.v; render(); return; }
+  if (b.dataset.k === "ovday") { ui.ov.day = b.dataset.v; render(); return; }
+  if (b.dataset.k === "ovall") { const vis = schedVis(), all = vis.every(e => ui.ov.open[e.id]); vis.forEach(e => ui.ov.open[e.id] = !all); render(); return; }
+  if (b.dataset.k === "ovgo") { ui.view = "train"; closePanels(); ui.w = +b.dataset.w; ui.d = b.dataset.d; render(); if (b.dataset.i != null) { const el = document.querySelector(`[data-k="edopen"][data-i="${b.dataset.i}"],[data-k="pgopenI"][data-i="${b.dataset.i}"]`); const c = el && el.closest(".card"); if (c) { c.scrollIntoView({block: "center"}); c.classList.add("flash"); setTimeout(() => c.classList.remove("flash"), 1200); } else window.scrollTo(0,0); } else window.scrollTo(0,0); return; }
+  if (b.dataset.k === "ovcsv") { const m = runMeta(RUNIDX.active), nm = m.builder && TPLS[m.builder] ? TPLS[m.builder].name : runLabel(m); offerFile(`${slugify(nm)}-overview.csv`, overviewCSV()); return; }
+  if (b.dataset.k === "ovprint") { const vis = schedVis(); vis.forEach(e => ui.ov.open[e.id] = true); ui.ov.mode = "week"; render(); setTimeout(() => { try { window.print(); } catch (e) { toast("Printing isn't available here. Download the spreadsheet instead, or print from the installable app."); } }, 50); return; }
+  if (b.dataset.k === "pgopenI") { openProg(+b.dataset.i); render(); window.scrollTo(0,0); return; }
   if (b.dataset.k === "pgopen") { openProg(ui.edit.i); render(); window.scrollTo(0,0); return; }
   if (b.dataset.k === "pgcancel") { ui.prog = null; render(); return; }
   if (b.dataset.k === "pgdofill") { progFill(); return; }
@@ -3091,7 +3576,7 @@ document.addEventListener("input", e => {
   if (k === "su") { if (t.dataset.f === "started" || t.dataset.f === "name") { const m = runMeta(RUNIDX.active); m[t.dataset.f] = t.value; save("runs"); } return; }
   if (k === "fb") { lsSet(FB_KEY, t.value); return; }
   if (k === "bef") { ui.bedit.rows[+t.dataset.r][t.dataset.f] = t.value; return; }
-  if (k === "plf") { const m = runMeta(RUNIDX.active); ui.plans.edit = Object.assign({name: m.name || "", started: m.started || ""}, ui.plans.edit, {[t.dataset.f]: t.value}); return; }
+  if (k === "plf") { const m = runMeta(RUNIDX.active); ui.plans.edit = Object.assign({name: m.name || "", started: m.started || "", target: m.target || "", targetName: m.targetName || ""}, ui.plans.edit, {[t.dataset.f]: t.value}); return; }
   if (k === "ptf") { ui.plans.save = Object.assign({kind: "programme", block: String(blockOrder()[0] || 1), name: "", desc: ""}, ui.plans.save, {[t.dataset.f]: t.value}); return; }
   if (k === "psf") { ui.plans.start[t.dataset.f] = t.value; return; }
   if (k === "pif") { ui.plans.ins[t.dataset.f] = t.value; return; }
@@ -3103,6 +3588,7 @@ document.addEventListener("input", e => {
   if (k === "edpart") { ui.edit.draft.parts[+t.dataset.p][t.dataset.f] = t.value; return; }
   if (k === "note") { const s = sess(id); s.notes[t.dataset.i] = t.value; save(id); return; }
   if (k === "result") { const s = sess(id); (s.results ||= {})[t.dataset.i] = t.value; save(id); return; }
+  if (k === "vidf") { ui.vid.url = t.value; return; }
   if (k === "lff") { ui.lifts.rows[+t.dataset.r][t.dataset.f] = t.value; return; }
   if (k === "smins") { const s = sess(id); s.mins = t.value; save(id); return; }
   if (k === "actf") { ui.act[t.dataset.f] = t.value; return; }
@@ -3115,6 +3601,7 @@ document.addEventListener("input", e => {
   if (k === "setf") { S.settings[t.dataset.f] = t.value; save("settings"); return; }
   if (k === "round") { S.settings.round = t.value; save("settings"); return; }
 });
+document.addEventListener("toggle", e => { const d = e.target; if (d && d.classList && d.classList.contains("ovweek") && ui.ov) { const w = +d.dataset.w, was = !!ui.ov.open[w]; ui.ov.open[w] = d.open; if (d.open && !was) render(); } }, true);
 document.addEventListener("keydown", e => {
   if (e.key === "Enter" && e.target.id === "ex-q") { e.preventDefault(); const first = document.querySelector('.exlist button[data-k="pkpick"]:not(.pkcustom)'); if (first) first.click(); return; }
   if (e.key !== "Enter" || !e.target.matches || !e.target.matches('input[data-k="set"]')) return;
@@ -3131,6 +3618,8 @@ document.addEventListener("change", e => {
   if (dk === "tfsel" && ui.test && ui.test.form) { ui.test.form[t.dataset.f] = t.value; if (t.dataset.f === "link" && t.value && !ui.test.form.label) ui.test.form.label = t.value; render(); return; }
   if (dk === "ptsel" && ui.plans) { ui.plans.save = Object.assign({kind: "block", block: "1", name: "", desc: ""}, ui.plans.save, {[t.dataset.f]: t.value}); render(); return; }
   if (dk === "adwu" && ui.add) { ui.add.draft.wu = t.checked; return; }
+  if (dk === "trpick" && ui.travel) { ui.travel.off[t.dataset.i] = !t.checked; return; }
+  if (dk === "planview") { lsSet(PLANVIEW_KEY, t.checked); render(); return; }
   if (dk === "pgrestart" && ui.prog) { ui.prog.fill.restart = t.checked; return; }
   if (dk === "setchk") { S.settings[t.dataset.f] = !t.checked; save("settings"); render(); return; }
   if (dk === "mkpreset" && ui.plans && ui.plans.make) { ui.plans.make.preset = t.value; render(); return; }
@@ -3170,7 +3659,7 @@ function refreshPlaceholders(i){
   const id = sid(ui.w, ui.d), it = effItems(ui.w, ui.d)[i], s = sess(id), sets = s.sets[i] || [];
   if (!KG_UNITS.includes(it.unit || "kg")) return;
   let prev = sugFor(it, week(ui.w).block);
-  for (let k = 0; k < it.log; k++) { const el = document.getElementById(`kg-${id}-${i}-${k}`); const v = num((sets[k]||{}).kg); if (el && v == null) el.placeholder = prev != null ? fmt(prev) : ""; if (v != null) prev = v; }
+  for (let k = 0; k < logCount(it); k++) { const el = document.getElementById(`kg-${id}-${i}-${k}`); const v = num((sets[k]||{}).kg); if (el && v == null) el.placeholder = prev != null ? fmt(prev) : ""; if (v != null) prev = v; }
 }
 function updateE1(i){ const it = effItems(ui.w, ui.d)[i]; if (it && it.pl && liftByKey(it.pl).type !== "max") return; const id = sid(ui.w, ui.d), el = document.getElementById(`e1-${id}-${i}`); if (!el) return; const e = e1rm((sess(id).sets||{})[i]); el.innerHTML = e ? `Best e1RM <b>${fmt(Math.round(e))} kg</b>` : ""; }
 
@@ -3188,8 +3677,12 @@ async function connect(){
   db.collection("data/users/" + uid).onSnapshot(snap => {
     let changed = false;
     const seen = new Set();
+    // started fresh on another device (or by Claude): drop this device's older copy instead of re-uploading it
+    const rd = snap.docs.find(d => d.id === "reset"), rat = rd ? +((rd.data() || {}).at) || 0 : 0;
+    if (rat > EPOCH) { Object.keys(timers).forEach(d => { clearTimeout(timers[d]); delete timers[d]; }); freshState(); EPOCH = rat; cache(); lsSet(UI_KEY, null); try { localStorage.removeItem(WELCOME_KEY); } catch (e) {} ui.view = "train"; closePanels(); const v0 = schedVis(); ui.w = v0[0].id; ui.d = daysFor(ui.w)[0].key; ui.setup = {step: 1}; changed = true; }
     snap.docs.forEach(doc => {
       const did = doc.id; seen.add(did);
+      if (did === "reset") return;
       if (timers[did] || inflight[did] || doc.metadata.hasPendingWrites) return;
       const data = JSON.parse(JSON.stringify(doc.data() || {}));
       const [r, k] = parseDid(did);
